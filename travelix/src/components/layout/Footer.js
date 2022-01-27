@@ -1,5 +1,9 @@
-const Home = () => {
-    return <h1>Home</h1>;
-  };
-  
-  export default Home;
+import React, { Component } from 'react';
+
+export class footer extends Component {
+  render() {
+    return <div>hhhhh</div>;
+  }
+}
+
+export default footer;
