@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Home from "./components/Home";
@@ -22,6 +23,12 @@ function App() {
     </BrowserRouter>
     </div>
   );
+=======
+import "./App.css";
+
+function App() {
+  return <div className="App"></div>;
+>>>>>>> 82d34edddef05bc62de4039c821ec770551dbf0f
 }
 
 export default App;
