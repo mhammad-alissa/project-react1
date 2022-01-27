@@ -1,11 +1,12 @@
+import {React , Component} from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import './elements_responsive.css'
 import './elements_styles.css'
-
-import {React , Component} from 'react'
+import Home from "./components/Home";
+import Navbar from "./components/layout/Navbar";
 import Landing from './components/landing/Landing';
 import Category from './components/category/Category';
-
 
 
 class App extends Component {
@@ -27,15 +28,23 @@ class App extends Component {
     })
   }
 
-
   render() {
     return (
+
+    <BrowserRouter>
       <div className="App">
+      <Navbar />
+      <Routes>
+          <Route path='/Home' element={<Home />} />
+          {/* <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} /> */}
+      </Routes>
         <Landing categories={this.state.categories} />
         <Category />
       </div>
+      </BrowserRouter>
     );
   }
 }
-
 export default App;
