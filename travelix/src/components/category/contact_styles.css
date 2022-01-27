@@ -16,19 +16,18 @@
 	4.1 Home Slider
 	4.2 Home Slider Nav
 	4.3 Home Slider Dots
-5. Elements
-	5.1 Buttons
-	5.2 Progress Bars
-	5.3 Accordions
-	5.4 Milestones
-	5.5 Loaders
-	5.6 Icon Boxes
-6. Footer
-	6.1 Footer - About
-	6.2 Footer - Blog
-	6.3 Footer - Tags
-	6.4 Footer - Contact Info
-7. Copyright
+5. Search
+6. Section Title
+7. Rating
+8. Stats
+9. Add
+10. Milestones
+11. Footer
+	11.1 Footer - About
+	11.2 Footer - Blog
+	11.3 Footer - Tags
+	11.4 Footer - Contact Info
+12. Copyright
 
 
 ******************************/
@@ -37,12 +36,12 @@
 1. Fonts
 ***********/
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
-/* @font-face
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@font-face
 {
 	font-family: 'Beyond';
-	src: url('fonts/beyond_the_mountains.otf')  format('truetype'),
-		 url('fonts/beyond_the_mountains.ttf')  format('opentype');
+	src: url('../fonts/beyond_the_mountains.otf')  format('truetype'),
+		 url('../fonts/beyond_the_mountains.ttf')  format('opentype');
 } */
 
 /*********************************
@@ -142,7 +141,15 @@ h1, h2, h3, h4, h5, h6
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
-
+h1::selection, 
+h2::selection, 
+h3::selection, 
+h4::selection, 
+h5::selection, 
+h6::selection
+{
+	
+}
 .form-control
 {
 	color: #db5246;
@@ -238,7 +245,6 @@ section
 	border-radius: 27px;
 	overflow: hidden;
 	z-index: 1;
-	margin-bottom: 10px;
 }
 .button_bcg
 {
@@ -782,235 +788,284 @@ section
 }
 
 /*********************************
-5. Elements
+5. Intro
 *********************************/
 
-.elements
+.intro
 {
 	width: 100%;
-	padding-top: 91px;
+	padding-top: 92px;
 	padding-bottom: 105px;
+	background: #f6f9fb;
 }
-.elements_title
+.intro_image
 {
-	font-size: 36px;
+	position: absolute;
+    right: 0;
+    top: 13px;
+}
+.intro_title
+{
+	font-size: 30px;
 	font-weight: 700;
 	color: #2d2c2c;
+	text-transform: uppercase;
+}
+.intro_text
+{
+	margin-bottom: 0px;
+	font-weight: 600;
+	color: #929191;
+	margin-top: 60px;
+}
+.intro_button
+{
+	margin-top: 57px;
+	z-index: 1;
 }
 
 /*********************************
-5.1 Buttons
+6. Section Title
 *********************************/
 
-.buttons_container
+.section_title
 {
-	margin-top: 69px;
+	font-size: 30px;
+	font-weight: 700;
+	color: #2d2c2c;
+	margin-top: -8px;
+	text-transform: uppercase;
 }
-.buttons_container .button
+
+/*********************************
+7. Rating
+*********************************/
+
+.rating
 {
-	margin-right: 20px;
+	margin-top: 10px;
 }
-.buttons_container .button:last-child
+.rating i
+{
+	font-size: 19px;
+	margin-right: 4px;
+}
+.rating i:last-child
 {
 	margin-right: 0px;
 }
-.button_color_1
+.rating_1 i:first-child{color: #ffeb8d;}
+.rating_2 i:first-child{color: #ffeb8d;}
+.rating_2 i:nth-child(2){color: #fed46b;}
+.rating_3 i:first-child{color: #ffeb8d;}
+.rating_3 i:nth-child(2){color: #fed46b;}
+.rating_3 i:nth-child(3){color: #fbb53d;}
+.rating_4 i:first-child{color: #ffeb8d;}
+.rating_4 i:nth-child(2){color: #fed46b;}
+.rating_4 i:nth-child(3){color: #fbb53d;}
+.rating_4 i:nth-child(4){color: #fa9e1b;}
+.rating_5 i:first-child{color: #ffeb8d;}
+.rating_5 i:nth-child(2){color: #fed46b;}
+.rating_5 i:nth-child(3){color: #fbb53d;}
+.rating_5 i:nth-child(4){color: #fa9e1b;}
+.rating_r i::before
 {
-	background: #31124b;
+	font-family: 'FontAwesome';
+	content: "\f006";
+	font-style: normal;
+	font-size: 19px;
+	margin-right: 4px;
 }
-.button_color_1:hover
-{
-	opacity: 0.8;
-}
-.button_color_2
-{
-	background: #fa9e1b;
-}
-.button_color_2:hover
-{
-	opacity: 0.8;
-}
-.button_line_1
-{
-	background: transparent;
-	border: solid 2px #31124b;
-}
-.button_line_1 a
-{
-	color: #31124b;
-	line-height: 49px;
-}
-.button_line_1 span
-{
-	background: #31124b;
-}
-.button_line_1:hover
-{
-	background: #31124b;
-}
-.button_line_1:hover a
-{
-	color: #FFFFFF;
-}
-.button_line_1:hover span
-{
-	background: #FFFFFF;
-}
+.rating_r_1 i:first-child::before{color: #ffeb8d; content: "\f005";}
+.rating_r_2 i:first-child::before{color: #ffeb8d; content: "\f005";}
+.rating_r_2 i:nth-child(2)::before{color: #fed46b; content: "\f005";}
+.rating_r_3 i:first-child::before{color: #ffeb8d; content: "\f005";}
+.rating_r_3 i:nth-child(2)::before{color: #fed46b; content: "\f005";}
+.rating_r_3 i:nth-child(3)::before{color: #fbb53d; content: "\f005";}
+.rating_r_4 i:first-child::before{color: #ffeb8d; content: "\f005";}
+.rating_r_4 i:nth-child(2)::before{color: #fed46b; content: "\f005";}
+.rating_r_4 i:nth-child(3)::before{color: #fbb53d; content: "\f005";}
+.rating_r_4 i:nth-child(4)::before{color: #fa9e1b; content: "\f005";}
+.rating_r_5 i:first-child::before{color: #ffeb8d; content: "\f005";}
+.rating_r_5 i:nth-child(2)::before{color: #fed46b; content: "\f005";}
+.rating_r_5 i:nth-child(3)::before{color: #fbb53d; content: "\f005";}
+.rating_r_5 i:nth-child(4)::before{color: #fa9e1b; content: "\f005";}
+.rating_r_5 i:nth-child(5)::before{color: #ef910a; content: "\f005";}
 
 /*********************************
-5.2 Progress Bars
+8. Stats
 *********************************/
 
-.pbars_accordions
+.stats
 {
-	margin-top: 71px;
+	padding-top: 100px;
+	padding-bottom: 105px;
 }
-.pbars_accordions_container
+.stats_text
 {
-	padding-top: 104px;
+	margin-top: 21px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
-.pbar_container
+.stats_years
 {
-	
+	padding-left: 116px;
+	padding-right: 116px;
+	margin-top: 39px;
 }
-.pb_item
+.stats_contents
 {
-	margin-bottom: 35px;
+	margin-top: 23px;
+	padding-left: 55px;
+	padding-right: 55px;
 }
-.pb_item h4
+.stats_years div
 {
-	font-size: 16px;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 700;
+	color: #fa9e1b;
+}
+.stats_item
+{
+	margin-bottom: 24px;
+}
+.stats_item:last-child
+{
+	margin-bottom: 0px;
+}
+.stats_last
+{
+	width: 25%;
+	float: left;
+	padding-left: 60px;
+}
+.stats_new
+{
+	width: 25%;
+	float: left;
+	padding-right: 60px;
+}
+.stats_last_icon
+{
+	position: absolute;
+	bottom:0;
+	left:0;
+	width: 60px;
+	height: 100%;
+	padding-bottom: 5px;
+}
+.stats_new_icon
+{
+	position: absolute;
+	bottom:0;
+	right:0;
+	width: 60px;
+	height: 100%;
+	padding-bottom: 5px;
+}
+.stats_last_content
+{
+
+}
+.stats_number
+{
+	font-size: 24px;
+	font-weight: 600;
 	color: #2d2c2c;
-	font-weight: 600 !important;
-	margin-bottom: 13px;
 }
-.skill_bars
+.stats_type
 {
-	height: 2px;
-}
-.pb_item_title
-{
-	width: 96px;
-	float: left;
-}
-.pb_item_content
-{
-	width: calc(100% - 96px);
-	float: left;
-	margin-top: 11px;
-}
-
-/*********************************
-5.3 Accordions
-*********************************/
-
-.elements_accordions
-{
-	margin-top: -12px;
-}
-.accordion_container
-{
-	margin-bottom: 15px;
-}
-.accordion
-{
-	height: 50px;
-	width: 100%;
-	border: solid 2px #ff9600;
-	background: #FFFFFF;
-	padding-left: 16px;
-	cursor: pointer;
-	color: #07122c;
 	font-size: 14px;
 	font-weight: 600;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
+	color: #929191;
 }
-.accordion div
+.stats_bar
 {
-	max-width: 90%;
-	overflow: hidden;
-	white-space: nowrap;
+	width: 50%;
+	height: 2px;
+	background: #e1e1e1;
+	float: left;
+	margin-top: 33px;
 }
-.accordion.active
+.stats_bar_perc
 {
-	background: #ff9600;
-	color: #FFFFFF;
-}
-.accordion:active
-{
-	background: #fffbfa !important;
-}
-.accordion::after
-{
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	position: absolute;
 	top: 0;
-	right: 13px;
-	height: 100%;
-	content: '+';
-	font-size: 16px;
-	color: #07122c;
-	font-weight: 600;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
+	height: 2px;
+	background: #31124b;
+	max-width: 100% !important;
 }
-.accordion.active::after
+.stats_bar_perc div
 {
-	color: #FFFFFF;
-	content: '-';
+	width: 100%;
 }
-.accordion:hover
+.stats_bar_value
 {
-	background: #fa6f1b;
-	color: #FFFFFF;
-}
-.accordion:hover::after
-{
-	color: #FFFFFF;
-}
-.accordion_panel
-{
-	padding-left: 8px;
-	padding-right: 8px;
-	max-height: 0px;
-	overflow: hidden;
-	-webkit-transition: all 500ms ease;
-	-moz-transition: all 500ms ease;
-	-ms-transition: all 500ms ease;
-	-o-transition: all 500ms ease;
-	transition: all 500ms ease;
-}
-.accordion_panel p
-{
-	padding-top: 31px;
+	position: absolute;
+	top: -39px;
 }
 
 /*********************************
-5.4 Milestones
+9. Add
+*********************************/
+
+.add
+{
+	width: 100%;
+}
+.add_background
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.add_container
+{
+	padding-top: 52px;
+	padding-bottom: 64px;
+}
+.add_content
+{
+	padding-left: 151px;
+}
+.add_title
+{
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	padding-left: 2px;
+}
+.add_subtitle
+{
+	font-size: 16px;
+	font-weight: 400;
+	color: #FFFFFF;
+	padding-left: 7px;
+}
+.add_subtitle span
+{
+	font-size: 18px;
+	font-weight: 700;
+}
+.add_button
+{
+	margin-top: 30px;
+}
+
+/*********************************
+10. Milestones
 *********************************/
 
 .milestones
 {
-	width: 100%;
-	margin-top: 76px;
-}
-.milestones_container
-{
-	margin-top: 69px;
+	padding-top: 105px;
+	padding-bottom: 100px;
 }
 .milestone
 {
@@ -1049,96 +1104,7 @@ section
 }
 
 /*********************************
-5.5 Loaders
-*********************************/
-
-.loaders
-{
-	margin-top: 89px;
-}
-.elements_loaders_container
-{
-	margin-top: 100px;
-}
-.loader
-{
-	width: 176px;
-	height: 176px;
-	margin: 0 auto;
-}
-.loader strong
-{
-	font-family: 'Open Sans', sans-serif;
-	position: absolute;
-	top: 53px;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	font-size: 36px;
-	font-weight: 700;
-	color: #2d2c2c;
-}
-.loader span
-{
-	position: absolute;
-	left: 50%;
-	top: 57%;
-	-webkit-transform: translateX(-50%);
-	-moz-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	-o-transform: translateX(-50%);
-	transform: translateX(-50%);
-	font-size: 14px;
-	font-weight: 600;
-	color: #838383;
-	margin-top: 4px;
-}
-.loader .progressbar-text
-{
-	top: 45% !important;
-}
-
-/*********************************
-5.6 Icon Boxes
-*********************************/
-
-.icon_boxes
-{
-	margin-top: 91px;
-}
-.icon_boxes_container
-{
-	margin-top: 43px;
-}
-.icon_box
-{
-	
-}
-.icon_box h3
-{
-	font-size: 24px;
-	font-weight: 700;
-	color: #2d2c2c;
-	margin-bottom: 24px;
-}
-.icon_box p
-{
-	font-size: 14px;
-	font-weight: 600;
-	color: #929191;
-	max-width: 100%;
-	line-height: 2.29;
-	margin-bottom: 0px;
-}
-.icon_container
-{
-	width: 60px;
-	height: 58px;
-	margin-bottom: 24px;
-}
-
-/*********************************
-6. Footer
+11. Footer
 *********************************/
 
 .footer
@@ -1157,7 +1123,7 @@ section
 }
 
 /*********************************
-6.1 Footer - About
+11.1 Footer - About
 *********************************/
 
 .footer_about
@@ -1230,7 +1196,7 @@ section
 }
 
 /*********************************
-6.2 Footer - Blog
+11.2 Footer - Blog
 *********************************/
 
 .footer_blog
@@ -1283,7 +1249,7 @@ section
 }
 
 /*********************************
-6.3 Footer - Tags
+11.3 Footer - Tags
 *********************************/
 
 .footer_tags
@@ -1319,7 +1285,7 @@ section
 }
 
 /*********************************
-6.4 Footer - Contact Info
+11.4 Footer - Contact Info
 *********************************/
 
 .contact_info_list
@@ -1355,7 +1321,7 @@ section
 }
 
 /*********************************
-7. Copyright
+12. Copyright
 *********************************/
 
 .copyright
