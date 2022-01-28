@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './contact_responsive.css'
-import './contact_styles.css'
+// import './contact_responsive.css'
+// import './contact_styles.css'
 
 
 export class Category extends Component {
