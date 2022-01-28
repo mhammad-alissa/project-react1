@@ -12,6 +12,7 @@ import Login from "./components/login/Login";
 import User from "./components/user/User";
 import Footer from "./components/layout/Footer";
 import axios from "axios";
+import Contact from "./components/contact/Contact";
 
 class App extends Component {
   constructor() {
@@ -52,6 +53,7 @@ class App extends Component {
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} /> 
           <Route path="/User" element={<User />} />
+          <Route path="/contact" element={<Contact/>} />
           </Routes>
           <Footer />
         </div>
