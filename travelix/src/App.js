@@ -7,7 +7,9 @@ import Home from "./components/Home";
 import Navbar from "./components/layout/Navbar";
 import Landing from './components/landing/Landing';
 import Category from './components/category/Category';
+import Signup from './components/signup/signup';
 
+import Login from "./components/login/Login";
 
 class App extends Component {
 
@@ -36,6 +38,8 @@ class App extends Component {
       <Navbar />
       <Routes>
           <Route path='/Home' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
           {/* <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} /> */}
