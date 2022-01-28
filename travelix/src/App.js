@@ -1,31 +1,33 @@
-import {React , Component} from 'react'
+import { React, Component } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css';
-import './elements_responsive.css'
-import './elements_styles.css'
-import Home from "./components/Home";
+import "./App.css";
+import "./elements_responsive.css";
+import "./elements_styles.css";
 import Navbar from "./components/layout/Navbar";
 import Landing from './components/landing/Landing';
 import Category from './components/category/Category';
+import Signup from './components/signup/signup';
 
+import Login from "./components/login/Login";
+import User from "./components/user/User";
+import Footer from "./components/layout/Footer";
 
 class App extends Component {
-
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      categories : []
-    }
+      categories: [],
+    };
   }
 
   async componentDidMount() {
-    const url     = "http://localhost/project-react1/travelix/category.php";
-    const res     = await fetch(url);
-    const data    = await res.json();
+    const url = "http://localhost/project-react1/travelix/category.php";
+    const res = await fetch(url);
+    const data = await res.json();
 
     this.setState({
-      categories : data
-    })
+      categories: data,
+    });
   }
 
   render() {
@@ -35,13 +37,13 @@ class App extends Component {
       <div className="App">
       <Navbar />
       <Routes>
-          <Route path='/Home' element={<Home />} />
-          {/* <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} /> */}
-      </Routes>  
-        <Landing categories={this.state.categories} />
-      </div>
+          <Route path='/'  element={<Landing categories={this.state.categories} />}/>
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} /> 
+          <Route path="/User" element={<User />} />
+          </Routes>
+          <Footer />
+        </div>
       </BrowserRouter>
     );
   }
