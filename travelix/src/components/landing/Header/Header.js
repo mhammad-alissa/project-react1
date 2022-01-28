@@ -60,11 +60,11 @@ export class Header extends Component {
 			{/* <!-- Home Slider Nav - Prev --> */}
 			<div className="home_slider_nav home_slider_prev">
 				<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-					width="28px" height="33px" viewBox="0 0 28 33" enable-background="new 0 0 28 33" xmlSpace="preserve">
+					width="28px" height="33px" viewBox="0 0 28 33" enableBackground="new 0 0 28 33" xmlSpace="preserve">
 					<defs>
 						<linearGradient id='home_grad_prev'>
-							<stop offset='0%' stop-color='#fa9e1b'/>
-							<stop offset='100%' stop-color='#8d4fff'/>
+							<stop offset='0%' stopColor='#fa9e1b'/>
+							<stop offset='100%' stopColor='#8d4fff'/>
 						</linearGradient>
 					</defs>
 					<path className="nav_path" fill="#F3F6F9" d="M19,0H9C4.029,0,0,4.029,0,9v15c0,4.971,4.029,9,9,9h10c4.97,0,9-4.029,9-9V9C28,4.029,23.97,0,19,0z
@@ -78,11 +78,11 @@ export class Header extends Component {
 			{/* <!-- Home Slider Nav - Next --> */}
 			<div className="home_slider_nav home_slider_next">
 				<svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-				width="28px" height="33px" viewBox="0 0 28 33" enable-background="new 0 0 28 33" xmlSpace="preserve">
+				width="28px" height="33px" viewBox="0 0 28 33" enableBackground="new 0 0 28 33" xmlSpace="preserve">
 					<defs>
 						<linearGradient id='home_grad_next'>
-							<stop offset='0%' stop-color='#fa9e1b'/>
-							<stop offset='100%' stop-color='#8d4fff'/>
+							<stop offset='0%' stopColor='#fa9e1b'/>
+							<stop offset='100%' stopColor='#8d4fff'/>
 						</linearGradient>
 					</defs>
 				<path className="nav_path" fill="#F3F6F9" d="M19,0H9C4.029,0,0,4.029,0,9v15c0,4.971,4.029,9,9,9h10c4.97,0,9-4.029,9-9V9C28,4.029,23.97,0,19,0z
