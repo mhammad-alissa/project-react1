@@ -8,6 +8,7 @@ import Navbar from "./components/layout/Navbar";
 import Landing from "./components/landing/Landing";
 import Category from "./components/category/Category";
 import User from "./components/user/User";
+import Footer from "./components/layout/Footer";
 
 class App extends Component {
   constructor() {
@@ -30,16 +31,16 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
+        <div className="super_container">
           <Navbar />
           <Routes>
             <Route path="/Home" element={<Home />} />
-            <Route path="/User" element={<User />} />
             {/* <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} /> */}
           </Routes>
-          {/* <Landing categories={this.state.categories} /> */}
+          <Landing categories={this.state.categories} />
+          <Footer />
         </div>
       </BrowserRouter>
     );
