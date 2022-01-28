@@ -5,6 +5,7 @@ import './elements_responsive.css'
 import './elements_styles.css'
 import Home from "./components/Home";
 import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 import Landing from './components/landing/Landing';
 import Category from './components/category/Category';
 
@@ -32,7 +33,7 @@ class App extends Component {
     return (
 
     <BrowserRouter>
-      <div className="App">
+      <div className="super_container">
       <Navbar />
       <Routes>
           <Route path='/Home' element={<Home />} />
@@ -41,6 +42,7 @@ class App extends Component {
           <Route path="*" element={<NoPage />} /> */}
       </Routes>  
         <Landing categories={this.state.categories} />
+      <Footer />
       </div>
       </BrowserRouter>
     );
