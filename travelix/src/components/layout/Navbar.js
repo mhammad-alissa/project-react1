@@ -53,6 +53,8 @@ export class Navbar extends Component {
                                         <li className="main_nav_item"><Link to="/offers">offers</Link></li>
                                         <li className="main_nav_item"><Link to="/news">news</Link></li>
                                         <li className="main_nav_item"><Link to="/contact">contact</Link></li>
+                                        <li className="main_nav_item"><Link to="/login">Login</Link></li>
+                                        <li className="main_nav_item"><Link to="/signup">Signup</Link></li>
                                     </ul>
                                 </div>
                                 <div className="content_search ml-lg-0 ml-auto">

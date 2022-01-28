@@ -1,20 +1,11 @@
 <?php
-header("Access-Control-Allow-Origin: *"); //add this CORS header to enable any domain to send HTTP requests to these endpoints:
-$host = "localhost"; 
-$user = "root"; 
-$password = ""; 
-$dbname = "travelix"; 
+header("Access-control-Allow-Origin: *"); //add this CORS header to enable any domain to send HTTP requests to these endpoints:
+require("connect.php");
+
+
 $id = '';
  
-$con = mysqli_connect($host, $user, $password,$dbname);
- 
 $method = $_SERVER['REQUEST_METHOD'];
- 
- 
-if (!$con) {
-  die("Connection failed: " . mysqli_connect_error());
-}
- 
  
 switch ($method) {
     case 'GET':
@@ -43,12 +34,12 @@ switch ($method) {
 }
  
 // run SQL statement
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($db,$sql);
  
 // die if SQL statement failed
 if (!$result) {
   http_response_code(404);
-  die(mysqli_error($con));
+  die(mysqli_error($db));
 }
  
 if ($method == 'GET') {
@@ -60,7 +51,7 @@ if ($method == 'GET') {
 } elseif ($method == 'POST') {
     echo json_encode($result);
 } else {
-    echo mysqli_affected_rows($con);
+    echo mysqli_affected_rows($db);
 }
 
-$con->close();
+$db->close();
