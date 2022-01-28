@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Outlet, Link } from "react-router-dom";
 
 export class IntroItem extends Component {
   render() {
@@ -13,7 +14,7 @@ export class IntroItem extends Component {
 						<div className="intro_item_background" style={{backgroundImage:`url(images/${category.image})`}}></div>
 						<div className="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							{/* <div className="intro_date">May 25th - June 01st</div> */}
-							<div className="button intro_button"><div className="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
+							<div className="button intro_button"><div className="button_bcg"></div><Link to="/">see more<span></span><span></span><span></span></Link></div>
 							<div className="intro_center text-center">
 								<h1>{category.name}</h1>
 								{/* <div className="intro_price">From $1450</div> */}
@@ -30,6 +31,7 @@ export class IntroItem extends Component {
 				</div>
             )
         })}
+        <Outlet />
     		</>		
         );
   }

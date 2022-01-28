@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import './elements_responsive.css'
 import './elements_styles.css'
-import Home from "./components/Home";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Landing from './components/landing/Landing';
@@ -36,7 +35,7 @@ class App extends Component {
       <div className="super_container">
       <Navbar />
       <Routes>
-          <Route path='/Home' element={<Home />} />
+          {/* <Route path='/Home' element={<Home />} /> */}
           {/* <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} /> */}
