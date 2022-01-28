@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./elements_responsive.css";
 import "./elements_styles.css";
-import Home from "./components/Home";
 import Navbar from "./components/layout/Navbar";
 import Landing from './components/landing/Landing';
 import Category from './components/category/Category';
@@ -38,22 +37,10 @@ class App extends Component {
       <div className="App">
       <Navbar />
       <Routes>
-          <Route path='/Home' element={<Home />} />
+          <Route path='/'  element={<Landing categories={this.state.categories} />}/>
           <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          {/* <Route path="blogs" element={<Blogs />} />
-      <BrowserRouter>
-        <div className="super_container">
-          <Navbar />
-          <Routes>
-            <Route
-              path="/Home"
-              element={<Landing categories={this.state.categories} />}
-            />
-            <Route path="/User" element={<User />} />
-            {/* <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} /> */}
+          <Route path='/signup' element={<Signup />} /> 
+          <Route path="/User" element={<User />} />
           </Routes>
           <Footer />
         </div>

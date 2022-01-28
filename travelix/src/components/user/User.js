@@ -11,6 +11,7 @@ export class User extends Component {
       password: JSON.parse(localStorage.getItem("users"))[0].password,
       image: JSON.parse(localStorage.getItem("users"))[0].image,
       id: JSON.parse(localStorage.getItem("users"))[0].id,
+
     };
   }
   componentDidMount() {
