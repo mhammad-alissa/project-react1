@@ -84,7 +84,7 @@ export class User extends Component {
       <section>
         {/* <!-- Home --> */}
 
-        <div className="home">
+        <div className="home mb-4">
           <img
             className="home_background parallax-window"
             data-parallax="scroll"
@@ -97,8 +97,6 @@ export class User extends Component {
         </div>
 
         {/* <!-- Contact --> */}
-        <br />
-        <br />
         <div className="contact_form_section">
           <div className="container">
             <div className="row">

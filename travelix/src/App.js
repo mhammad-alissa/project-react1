@@ -34,12 +34,15 @@ class App extends Component {
         <div className="super_container">
           <Navbar />
           <Routes>
-            <Route path="/Home" element={<Home />} />
+            <Route
+              path="/Home"
+              element={<Landing categories={this.state.categories} />}
+            />
+            <Route path="/User" element={<User />} />
             {/* <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} /> */}
           </Routes>
-          <Landing categories={this.state.categories} />
           <Footer />
         </div>
       </BrowserRouter>
