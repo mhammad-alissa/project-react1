@@ -12,8 +12,6 @@ import Contact from "./components/contact/Contact";
 import Footer from "./components/Navbar/Footer";
 import Subcategory from "./components/offers/subcategory";
 
-// import Subcategory from "./components/offers/Subcategory";
-
 class App extends Component {
   constructor() {
     super();
