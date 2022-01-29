@@ -18,10 +18,10 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
  $password = $obj['password'];
 
  //Applying User Login query with email and password match.
- $Sql_Query = "select * from users where user_email = '$user_email' and user_pass = '$user_pass' ";
+ $Sql_Query = "select * from users where email = '$email' and password = '$password' ";
 
  // Executing SQL Query.
- $check = mysqli_fetch_array(mysqli_query($con,$Sql_Query));
+ $check = mysqli_fetch_array(mysqli_query($db,$Sql_Query));
 
 
  if(isset($check)){
@@ -31,7 +31,8 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
      $SuccessLoginJson = json_encode($SuccessLoginMsg);
 
      // Echo the message.
-     echo $SuccessLoginJson ; 
+    //  echo $SuccessLoginJson ;
+    print json_encode($obj,true);
 
  } else{
 
@@ -46,7 +47,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
  }
 
- mysqli_close($con);
+ mysqli_close($db);
 
 
 

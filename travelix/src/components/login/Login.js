@@ -10,6 +10,9 @@ import { Link } from 'react-router-dom';
 
 
 class login extends Component {
+
+
+
     constructor(props){
         super(props);
         this.onChangeEmail= this.onChangeEmail.bind(this);
@@ -53,11 +56,7 @@ class login extends Component {
             console.log(error.response)
         });
       
-        this.setState({
-          email:'',
-          password:'',
-      
-        })
+    
         
       
       
@@ -65,8 +64,8 @@ class login extends Component {
       }
   render() {
     return (
-        <div className="card">
-        <Card className="cardStyle" >
+        <div className="card ">
+        <Card className="cardStyle contact_form_container" >
           <CardContent>
             <div className="signupText">LOGIN</div>
             <TextBox label="Email"  value={this.state.email} onChange={this.onChangeEmail}/>
@@ -74,7 +73,7 @@ class login extends Component {
           </CardContent>
   
           <CardActions className="CardActions" >
-          <Button style={{background:'black',color:'white'}} onClick={this.onSubmit}><Link to="/home"> LOGIN  </Link></Button>
+          <Button style={{background:'black',color:'white'}} onClick={this.onSubmit}> LOGIN </Button>
            
             {/* <Button style={{background:'black',color:'white'}} onClick={this.onSubmit}> LOGIN</Button> */}
           </CardActions>

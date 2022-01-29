@@ -11,6 +11,7 @@ import Signup from './components/signup/signup';
 import Login from "./components/login/Login";
 import User from "./components/user/User";
 import Footer from "./components/layout/Footer";
+import History from './History';
 
 class App extends Component {
   constructor() {
@@ -36,7 +37,7 @@ class App extends Component {
     <BrowserRouter>
       <div className="App">
       <Navbar />
-      <Routes>
+      <Routes History={History}>
           <Route path='/'  element={<Landing categories={this.state.categories} />}/>
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} /> 

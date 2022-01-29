@@ -5,9 +5,12 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import TextBox from '../../core/textField/textField';
+// import H from './H';
+
 import { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import history from '../../History';
 
 class Signup extends Component {
 
@@ -75,6 +78,11 @@ onSubmit(e){
   // email
   const email                   = document.getElementById('email');
   const emailMessageError       = document.getElementById('emailMessageError');
+
+
+  const phoneMessageError       = document.getElementById('phoneMessageError');
+
+
   // password
   const pass                    = document.getElementById('pass');
   const passMessageError        = document.getElementById('passMessageError');
@@ -97,10 +105,17 @@ onSubmit(e){
           emailMessageError.innerText='Email is empty';
           bool = false;
       }
-      // else if(!this.state.email.match(regexEmail)){
-      //     emailMessageError.innerText='Email is not valid';
-      //     bool = false;
-      // }
+      else if(!this.state.email.match(regexEmail)){
+          emailMessageError.innerText='Email is not valid';
+          bool = false;
+      }
+  // phone condition
+  if (this.state.phone === '') {
+    phoneMessageError.innerText='phone is empty';
+    bool = false;
+
+}
+
   // password condition
   passMessageError.innerText='';
   if (this.state.password === '') {
@@ -134,10 +149,20 @@ onSubmit(e){
       passwordConform:this.state.passwordConform,
     };
   
+    
     axios.post('http://localhost/project-react1/php/sign.php',obj)
-    .then(res=> console.log(res.data))
+    .then(res=> 
+      // console.log(res.data)
+      {
+window.location.href="http://localhost:3000";
+        // this.props.history.push("/");
+        // window.location.reload();
+      }
+     
+
+      )
     .catch(error => {
-      console.log(error.response)
+      console.log(error.response);
   });
 
   this.setState({
@@ -157,7 +182,7 @@ onSubmit(e){
       <div className="card">
       <Card className="cardStyle" >
         <CardContent>
-          <form action='../Home.js'>
+          <form>
           <div className="signupText">SIGNUP</div>
           <TextBox label="Full Name" value={this.state.name} onChange={this.onChangeName}/>
           <small id="fullNameMessageError" className="form-text"></small>
@@ -166,6 +191,8 @@ onSubmit(e){
  <small id="emailMessageError" className="form-text"></small>
 
           <TextBox label="Phone Number" value={this.state.phone} onChange={this.onChangePhone}/>
+ <small id="phoneMessageError"  className="form-text"></small>
+
           <TextBox label="Password" value={this.state.password} onChange={this.onChangePassword}/>
  <small id="passMessageError"  className="form-text"></small>
 
@@ -179,9 +206,9 @@ onSubmit(e){
           
 
           
-        <Button style={{background:'black',color:'white'}} onClick={this.onSubmit}> SIGNUP  </Button>
+        <Button style={{background:'black',color:'white'}}  onClick={this.onSubmit}>SIGNUP  </Button>
 
-         
+        {/* <button onClick={()=> History.push('/')} className="Home-button"></button>   */}
          
         </CardActions>
 
