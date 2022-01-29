@@ -4,7 +4,7 @@ export class Search extends Component {
 
     state = {
         images : {
-            0 : "bus.png",
+            0 : "fa-utensils",
             1 : "suitcase.png",
             2 : "departure.png",
             3 : "island.png",
@@ -57,7 +57,8 @@ export class Search extends Component {
 
                             {this.props.categories.map((category,index)=>{
                                 return  (<div onClick={(e)=>this.ClickHandler(e)} id={category.id} key={category.id} className={`search_tab ${index === 0 ? "active" : "" }  d-flex flex-row align-items-center justify-content-lg-center jusify-content-start icon`}>
-                                            <img src={`images/${this.state.images[index]}`} alt={category.name} />
+											<i class={`fas ${this.state.images[index]}`}></i>
+                                            {/* <img src={`images/${this.state.images[index]}`} alt={category.name} /> */}
                                             <span>{category.name}</span>
                                           </div>
                                           )

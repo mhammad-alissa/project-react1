@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Outlet, Link} from "react-router-dom";
 
 
-export class footer extends Component {
+class Footer extends Component {
   render() {
     return (
         <>
@@ -121,4 +121,4 @@ export class footer extends Component {
   }
 }
 
-export default footer;
+export default Footer;

@@ -8,8 +8,9 @@ import User from "./components/user/User";
 import Navbar from "./components/Navbar/Navbar";
 import Test from "./components/Navbar/Test";
 import axios from "axios";
-import Footer from "./components/layout/Footer";
 import Contact from "./components/contact/Contact";
+import Footer from "./components/Navbar/Footer";
+
 // import Subcategory from "./components/offers/Subcategory";
 
 class App extends Component {

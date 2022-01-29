@@ -5,12 +5,10 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import TextBox from "../../core/textField/textField";
-// import H from './H';
 
 import { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import history from "../../History";
 
 class Signup extends Component {
   constructor(props) {
