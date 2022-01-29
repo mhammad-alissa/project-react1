@@ -1,20 +1,17 @@
 import { React, Component } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import "./elements_responsive.css";
-import "./elements_styles.css";
-import Navbar from "./components/layout/Navbar";
 import Landing from "./components/landing/Landing";
-// import Category from './components/category/Category';
 import Signup from "./components/signup/signup";
-
 import Login from "./components/login/Login";
 import User from "./components/user/User";
-import Footer from "./components/layout/Footer";
-// import axios from "axios";
-import History from "./History";
-// import axios from "axios";
+import Navbar from "./components/Navbar/Navbar";
+import Test from "./components/Navbar/Test";
+import axios from "axios";
 import Contact from "./components/contact/Contact";
+import Footer from "./components/Navbar/Footer";
+import Subcategory from "./components/offers/subcategory";
+
 // import Subcategory from "./components/offers/Subcategory";
 import About from "./components/about/About";
 
@@ -23,28 +20,38 @@ class App extends Component {
     super();
     this.state = {
       categories: [],
+      services: [],
     };
   }
 
-  async componentDidMount() {
-    const url = "http://localhost/project-react1/php/category.php";
-    const res = await fetch(url);
-    console.log(res);
-    const data = await res.json();
-    this.setState({
-      categories: data,
+  componentDidMount() {
+    axios.get("http://localhost/project-react1/services.php").then((res) => {
+      this.setState({
+        services: res.data,
+      });
     });
+    axios
+      .get("http://localhost/project-react1/php/category.php")
+      .then((res) => {
+        this.setState({
+          categories: res.data,
+        });
+      });
+    // const url = "http://localhost/project-react1/php/category.php";
+    // const res =  await fetch(url);
+    // const data = await res.json();
+
+    // const url2  = "http://localhost/project-react1/services.php";
+    // const res2  = await fetch(url2);
+    // const data2 = await res2.json();
+
+    // this.setState({
+    //   categories : data,
+    //   services   : data2,
+    //   })
   }
 
-  // axios.get('http://localhost/project-react1/php/category.php')
-  // .then(res=> { this.setState({
-  //   categories: res.data,
-  // })})
-  // .catch(error => {
-  //   console.log(error.response)
-
   render() {
-    console.log(this.state.categories);
     return (
       <BrowserRouter>
         <div className="App">

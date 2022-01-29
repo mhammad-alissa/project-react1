@@ -53,8 +53,10 @@ class login extends Component {
           image: res.data.image,
         };
         console.log(res.data);
-        localStorage.setItem("users", JSON.stringify(obj));
-        window.location.href = "http://localhost:3000";
+        if (res.data.id != null) {
+          localStorage.setItem("users", JSON.stringify(obj));
+          window.location.href = "http://localhost:3000";
+        }
       })
       .catch((error) => {
         console.log(error.response);
@@ -70,11 +72,13 @@ class login extends Component {
               label="Email"
               value={this.state.email}
               onChange={this.onChangeEmail}
+              required
             />
             <TextBox
               label="Password"
               value={this.state.password}
               onChange={this.onChangePassword}
+              required
             />
           </CardContent>
 

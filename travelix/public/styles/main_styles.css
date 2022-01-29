@@ -44,8 +44,8 @@
 @font-face
 {
 	font-family: 'Beyond';
-	src: url('../public/fonts/beyond_the_mountains.otf')  format('truetype'),
-		 url('../public/fonts/beyond_the_mountains.ttf')  format('opentype');
+	src: url('../fonts/beyond_the_mountains.otf')  format('truetype'),
+		 url('../fonts/beyond_the_mountains.ttf')  format('opentype');
 }
 
 /*********************************
@@ -745,10 +745,10 @@ section
 4. Home
 *********************************/
 
-.home
+.home-landing
 {
 	width: 100%;
-	height: 100vh;
+	height: 100vh !important;
 }
 
 

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 // import "./contact_responsive.css";
 // import './contact_styles.css';
-// import './contact_custom'
+// import "./contact_custom";
 
 import axios from "axios";
-import "./contact.css";
+// import "./contact.css";
 // import { Link } from 'react-router-dom';
 
 export class Contact extends Component {
