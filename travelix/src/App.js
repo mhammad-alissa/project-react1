@@ -1,24 +1,21 @@
 import { React, Component } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css';
-import './elements_responsive.css'
-import './elements_styles.css'
+import "./App.css";
+import "./elements_responsive.css";
+import "./elements_styles.css";
 import Navbar from "./components/layout/Navbar";
-import Landing from './components/landing/Landing';
+import Landing from "./components/landing/Landing";
 // import Category from './components/category/Category';
-import Signup from './components/signup/signup';
+import Signup from "./components/signup/signup";
 
 import Login from "./components/login/Login";
 import User from "./components/user/User";
 import Footer from "./components/layout/Footer";
-<<<<<<< HEAD
 // import axios from "axios";
-=======
-import History from './History';
-import axios from "axios";
->>>>>>> 3e6629dbdaccb08e22861e6159250969c3409d46
+import History from "./History";
+// import axios from "axios";
 import Contact from "./components/contact/Contact";
-import Subcategory from "./components/offers/Subcategory";
+// import Subcategory from "./components/offers/Subcategory";
 
 class App extends Component {
   constructor() {
@@ -31,35 +28,39 @@ class App extends Component {
   async componentDidMount() {
     const url = "http://localhost/project-react1/php/category.php";
     const res = await fetch(url);
-    console.log(res)
+    console.log(res);
     const data = await res.json();
-   this.setState({
-     categories: data,
-    })}
+    this.setState({
+      categories: data,
+    });
+  }
 
-
-    // axios.get('http://localhost/project-react1/php/category.php')
-    // .then(res=> { this.setState({
-    //   categories: res.data,
-    // })})
-    // .catch(error => {
-    //   console.log(error.response)
-    
+  // axios.get('http://localhost/project-react1/php/category.php')
+  // .then(res=> { this.setState({
+  //   categories: res.data,
+  // })})
+  // .catch(error => {
+  //   console.log(error.response)
 
   render() {
-    console.log(this.state.categories)
+    console.log(this.state.categories);
     return (
-
-    <BrowserRouter>
-      <div className="App">
-      <Navbar />
-      <Routes History={History}>
-          <Route path='/'  element={<Landing categories={this.state.categories} />}/>
-          <Route path='/login' element={<Login />} />
-          <Route path='/Subcategory' element={<Subcategory subcategory={this.state.subcategory} />}/>
-          <Route path='/signup' element={<Signup />} /> 
-          <Route path="/User" element={<User />} />
-          <Route path="/contact" element={<Contact/>} />
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Routes History={History}>
+            <Route
+              path="/"
+              element={<Landing categories={this.state.categories} />}
+            />
+            <Route path="/login" element={<Login />} />
+            {/* <Route
+              path="/Subcategory"
+              element={<Subcategory subcategory={this.state.subcategory} />}
+            /> */}
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/User" element={<User />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />
         </div>

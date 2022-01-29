@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 export class Navbar extends Component {
+  logout = () => {
+    localStorage.removeItem("users");
+    window.location.href = "http://localhost:3000";
+  };
   render() {
     return (
       <>
@@ -52,17 +56,12 @@ export class Navbar extends Component {
                     </ul>
                   </div>
                   <div className="user_box ml-auto">
-                    <div
-                      style={
-                        localStorage.getItem("user") ? { display: "none" } : {}
-                      }
-                      className="user_box_login user_box_link"
-                    >
+                    <div className="user_box_login user_box_link">
                       <Link to="/login">login</Link>
                     </div>
                     <div
                       style={
-                        localStorage.getItem("user") ? { display: "none" } : {}
+                        localStorage.getItem("users") ? { display: "none" } : {}
                       }
                       className="user_box_register user_box_link"
                     >
@@ -70,32 +69,34 @@ export class Navbar extends Component {
                     </div>
                     <div
                       style={
-                        !localStorage.getItem("user") ? { display: "none" } : {}
+                        !localStorage.getItem("users")
+                          ? { display: "none" }
+                          : {}
                       }
                       className="user_box_register user_box_link"
                     >
                       <Link to="/User">
-                        {/* {!localStorage.getItem("user") ?JSON.parse(localStorage.getItem("user")).name:''} */}
+                        {localStorage.getItem("users") !== null
+                          ? JSON.parse(localStorage.getItem("users")).name
+                          : ""}
                       </Link>
                     </div>
-                    <div
+                    <button
                       style={
-                        !localStorage.getItem("user")
+                        !localStorage.getItem("users")
                           ? { display: "none" }
-                          : { display: "flex" }
+                          : {
+                              display: "flex",
+                              backgroundColor: "#350a4e",
+                              color: "white",
+                              border: "none",
+                              float: "right",
+                            }
                       }
+                      onClick={this.logout}
                     >
-                      <button
-                        style={{
-                          backgroundColor: "#350a4e",
-                          color: "white",
-                          border: "none",
-                          float: "right",
-                        }}
-                      >
-                        Logout
-                      </button>
-                    </div>
+                      Logout
+                    </button>
                   </div>
                 </div>
               </div>
@@ -133,11 +134,65 @@ export class Navbar extends Component {
                       <li className="main_nav_item">
                         <Link to="/contact">contact</Link>
                       </li>
-                      <li className="main_nav_item">
+                      <li
+                        className="main_nav_item"
+                        style={
+                          localStorage.getItem("users")
+                            ? { display: "none" }
+                            : {}
+                        }
+                      >
                         <Link to="/login">Login</Link>
                       </li>
-                      <li className="main_nav_item">
+                      <li
+                        className="main_nav_item"
+                        style={
+                          localStorage.getItem("users")
+                            ? { display: "none" }
+                            : {}
+                        }
+                      >
                         <Link to="/signup">Signup</Link>
+                      </li>
+                      <li
+                        className="main_nav_item"
+                        style={
+                          !localStorage.getItem("users")
+                            ? { display: "none" }
+                            : {}
+                        }
+                      >
+                        <Link to="/User">
+                          <img
+                            src={`userImages/${
+                              localStorage.getItem("users")
+                                ? JSON.parse(localStorage.getItem("users"))
+                                    .image
+                                : ""
+                            }`}
+                            alt="user"
+                            style={{
+                              width: "50px",
+                              height: "50px",
+                              borderRadius: "50%",
+                              marginRight: "10px",
+                            }}
+                          />
+                          {localStorage.getItem("users") !== null
+                            ? JSON.parse(localStorage.getItem("users")).name
+                            : ""}
+                        </Link>
+                      </li>
+                      <li
+                        className="main_nav_item"
+                        style={
+                          !localStorage.getItem("users")
+                            ? { display: "none" }
+                            : {}
+                        }
+                        onClick={this.logout}
+                      >
+                        <Link to="">Logout</Link>
                       </li>
                     </ul>
                   </div>

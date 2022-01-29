@@ -74,7 +74,7 @@ class Signup extends Component {
 
     let regexPass =
       /^(?=.*[A-Z])(?=.*[@$!%*#?&])(?=.*[a-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/;
-    let regexEmail = /^[a-z0-9._-]+@(gmail|yahoo|hotmail).com$/;
+    let regexEmail = /^[A-ZA-z0-9._-]+@(hotmail|gmail|yahoo|outlook).com$/;
     // let regexMobile = /^[0][7][7][0-9]{7}$/;
     // let regexfullname            = /^[a-zA-Z]{4,}(?: [a-zA-Z]+){3}$/;
 
@@ -164,7 +164,7 @@ class Signup extends Component {
               password: res.data.password,
               image: res.data.image_name,
             };
-            localStorage.setItem("user", JSON.stringify(obj));
+            localStorage.setItem("users", JSON.stringify(obj));
             window.location.href = "http://localhost:3000";
             console.log(res.data);
           } else {
