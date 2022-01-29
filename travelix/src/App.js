@@ -12,6 +12,8 @@ import Login from "./components/login/Login";
 import User from "./components/user/User";
 import Footer from "./components/layout/Footer";
 import History from './History';
+import axios from "axios";
+import Contact from "./components/contact/Contact";
 
 class App extends Component {
   constructor() {
@@ -22,16 +24,26 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const url = "http://localhost/project-react1/travelix/category.php";
+    const url = "http://localhost/project-react1/php/category.php";
     const res = await fetch(url);
+    console.log(res)
     const data = await res.json();
+   this.setState({
+     categories: data,
+    })}
 
-    this.setState({
-      categories: data,
-    });
-  }
+
+    // axios.get('http://localhost/project-react1/php/category.php')
+    // .then(res=> { this.setState({
+    //   categories: res.data,
+    // })})
+    // .catch(error => {
+    //   console.log(error.response)
+
+  
 
   render() {
+    console.log(this.state.categories)
     return (
 
     <BrowserRouter>
@@ -42,6 +54,7 @@ class App extends Component {
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} /> 
           <Route path="/User" element={<User />} />
+          <Route path="/contact" element={<Contact/>} />
           </Routes>
           <Footer />
         </div>
