@@ -63,9 +63,9 @@ class login extends Component {
   render() {
     return (
       <div className="card ">
-        <Card className="cardStyle contact_form_container">
+        <Card className="cardStyle ">
           <CardContent>
-            <div className="signupText">LOGIN</div>
+            <div className="signupText"><strong>LOGIN</strong></div>
             <TextBox
               label="Email"
               value={this.state.email}
@@ -79,13 +79,14 @@ class login extends Component {
           </CardContent>
 
           <CardActions className="CardActions">
-            <Button
-              style={{ background: "black", color: "white" }}
-              onClick={this.onSubmit}
+            {/* <Button
+              style={{ background: "#31124b", color: "white" }}
+             
             >
               {" "}
               LOGIN{" "}
-            </Button>
+            </Button> */}
+            <button  onClick={this.onSubmit} style={{marginBottom:'30px',marginTop: '0'}}  id="form_submit_button" class="form_submit_button button trans_200"> {" "}LOGIN{" "}<span></span><span></span><span></span></button>
 
             {/* <Button style={{background:'black',color:'white'}} onClick={this.onSubmit}> LOGIN</Button> */}
           </CardActions>

@@ -39,9 +39,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 @font-face
 {
-	font-family: 'Beyond';
+	/* font-family: 'Beyond';
 	src: url('../fonts/beyond_the_mountains.otf')  format('truetype'),
-		 url('../fonts/beyond_the_mountains.ttf')  format('opentype');
+		 url('../fonts/beyond_the_mountains.ttf')  format('opentype'); */
 }
 
 /*********************************
@@ -1016,6 +1016,7 @@ section
 }
 .add_background
 {
+	/* style="{{backgroundImage:'url(images/add.jpg)'}}" */
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1024,6 +1025,7 @@ section
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	/* background-image: url('images/add.jpg'); */
 }
 .add_container
 {

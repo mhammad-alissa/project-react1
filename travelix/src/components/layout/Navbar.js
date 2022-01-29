@@ -123,7 +123,7 @@ export class Navbar extends Component {
                         <Link to="/">Home</Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/about us">about us</Link>
+                        <Link to="/about">about us</Link>
                       </li>
                       <li className="main_nav_item">
                         <Link to="/offers">offers</Link>

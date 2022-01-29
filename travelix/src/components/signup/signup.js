@@ -194,7 +194,7 @@ class Signup extends Component {
         <Card className="cardStyle">
           <CardContent>
             <form>
-              <div className="signupText">SIGNUP</div>
+              <div className="signupText"><strong>SIGNUP</strong> </div>
               <TextBox
                 label="Full Name"
                 value={this.state.name}
@@ -229,27 +229,33 @@ class Signup extends Component {
                 onChange={this.onChangePasswordconform}
               />
               <small id="ConfirmPassMessageError" className="form-text"></small>
-
-              <Button variant="contained" component="label" className="mt-4">
-                Upload File
-                <input type="file" hidden onChange={this.onChangeImageform} />
-              </Button>
+               <br/>
+              {/* <Button variant="contained" component="label" className="mt-4"> */}
+              <div className="parent-div">
+              <button class="btn-upload">Choose image</button>
+                <input type="file"  onChange={this.onChangeImageform} />
+                </div>
+              {/* </Button> */}
               {/* <input type="submit" onClick={this.onSubmit}> cjkqjwjkjw</input> */}
             </form>
           </CardContent>
 
-          <CardActions className="CardActions">
-            <Button
+          {/* <CardActions className="CardActions"> */}
+            {/* <Button
               style={{ background: "black", color: "white" }}
               onClick={this.onSubmit}
             >
               SIGNUP{" "}
-            </Button>
+            </Button> */}
+
+            <button style={{marginBottom:'30px',marginTop: '0'}}  onClick={this.onSubmit} id="form_submit_button" class="form_submit_button button trans_200"> SIGNUP{" "}<span></span><span></span><span></span></button>
+
+
             <small style={{ color: "red", display: "inline-block" }}>
               {this.state.error}
             </small>
             {/* <button onClick={()=> History.push('/')} className="Home-button"></button>   */}
-          </CardActions>
+          {/* </CardActions> */}
         </Card>
       </div>
     );
