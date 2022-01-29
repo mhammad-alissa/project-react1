@@ -1,6 +1,4 @@
 <?php
-
-
 header("Access-control-Allow-Origin: *"); //add this CORS header to enable any domain to send HTTP requests to these endpoints:
 require("connect.php");
 

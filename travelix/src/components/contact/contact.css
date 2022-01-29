@@ -1,0 +1,74 @@
+.contact{
+    padding-bottom: 0 ;
+}
+
+
+.contact .C-container{
+    
+    width: 75%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+
+.contact_form input{
+    font-size: 18px;
+}
+
+.contact_form textarea{
+    font-size: 16px;
+}
+
+.aboutContainer{
+    margin-left: 0;
+}
+
+.contact_info_text{
+    color: black;
+}
+.contact_info_text a{
+    color: black;
+}
+
+.about_social_item{
+    display: inline-block;
+    width: 47px;
+    height: 47px;
+    border: solid 2px #fa9e1b;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.about_social_item a{
+    text-decoration: none;
+    text-shadow: rgb(0 0 0 / 1%) 0 0 1px;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.about_social_item a i{
+    
+    display: block;
+    position: relative;
+    color: #fa9e1b;
+    top: 50%;
+
+    transform: translateY(-50%);
+    font-size: 20px;
+   
+    transition: all 200ms ease;
+}
+
+.about_social_item:hover a i {
+    color: #FFFFFF;
+}
+
+.about_social_item:hover{
+    background-color:#fa9e1b ;
+}
+
+
+

@@ -5,10 +5,12 @@ import Landing from './components/landing/Landing';
 import Signup from './components/signup/signup';
 import Login from "./components/login/Login";
 import User from "./components/user/User";
-import Footer from "./components/Navbar/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import Test from "./components/Navbar/Test";
 import axios from "axios";
+import Footer from "./components/layout/Footer";
+import Contact from "./components/contact/Contact";
+// import Subcategory from "./components/offers/Subcategory";
 
 class App extends Component {
   constructor() {
@@ -45,13 +47,11 @@ class App extends Component {
   
   }
 
-  
-
   render() {
-    
     return (
+      
       <BrowserRouter>
-      <div className="super_container">
+        <div className="super_container">
         <Routes>
             <Route path="/" element={<Navbar />} >
             <Route index element={<Landing categories={this.state.categories} services={this.state.services} />}  />
@@ -59,12 +59,16 @@ class App extends Component {
             <Route path='/signup' element={<Signup />} /> 
             <Route path="/user" element={<User />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/contact" element={<Contact />} />
           </Route>                
         </Routes>
         <Footer />
-      </div>
+            {/* <Route
+              path="/Subcategory"
+              element={<Subcategory subcategory={this.state.subcategory} />}
+            /> */}
+        </div>
       </BrowserRouter>
     );
-  }
-}
+}}
 export default App;
