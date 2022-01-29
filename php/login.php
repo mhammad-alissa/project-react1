@@ -22,7 +22,8 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
  // Executing SQL Query.
  $check = mysqli_fetch_array(mysqli_query($db,$Sql_Query));
-
+$result = mysqli_query($db,$Sql_Query);
+$row = mysqli_fetch_assoc($result);
 
  if(isset($check)){
      $SuccessLoginMsg = 'Data Matched';
@@ -32,7 +33,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
      // Echo the message.
     //  echo $SuccessLoginJson ;
-    print json_encode($obj,true);
+    print json_encode($row,true);
 
  } else{
 

@@ -5,8 +5,8 @@ header('Access-Control-Allow-Methods: GET,PUT,POST,DELETE,PATCH,OPTIONS');
 header("Access-Control-Allow-Origin: http://localhost:3000");
 header("Access-Control-Allow-Headers: Content-Type, Authorization,Origin, X-Requested-With, Content");
 header('Content-Type: application/json; charset=utf-8');
-
-$sql = "SELECT * FROM users";
+$id = $_POST['id'];
+$sql = "SELECT * FROM users where id = $id;";
 $result = $db->query($sql);
 $rows=array();
 if ($result->num_rows > 0) {
@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
 } else {
   echo "0 results";
 }
-print json_encode($rows); 
+print json_encode($row); 
 //Update User Data
 // $postdata = file_get_contents("php://input");
 if(isset($_POST) && !empty($_POST)){
