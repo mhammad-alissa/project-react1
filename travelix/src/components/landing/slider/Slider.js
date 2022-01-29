@@ -6,7 +6,7 @@ export class Slider extends Component {
     return (
     	<div className="cta">
 		{/* <!-- Image by https://unsplash.com/@thanni --> */}
-		<div className="cta_background" style={{ backgroundImage:`url(${image})` }}></div>
+		{/* <div className="cta_background" style={{ backgroundImage:`url(${image})` }}></div> */}
 		
 		<div className="container">
 			<div className="row">

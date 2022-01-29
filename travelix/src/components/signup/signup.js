@@ -194,6 +194,7 @@ class Signup extends Component {
           <CardContent>
             <form>
               <div className="signupText"><strong>SIGNUP</strong> </div>
+              
               <TextBox
                 label="Full Name"
                 value={this.state.name}
@@ -246,13 +247,13 @@ class Signup extends Component {
             >
               SIGNUP{" "}
             </Button> */}
-
-            <button style={{marginBottom:'30px',marginTop: '0'}}  onClick={this.onSubmit} id="form_submit_button" class="form_submit_button button trans_200"> SIGNUP{" "}<span></span><span></span><span></span></button>
-
-
-            <small style={{ color: "red", display: "inline-block" }}>
+<small style={{ color: "red", display: "inline-block" ,fontWeight:'bold',fontSize:"25px"}}>
               {this.state.error}
             </small>
+            <button style={{marginBottom:'30px',marginTop: '0'}}  onClick={this.onSubmit} id="form_submit_button" class="form_submit_button button trans_200"> SIGNUP{" "}<span></span><span></span><span></span></button>
+
+<br></br>
+         
             {/* <button onClick={()=> History.push('/')} className="Home-button"></button>   */}
           {/* </CardActions> */}
         </Card>

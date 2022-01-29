@@ -22,47 +22,47 @@ import image2 from "./about_background.jpg";
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
-                <div class="intro_image"><img src="images/intro.png" alt=""/></div>
-            </div>
-            <div class="col-lg-5">
-                <div class="intro_content">
-                    <div class="intro_title">we have the best tours</div>
+                {/* <div class="intro_image"><img src="images/intro.png" alt=""/></div> */}
+             </div>
+             {/* <div class="col-lg-5">
+                <div class="intro_content"> */}
+                    {/* <div class="intro_title">we have the best tours</div> */}
                     <p class="intro_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vulputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer elementum orci eu vehicula pretium. Donec bibendum tristique condimentum. Aenean in lacus ligula. Phasellus euismod gravida eros. Aenean nec ipsum aliquet, pharetra magna id, interdum sapien. Etiam id lorem eu nisl pellentesque semper. Nullam tincidunt metus placerat, suscipit leo ut, tempus nulla. Fusce at eleifend tellus. Ut eleifend dui nunc, non fermentum quam placerat non. Etiam venenatis nibh augue, sed eleifend justo tristique eu</p>
-                    <div class="button intro_button"><div class="button_bcg"></div><a>explore now<span></span><span></span><span></span></a></div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    {/* <div class="button intro_button"><div class="button_bcg"></div><a>explore now<span></span><span></span><span></span></a></div> */}
+                {/* </div>
+              </div> */}
+              </div>
+              </div>
 </div>
 
 {/* <!-- Stats --> */}
 
-<div class="stats">
-    <div class="container">
-        <div class="row">
+{/* <div class="stats"> */}
+    {/* <div class="container"> */}
+        {/* <div class="row">
             <div class="col text-center">
                 <div class="section_title">years statistics</div>
             </div>
-        </div>
-        <div class="row">
+        </div> */}
+        {/* <div class="row">
             <div class="col-lg-10 offset-lg-1 text-center">
                 <p class="stats_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vulputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer elementum orci eu vehicula pretium. Donec bibendum tristique condimentum. Aenean in lacus ligula. </p>
             </div>
-        </div>
-        <div class="row">
+        </div> */}
+        {/* <div class="row">
             <div class="col">
                 <div class="stats_years">
                     <div class="stats_years_last">2016</div>
                     <div class="stats_years_new float-right">2017</div>
                 </div>
             </div>
-        </div>
+        </div> */}
         <div class="row">
             <div class="col">
                 <div class="stats_contents">
                     
                     {/* <!-- Stats Item --> */}
-                    <div class="stats_item d-flex flex-md-row flex-column clearfix">
+                    {/* <div class="stats_item d-flex flex-md-row flex-column clearfix">
                         <div class="stats_last order-md-1 order-3">
                             <div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
                                 <img src="images/stats_1.png" alt=""/>
@@ -88,10 +88,10 @@ import image2 from "./about_background.jpg";
                                 <div class="stats_type">Clients</div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     
                     {/* <!-- Stats Item --> */}
-                    <div class="stats_item d-flex flex-md-row flex-column clearfix">
+                    {/* <div class="stats_item d-flex flex-md-row flex-column clearfix">
                         <div class="stats_last order-md-1 order-3">
                             <div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
                                 <img src="images/stats_2.png" alt=""/>
@@ -117,10 +117,10 @@ import image2 from "./about_background.jpg";
                                 <div class="stats_type">Returning Clients</div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* <!-- Stats Item --> */}
-                    <div class="stats_item d-flex flex-md-row flex-column clearfix">
+                    {/* <div class="stats_item d-flex flex-md-row flex-column clearfix">
                         <div class="stats_last order-md-1 order-3">
                             <div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
                                 <img src="images/stats_3.png" alt=""/>
@@ -146,10 +146,10 @@ import image2 from "./about_background.jpg";
                                 <div class="stats_type">Reach</div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* <!-- Stats Item --> */}
-                    <div class="stats_item d-flex flex-md-row flex-column clearfix">
+                    {/* <div class="stats_item d-flex flex-md-row flex-column clearfix">
                         <div class="stats_last order-md-1 order-3">
                             <div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
                                 <img src="images/stats_4.png" alt=""/>
@@ -178,14 +178,16 @@ import image2 from "./about_background.jpg";
                     </div>
 
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+            </div>*/}
+        {/* </div> */}
+    {/* </div> */}
+</div> 
+</div> 
+</div> 
 
 {/* <!-- Add --> */}
 
-<div class="add">
+{/* <div class="add">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -200,7 +202,7 @@ import image2 from "./about_background.jpg";
             </div>
         </div>
     </div>
-</div>
+</div> */}
 
 {/* <!-- Milestones --> */}
 
@@ -212,7 +214,7 @@ import image2 from "./about_background.jpg";
             <div class="col-lg-3 milestone_col">
                 <div class="milestone text-center">
                     <div class="milestone_icon"><img src="images/milestone_1.png" alt=""/></div>
-                    <div class="milestone_counter" data-end-value="255">0</div>
+                    <div class="milestone_counter" data-end-value="255">15</div>
                     <div class="milestone_text">Clients</div>
                 </div>
             </div>
@@ -221,7 +223,7 @@ import image2 from "./about_background.jpg";
             <div class="col-lg-3 milestone_col">
                 <div class="milestone text-center">
                     <div class="milestone_icon"><img src="images/milestone_2.png" alt=""/></div>
-                    <div class="milestone_counter" data-end-value="1176">0</div>
+                    <div class="milestone_counter" data-end-value="1176">10</div>
                     <div class="milestone_text">Projects</div>
                 </div>
             </div>
@@ -230,7 +232,7 @@ import image2 from "./about_background.jpg";
             <div class="col-lg-3 milestone_col">
                 <div class="milestone text-center">
                     <div class="milestone_icon"><img src="images/milestone_3.png" alt=""/></div>
-                    <div class="milestone_counter" data-end-value="39">0</div>
+                    <div class="milestone_counter" data-end-value="39">13</div>
                     <div class="milestone_text">Countries</div>
                 </div>
             </div>
@@ -247,7 +249,8 @@ import image2 from "./about_background.jpg";
         </div>
     </div>
 </div>
-    </div>
+</div>
+   
     );
   }
 }
