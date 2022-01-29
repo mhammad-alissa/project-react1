@@ -59,7 +59,8 @@ class App extends Component {
           <Routes History={History}>
             <Route
               path="/"
-              element={<Landing categories={this.state.categories} />}
+              element={<Landing categories={this.state.categories} services={this.state.services}
+              />}
             />
             <Route path="/login" element={<Login />} />
             {/* <Route
