@@ -117,83 +117,89 @@ export class Navbar extends Component {
                       </Link>
                     </div>
                   </div>
-                  <div className="main_nav_container ml-auto">
+                  <div className="w-100">
                     <ul className="main_nav_list">
-                      <li className="main_nav_item">
-                        <Link to="/">Home</Link>
-                      </li>
-                      <li className="main_nav_item">
-                        <Link to="/about us">about us</Link>
-                      </li>
-                      <li className="main_nav_item">
-                        <Link to="/offers">offers</Link>
-                      </li>
-                      <li className="main_nav_item">
-                        <Link to="/news">news</Link>
-                      </li>
-                      <li className="main_nav_item">
-                        <Link to="/contact">contact</Link>
-                      </li>
-                      <li
-                        className="main_nav_item"
-                        style={
-                          localStorage.getItem("users")
-                            ? { display: "none" }
-                            : {}
-                        }
-                      >
-                        <Link to="/login">Login</Link>
-                      </li>
-                      <li
-                        className="main_nav_item"
-                        style={
-                          localStorage.getItem("users")
-                            ? { display: "none" }
-                            : {}
-                        }
-                      >
-                        <Link to="/signup">Signup</Link>
-                      </li>
-                      <li
-                        className="main_nav_item"
-                        style={
-                          !localStorage.getItem("users")
-                            ? { display: "none" }
-                            : {}
-                        }
-                      >
-                        <Link to="/User">
-                          <img
-                            src={`userImages/${
-                              localStorage.getItem("users")
-                                ? JSON.parse(localStorage.getItem("users"))
-                                    .image
-                                : ""
-                            }`}
-                            alt="user"
-                            style={{
-                              width: "50px",
-                              height: "50px",
-                              borderRadius: "50%",
-                              marginRight: "10px",
-                            }}
-                          />
-                          {localStorage.getItem("users") !== null
-                            ? JSON.parse(localStorage.getItem("users")).name
-                            : ""}
-                        </Link>
-                      </li>
-                      <li
-                        className="main_nav_item"
-                        style={
-                          !localStorage.getItem("users")
-                            ? { display: "none" }
-                            : {}
-                        }
-                        onClick={this.logout}
-                      >
-                        <Link to="">Logout</Link>
-                      </li>
+                      <div style={{ float: "left" }}>
+                        <li className="main_nav_item">
+                          <Link to="/">Home</Link>
+                        </li>
+                        <li className="main_nav_item">
+                          <Link to="/about us">about us</Link>
+                        </li>
+                        <li className="main_nav_item">
+                          <Link to="/offers">offers</Link>
+                        </li>
+                        <li className="main_nav_item">
+                          <Link to="/news">news</Link>
+                        </li>
+                        <li className="main_nav_item">
+                          <Link to="/contact">contact</Link>
+                        </li>
+                      </div>
+                      <div style={{ float: "right", marginRight: "25px" }}>
+                        <li
+                          className="main_nav_item"
+                          style={
+                            localStorage.getItem("users")
+                              ? { display: "none" }
+                              : {}
+                          }
+                        >
+                          <Link to="/login">Login</Link>
+                        </li>
+                        <li
+                          className="main_nav_item"
+                          style={
+                            localStorage.getItem("users")
+                              ? { display: "none" }
+                              : {}
+                          }
+                        >
+                          <Link to="/signup">Signup</Link>
+                        </li>
+                      </div>
+                      <div style={{ float: "right" }}>
+                        <li
+                          className="main_nav_item"
+                          style={
+                            !localStorage.getItem("users")
+                              ? { display: "none" }
+                              : {}
+                          }
+                        >
+                          <Link to="/User">
+                            <img
+                              src={`userImages/${
+                                localStorage.getItem("users")
+                                  ? JSON.parse(localStorage.getItem("users"))
+                                      .image
+                                  : ""
+                              }`}
+                              alt="user"
+                              style={{
+                                width: "50px",
+                                height: "50px",
+                                borderRadius: "50%",
+                                marginRight: "10px",
+                              }}
+                            />
+                            {localStorage.getItem("users") !== null
+                              ? JSON.parse(localStorage.getItem("users")).name
+                              : ""}
+                          </Link>
+                        </li>
+                        <li
+                          className="main_nav_item"
+                          style={
+                            !localStorage.getItem("users")
+                              ? { display: "none" }
+                              : {}
+                          }
+                          onClick={this.logout}
+                        >
+                          <Link to="">Logout</Link>
+                        </li>
+                      </div>
                     </ul>
                   </div>
                   <div className="content_search ml-lg-0 ml-auto">
@@ -245,7 +251,6 @@ export class Navbar extends Component {
                       className="search_content_input bez_1"
                     />
                   </form>
-
                   <div className="hamburger">
                     <i className="fa fa-bars trans_200"></i>
                   </div>
