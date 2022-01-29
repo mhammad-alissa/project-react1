@@ -14,6 +14,7 @@ import Subcategory from "./components/offers/subcategory";
 import Weather from "./components/weather/Weather";
 
 // import Subcategory from "./components/offers/Subcategory";
+import About from "./components/about/About";
 
 class App extends Component {
 

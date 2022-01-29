@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Outlet, Link, withRouter } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
+import image3 from './home_slider.jpg'; 
 
 export class Navbar extends Component {
   state = {
@@ -43,7 +44,7 @@ export class Navbar extends Component {
                         </Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/about us">about u</Link>
+                        <Link to="/about">about us</Link>
                       </li>
                       <li className="main_nav_item">
                         <Link to="/offers">offers</Link>
@@ -173,10 +174,15 @@ export class Navbar extends Component {
                       className="search_content_input bez_1"
                     />
                   </form>
+{/* <h1>bbbbbbbbb</h1> */}
 
                   <div className="hamburger">
+                    
                     <i className="fa fa-bars trans_200"></i>
+					{/* <div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div> */}
+{/* <img src="./home_slider.jpg" alt=""></img> */}
                   </div>
+                  
                 </div>
               </div>
             </div>

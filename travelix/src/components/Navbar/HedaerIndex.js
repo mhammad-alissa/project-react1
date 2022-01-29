@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import image3 from './home_slider.jpg'; 
 export class HedaerIndex extends Component {
   render() {
     return (
@@ -11,51 +11,52 @@ export class HedaerIndex extends Component {
 
 		<div className="home_slider_container">
 			
-			<div className="owl-carousel owl-theme home_slider">
+			{/* <div className="owl-carousel owl-theme home_slider"> */}
 
 				{/* <!-- Slider Item --> */}
 				<div className="owl-item home_slider_item">
-					<div className="home_slider_background" style={{backgroundImage:"url(images/home_slider.jpg)"}}></div>
+					<div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div>
+					{/* <div class="home_background parallax-window" data-parallax="scroll" style={{ backgroundImage:`url(${image3})` }}></div> */}
 
 					<div className="home_slider_content text-center">
 						<div className="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
 							<h1>discover</h1>
-							<h1>the world</h1>
-							<div className="button home_slider_button"><div className="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
+							<h1>jordan</h1>
+							{/* <div className="button home_slider_button"><div className="button_bcg"></div><a>explore now<span></span><span></span><span></span></a></div> */}
 						</div>
 					</div>
 				</div>
 
 				{/* <!-- Slider Item --> */}
-				<div className="owl-item home_slider_item">
-					<div className="home_slider_background" style={{backgroundImage:"url(images/home_slider.jpg)"}}></div>
+				{/* <div className="owl-item home_slider_item">
+					<div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div>
 
 					<div className="home_slider_content text-center">
 						<div className="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
 							<h1>discover</h1>
 							<h1>the world</h1>
-							<div className="button home_slider_button"><div className="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
+							<div className="button home_slider_button"><div className="button_bcg"></div><a>explore now<span></span><span></span><span></span></a></div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 
 				{/* <!-- Slider Item --> */}
-				<div className="owl-item home_slider_item">
-					<div className="home_slider_background" style={{backgroundImage:"url(images/home_slider.jpg)"}}></div>
+				{/* <div className="owl-item home_slider_item">
+					<div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div>
 
 					<div className="home_slider_content text-center">
 						<div className="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
 							<h1>discover</h1>
 							<h1>the world</h1>
-							<div className="button home_slider_button"><div className="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
+							<div className="button home_slider_button"><div className="button_bcg"></div><a>explore now<span></span><span></span><span></span></a></div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 
-			</div>
+			{/* </div> */}
 			
 			{/* <!-- Home Slider Nav - Prev --> */}
-			<div className="home_slider_nav home_slider_prev">
+		 <div className="home_slider_nav home_slider_prev">
 				<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 					width="28px" height="33px" viewBox="0 0 28 33" enableBackground="new 0 0 28 33" xmlSpace="preserve">
 					<defs>
@@ -70,10 +71,10 @@ export class HedaerIndex extends Component {
 					<polygon className="nav_arrow" fill="#F3F6F9" points="15.044,22.222 16.377,20.888 12.374,16.885 16.377,12.882 15.044,11.55 9.708,16.885 11.04,18.219 
 					11.042,18.219 "/>
 				</svg>
-			</div>
+			</div> 
 			
 			{/* <!-- Home Slider Nav - Next --> */}
-			<div className="home_slider_nav home_slider_next">
+			 <div className="home_slider_nav home_slider_next">
 				<svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				width="28px" height="33px" viewBox="0 0 28 33" enableBackground="new 0 0 28 33" xmlSpace="preserve">
 					<defs>
@@ -88,7 +89,7 @@ export class HedaerIndex extends Component {
 				<polygon className="nav_arrow" fill="#F3F6F9" points="13.044,11.551 11.71,12.885 15.714,16.888 11.71,20.891 13.044,22.224 18.379,16.888 17.048,15.554 
 				17.046,15.554 "/>
 				</svg>
-			</div>
+			</div> 
 
 			{/* <!-- Home Slider Dots --> */}
 
