@@ -72,8 +72,11 @@ if(isset($_POST) && !empty($_POST)){
     $sql_insert = "INSERT INTO users (name,email,phone,password,image) VALUES ('$name','$email','$phone','$password','$image')";
     if(mysqli_query($db,$sql_insert)){
       // header('location:./')
+        $sql_select = "SELECT * FROM users where email = $email";
+        $result = mysqli_query($db,$sql);
+        $row = mysqli_fetch_assoc($result);
         http_response_code(201);
-        print json_encode($_POST);
+        print json_encode($row);
     }
 
     else{

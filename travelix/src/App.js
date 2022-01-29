@@ -10,6 +10,7 @@ import Test from "./components/Navbar/Test";
 import axios from "axios";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/Navbar/Footer";
+import Subcategory from "./components/offers/subcategory";
 
 // import Subcategory from "./components/offers/Subcategory";
 
@@ -69,13 +70,10 @@ class App extends Component {
               <Route path="/user" element={<User />} />
               <Route path="/test" element={<Test />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/Subcategory" element={<Subcategory />} />
             </Route>
           </Routes>
           <Footer />
-          {/* <Route
-              path="/Subcategory"
-              element={<Subcategory subcategory={this.state.subcategory} />}
-            /> */}
         </div>
       </BrowserRouter>
     );

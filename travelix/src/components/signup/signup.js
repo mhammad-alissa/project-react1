@@ -156,11 +156,12 @@ class Signup extends Component {
         .then((res) => {
           if (res.data !== "The email you entered already exists") {
             const obj = {
+              id: res.data.id,
               name: res.data.name,
               email: res.data.email,
               phone: res.data.phone,
               password: res.data.password,
-              image: res.data.image_name,
+              image: res.data.image,
             };
             localStorage.setItem("users", JSON.stringify(obj));
             window.location.href = "http://localhost:3000";

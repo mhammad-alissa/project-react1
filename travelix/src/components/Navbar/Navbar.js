@@ -12,6 +12,10 @@ export class Navbar extends Component {
       url: e.target.href,
     });
   };
+  logout = () => {
+    localStorage.removeItem("users");
+    window.location.href = "http://localhost:3000";
+  };
 
   render() {
     return (
