@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Outlet } from "react-router-dom";
 import CategoryItem from './CategoryItem';
+import axios from "axios";
+
 
 export class subcategory extends Component {
     
+      
   render() {
     return (
         <>
@@ -25,7 +27,6 @@ export class subcategory extends Component {
                 </div>
             </div>
         </div>
-        <Outlet />
             </>
             );
   }

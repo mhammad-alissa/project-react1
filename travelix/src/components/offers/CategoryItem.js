@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import axios from "axios";
+import subcategory from './Subcategory';
 
 export class CategoryItem extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -11,7 +13,7 @@ export class CategoryItem extends Component {
       }
       
     componentDidMount() {
-        const url = 'http://localhost/devtest/reactjs/subcategory.php/'
+        const url = 'http://localhost/project-react1/php/subcategory.php'
         axios.get(url).then(response => response.data)
         .then((data) => {
           this.setState({ subcategory: data })
@@ -19,13 +21,17 @@ export class CategoryItem extends Component {
          })
       }
 
+
+
+
   render() {
     console.log(this.state.subcategory)
+
     return (
         <>
-    {this.state.subcategory.map(sub=>{
+    {this.state.subcategory.map(subcategory=>{
                 return (
-        <div key={sub.id} className="col-lg-6 offers_col">
+        <div key={subcategory.id} className="col-lg-6 offers_col">
         <div className="offers_item">
             <div className="row">
                 <div className="col-lg-6">
@@ -33,7 +39,7 @@ export class CategoryItem extends Component {
                         {/* <!-- Image by https://unsplash.com/@kensuarez --> */}
                         
                         <div className="offers_image_background" style={{backgroundImage:'url(images/offer_1.jpg)'}}></div>
-                        <div className="offer_name"><Link to="/">{sub.name}</Link></div>
+                        <div className="offer_name"><Link to="/">{subcategory.name}</Link></div>
                     </div>
                 </div>
                 <div className="col-lg-6">
@@ -62,7 +68,7 @@ export class CategoryItem extends Component {
         </div>
     </div>
                 )
-            })}
+            } ) }
      <Outlet />
      </>
     );

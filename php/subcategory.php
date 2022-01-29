@@ -8,8 +8,10 @@ $method = $_SERVER['REQUEST_METHOD'];
 
       if(isset($_GET["id"])){
         $id = $_GET['id'];  
-      }     
-      $sql = "select * from services".($id?" where id=$id":''); 
+        
+      }  
+      echo $id;   
+      $sql = "select * from services"; 
 
       
 // run SQL statement
