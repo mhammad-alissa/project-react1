@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
+import image3 from './home_slider.jpg'; 
 
 export class Navbar extends Component {
   state = {
@@ -28,8 +29,8 @@ export class Navbar extends Component {
                 <div className="col main_nav_col landing-nav d-flex flex-row align-items-center justify-content-start">
                   <div className="logo_container">
                     <div className="logo">
-                      <Link to="/Home">
-                        <img src="images/logo.png" alt="" />
+                      <Link to="/">
+                        <img src="images/logo.png" alt="logo" />
                         travelix
                       </Link>
                     </div>
@@ -42,16 +43,16 @@ export class Navbar extends Component {
                         </Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/about us">about u</Link>
+                        <Link to="/about">about us</Link>
                       </li>
                       <li className="main_nav_item">
                         <Link to="/offers">offers</Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/news">news</Link>
+                        <Link to="/contact">contact</Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/contact">contact</Link>
+                        <Link to="/weather">Weather</Link>
                       </li>
                       <li
                         style={
@@ -131,9 +132,12 @@ export class Navbar extends Component {
                     />
                   </form>
 
-                  <div className="hamburger">
-                    <i  className="fa fa-bars trans_200"></i>
+                  <div className="hamburger">                    
+                    <i className="fa fa-bars trans_200"></i>
+					{/* <div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div> */}
+{/* <img src="./home_slider.jpg" alt=""></img> */}
                   </div>
+                  
                 </div>
               </div>
             </div>

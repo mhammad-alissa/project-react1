@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import image from "./offer_8.jpg"; 
 
 export class Slider extends Component {
   render() {
     return (
     	<div className="cta">
 		{/* <!-- Image by https://unsplash.com/@thanni --> */}
-		<div className="cta_background" style={{backgroundImage:"url(images/cta.jpg)"}}></div>
+		{/* <div className="cta_background" style={{ backgroundImage:`url(${image})` }}></div> */}
 		
 		<div className="container">
 			<div className="row">

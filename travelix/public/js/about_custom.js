@@ -14,7 +14,7 @@
 
 ******************************/
 
-$(document).ready(function()
+(document).ready(function()
 {
 	"use strict";
 
@@ -24,20 +24,20 @@ $(document).ready(function()
 
 	*/
 
-	var menu = $('.menu');
+	var menu = ('.menu');
 	var menuActive = false;
-	var header = $('.header');
+	var header = ('.header');
 	var ctrl = new ScrollMagic.Controller();
 	var searchActive = false;
 
 	setHeader();
 
-	$(window).on('resize', function()
+	(window).on('resize', function()
 	{
 		setHeader();
 	});
 
-	$(document).on('scroll', function()
+	(document).on('scroll', function()
 	{
 		setHeader();
 	});
@@ -57,7 +57,7 @@ $(document).ready(function()
 	{
 		if(window.innerWidth < 992)
 		{
-			if($(window).scrollTop() > 100)
+			if((window).scrollTop() > 100)
 			{
 				header.addClass('scrolled');
 			}
@@ -68,7 +68,7 @@ $(document).ready(function()
 		}
 		else
 		{
-			if($(window).scrollTop() > 100)
+			if((window).scrollTop() > 100)
 			{
 				header.addClass('scrolled');
 			}
@@ -91,10 +91,10 @@ $(document).ready(function()
 
 	function initMenu()
 	{
-		if($('.hamburger').length && $('.menu').length)
+		if(('.hamburger').length && ('.menu').length)
 		{
-			var hamb = $('.hamburger');
-			var close = $('.menu_close_container');
+			var hamb = ('.hamburger');
+			var close = ('.menu_close_container');
 
 			hamb.on('click', function()
 			{
@@ -144,16 +144,16 @@ $(document).ready(function()
 
 	function initStats()
 	{
-		if($('.stats_item').length)
+		if(('.stats_item').length)
 		{
 			//Get all elements with .stats_item class
-			var statsItems = $('.stats_item');
+			var statsItems = ('.stats_item');
 
 			//Go through each .stats_item
 			statsItems.each(function()
 			{
 				//Get .stats_bar that is inside the .stats_item
-				var item = $(this).find('.stats_bar');
+				var item = (this).find('.stats_bar');
 				//Get the element that is going to show the percentage in graph
 				var perc = item.find('.stats_bar_perc');
 				//Get the element that is going to show the percentage in number
@@ -203,62 +203,7 @@ $(document).ready(function()
 
 	/* 
 
-	5. Initialize Milestones
 
-	*/
-
-	function initMilestones()
-	{
-		if($('.milestone_counter').length)
-		{
-			var milestoneItems = $('.milestone_counter');
-
-	    	milestoneItems.each(function(i)
-	    	{
-	    		var ele = $(this);
-	    		var endValue = ele.data('end-value');
-	    		var eleValue = ele.text();
-
-	    		/* Use data-sign-before and data-sign-after to add signs
-	    		infront or behind the counter number */
-	    		var signBefore = "";
-	    		var signAfter = "";
-
-	    		if(ele.attr('data-sign-before'))
-	    		{
-	    			signBefore = ele.attr('data-sign-before');
-	    		}
-
-	    		if(ele.attr('data-sign-after'))
-	    		{
-	    			signAfter = ele.attr('data-sign-after');
-	    		}
-
-	    		var milestoneScene = new ScrollMagic.Scene({
-		    		triggerElement: this,
-		    		triggerHook: 'onEnter',
-		    		reverse:false
-		    	})
-		    	.on('start', function()
-		    	{
-		    		var counter = {value:eleValue};
-		    		var counterTween = TweenMax.to(counter, 4,
-		    		{
-		    			value: endValue,
-		    			roundProps:"value", 
-						ease: Circ.easeOut, 
-						onUpdate:function()
-						{
-							document.getElementsByClassName('milestone_counter')[i].innerHTML = signBefore + counter.value + signAfter;
-						}
-		    		});
-		    	})
-			    .addTo(ctrl);
-	    	});
-		}
-	}
-
-	/* 
 
 	6. Init Search Form
 
@@ -266,11 +211,11 @@ $(document).ready(function()
 
 	function initSearchForm()
 	{
-		if($('.search_form').length)
+		if(('.search_form').length)
 		{
-			var searchForm = $('.search_form');
-			var searchInput = $('.search_content_input');
-			var searchButton = $('.content_search');
+			var searchForm = ('.search_form');
+			var searchInput = ('.search_content_input');
+			var searchButton = ('.content_search');
 
 			searchButton.on('click', function(event)
 			{
@@ -281,11 +226,11 @@ $(document).ready(function()
 					searchForm.addClass('active');
 					searchActive = true;
 
-					$(document).one('click', function closeForm(e)
+					(document).one('click', function closeForm(e)
 					{
-						if($(e.target).hasClass('search_content_input'))
+						if((e.target).hasClass('search_content_input'))
 						{
-							$(document).one('click', closeForm);
+							(document).one('click', closeForm);
 						}
 						else
 						{

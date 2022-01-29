@@ -11,13 +11,23 @@ import axios from "axios";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/Navbar/Footer";
 import Subcategory from "./components/offers/subcategory";
+import Weather from "./components/weather/Weather";
+import About from "./components/about/About";
+
+// import Subcategory from "./components/offers/Subcategory";
 
 class App extends Component {
+
+  
   constructor() {
     super();
     this.state = {
       categories: [],
       services: [],
+      location: '', 
+      degree: '',
+      forecast: [],
+      main: ''
     };
   }
 
@@ -34,21 +44,11 @@ class App extends Component {
           categories: res.data,
         });
       });
-    // const url = "http://localhost/project-react1/php/category.php";
-    // const res =  await fetch(url);
-    // const data = await res.json();
-
-    // const url2  = "http://localhost/project-react1/services.php";
-    // const res2  = await fetch(url2);
-    // const data2 = await res2.json();
-
-    // this.setState({
-    //   categories : data,
-    //   services   : data2,
-    //   })
+   
   }
 
   render() {
+   
     return (
       <BrowserRouter>
         <div className="super_container">
@@ -68,6 +68,7 @@ class App extends Component {
               <Route path="/user" element={<User />} />
               <Route path="/test" element={<Test />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/weather" element={<Weather />} />
               <Route path="/Subcategory" element={<Subcategory />} />
             </Route>
           </Routes>

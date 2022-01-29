@@ -8,32 +8,31 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 $postdata = file_get_contents("php://input");
 $check = true;
 
+
+$check = true;
 if(empty($name)){
-
-    echo '<script>alert("Welcome to Geeks for Geeks")</script>';
-    $check=false;
-
-}elseif(empty($email)){
-
-    echo '<script>alert("Welcome to Geeks for Geeks")</script>';
-    $check=false;
-
-}elseif(empty($subject)){
-
-    echo '<script>alert("Welcome to Geeks for Geeks")</script>';
-    $check=false;
-
-}elseif(empty($message)){
-
-    echo '<script>alert("Welcome to Geeks for Geeks")</script>';
-    $check=false;
-
-}
+    $name_error = 'please enter User Name';
+    $check = false;
+  }
+if(empty($email)){
+    $email_error = 'please enter User phone';
+    $check = false;
+  }
+  if(empty($subject)){
+    $email_error = 'please enter your email ';
+    $check = false;
+  }
+  if(empty($message)){
+    $message_error = 'please enter a message';
+    $check = false;
+  }
 
 
 if(isset($postdata) && !empty($postdata)){
     $request = json_decode($postdata);
    
+     
+  
     $name = $request->name;
     $email = $request->email;
     $subject = $request->subject;
