@@ -1,4 +1,3 @@
-import { borderRadius } from "@mui/system";
 import React, { Component } from "react";
 import axios from "axios";
 export class User extends Component {
@@ -6,58 +5,56 @@ export class User extends Component {
     super(props);
     this.state = {
       row: [],
-      name: JSON.parse(localStorage.getItem("users"))[0].name,
-      email: JSON.parse(localStorage.getItem("users"))[0].email,
-      password: JSON.parse(localStorage.getItem("users"))[0].password,
-      image: JSON.parse(localStorage.getItem("users"))[0]
-        .image.split(/(\\|\/)/g)
-        .pop(),
-      id: JSON.parse(localStorage.getItem("users"))[0].id,
-      phone: JSON.parse(localStorage.getItem("users"))[0].phone,
+      name: JSON.parse(localStorage.getItem("users")).name,
+      email: JSON.parse(localStorage.getItem("users")).email,
+      password: JSON.parse(localStorage.getItem("users")).password,
+      image: JSON.parse(localStorage.getItem("users")).image,
+      id: JSON.parse(localStorage.getItem("users")).id,
+      phone: JSON.parse(localStorage.getItem("users")).phone,
       url: "",
       selectedFile: "",
     };
   }
-  componentDidMount() {
-    const axios = require("axios");
+  // componentDidMount() {
+  //   const axios = require("axios");
 
-    // Make a request for a user with a given ID
-    axios
-      .get("http://localhost/project-react1/php/user.php")
-      .then((response) => {
-        // handle success
-        console.log(response);
-        let user = [
-          {
-            id: response.data[0].id,
-            email: response.data[0].email,
-            name: response.data[0].name,
-            password: response.data[0].password,
-            image: response.data[0].image,
-            phone: response.data[0].phone,
-          },
-        ];
-        localStorage.setItem("users", JSON.stringify(user));
-        this.setState({
-          row: JSON.parse(localStorage.getItem("users")),
-          name: JSON.parse(localStorage.getItem("users"))[0].name,
-          email: JSON.parse(localStorage.getItem("users"))[0].email,
-          password: JSON.parse(localStorage.getItem("users"))[0].password,
-          image: JSON.parse(localStorage.getItem("users"))[0].image,
-          id: JSON.parse(localStorage.getItem("users"))[0].id,
-          phone: JSON.parse(localStorage.getItem("users"))[0].phone,
-          test: "true",
-        });
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
-        // window.location.href = "http://localhost:3000/User";
-      });
-  }
+  //   // Make a request for a user with a given ID
+  //   axios
+  //     .get("http://localhost/project-react1/php/user.php")
+  //     .then((response) => {
+  //       // handle success
+  //       console.log(response);
+  //       let user = [
+  //         {
+  //           id: response.data.id,
+  //           email: response.data.email,
+  //           name: response.data.name,
+  //           password: response.data.password,
+  //           image: response.data.image,
+  //           phone: response.data.phone,
+  //         },
+  //       ];
+  //       // localStorage.setItem("users", JSON.stringify(user));
+  //       this.setState({
+  //         row: JSON.parse(localStorage.getItem("users")),
+  //         name: JSON.parse(localStorage.getItem("users")).name,
+  //         email: JSON.parse(localStorage.getItem("users")).email,
+  //         password: JSON.parse(localStorage.getItem("users")).password,
+  //         image: JSON.parse(localStorage.getItem("users")).image,
+  //         id: JSON.parse(localStorage.getItem("users")).id,
+  //         phone: JSON.parse(localStorage.getItem("users")).phone,
+  //         test: "true",
+  //       });
+  //     })
+  //     .catch(function (error) {
+  //       // handle error
+  //       console.log(error);
+  //     })
+  //     .then(function () {
+  //       // always executed
+  //       // window.location.href = "http://localhost:3000/User";
+  //     });
+  // }
   userChange = (e) => {
     var id = e.target.id;
     this.setState({
@@ -86,7 +83,7 @@ export class User extends Component {
       this.state.selectedFile,
       this.state.selectedFile.name
     );
-    formData.append("image_name", this.state.selectedFile.name);
+    formData.append("image", this.state.selectedFile.name);
     // const obj = {
     //   id: this.state.id,
     //   name: this.state.name,
@@ -107,19 +104,21 @@ export class User extends Component {
       config: { headers: { "content-Type": "multipart/form-data" } },
     })
       .then((res) => {
+        localStorage.setItem("users", JSON.stringify(res.data));
         console.log(res.data);
         window.location.href = "http://localhost:3000/User";
       })
       .catch((error) => {
         console.log(error.response);
       });
-    // this.setState({
-    //   name: JSON.parse(localStorage.getItem("users"))[0].name,
-    //   email: JSON.parse(localStorage.getItem("users"))[0].email,
-    //   password: JSON.parse(localStorage.getItem("users"))[0].password,
-    //   image: JSON.parse(localStorage.getItem("users"))[0].image,
-    //   id: JSON.parse(localStorage.getItem("users"))[0].id,
-    // });
+    this.setState({
+      name: JSON.parse(localStorage.getItem("users")).name,
+      email: JSON.parse(localStorage.getItem("users")).email,
+      password: JSON.parse(localStorage.getItem("users")).password,
+      image: JSON.parse(localStorage.getItem("users")).image,
+      id: JSON.parse(localStorage.getItem("users")).id,
+      phone: JSON.parse(localStorage.getItem("users")).phone,
+    });
     // e.preventDefault();
   };
   render() {
@@ -148,7 +147,7 @@ export class User extends Component {
                 <div className="contact_form_container">
                   <img
                     src={`userImages/${
-                      JSON.parse(localStorage.getItem("users"))[0].image
+                      JSON.parse(localStorage.getItem("users")).image
                     }`}
                     alt="user"
                     width={"90px"}
@@ -156,7 +155,7 @@ export class User extends Component {
                     style={{ borderRadius: "50%" }}
                   />
                   <div className="contact_title text-center">
-                    {JSON.parse(localStorage.getItem("users"))[0].name}
+                    {JSON.parse(localStorage.getItem("users")).name}
                   </div>
                   <form id="contact_form" className="contact_form text-center">
                     <input
@@ -209,6 +208,7 @@ export class User extends Component {
                       name="file"
                       onChange={this.imageChange}
                       filename={this.state.image}
+                      required
                     />
                     <button
                       id="form_submit_button"
