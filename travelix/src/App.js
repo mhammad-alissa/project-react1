@@ -11,7 +11,12 @@ import Signup from './components/signup/signup';
 import Login from "./components/login/Login";
 import User from "./components/user/User";
 import Footer from "./components/layout/Footer";
+<<<<<<< HEAD
 // import axios from "axios";
+=======
+import History from './History';
+import axios from "axios";
+>>>>>>> 3e6629dbdaccb08e22861e6159250969c3409d46
 import Contact from "./components/contact/Contact";
 import Subcategory from "./components/offers/Subcategory";
 
@@ -48,7 +53,7 @@ class App extends Component {
     <BrowserRouter>
       <div className="App">
       <Navbar />
-      <Routes>
+      <Routes History={History}>
           <Route path='/'  element={<Landing categories={this.state.categories} />}/>
           <Route path='/login' element={<Login />} />
           <Route path='/Subcategory' element={<Subcategory subcategory={this.state.subcategory} />}/>

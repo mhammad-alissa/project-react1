@@ -1,6 +1,6 @@
 import { borderRadius } from "@mui/system";
 import React, { Component } from "react";
-
+import axios from "axios";
 export class User extends Component {
   constructor(props) {
     super(props);
@@ -9,9 +9,13 @@ export class User extends Component {
       name: JSON.parse(localStorage.getItem("users"))[0].name,
       email: JSON.parse(localStorage.getItem("users"))[0].email,
       password: JSON.parse(localStorage.getItem("users"))[0].password,
-      image: JSON.parse(localStorage.getItem("users"))[0].image,
+      image: JSON.parse(localStorage.getItem("users"))[0]
+        .image.split(/(\\|\/)/g)
+        .pop(),
       id: JSON.parse(localStorage.getItem("users"))[0].id,
-
+      phone: JSON.parse(localStorage.getItem("users"))[0].phone,
+      url: "",
+      selectedFile: "",
     };
   }
   componentDidMount() {
@@ -19,7 +23,7 @@ export class User extends Component {
 
     // Make a request for a user with a given ID
     axios
-      .get("http://localhost/project-react1/travelix/user.php")
+      .get("http://localhost/project-react1/php/user.php")
       .then((response) => {
         // handle success
         console.log(response);
@@ -30,6 +34,7 @@ export class User extends Component {
             name: response.data[0].name,
             password: response.data[0].password,
             image: response.data[0].image,
+            phone: response.data[0].phone,
           },
         ];
         localStorage.setItem("users", JSON.stringify(user));
@@ -40,6 +45,8 @@ export class User extends Component {
           password: JSON.parse(localStorage.getItem("users"))[0].password,
           image: JSON.parse(localStorage.getItem("users"))[0].image,
           id: JSON.parse(localStorage.getItem("users"))[0].id,
+          phone: JSON.parse(localStorage.getItem("users"))[0].phone,
+          test: "true",
         });
       })
       .catch(function (error) {
@@ -48,6 +55,7 @@ export class User extends Component {
       })
       .then(function () {
         // always executed
+        // window.location.href = "http://localhost:3000/User";
       });
   }
   userChange = (e) => {
@@ -57,32 +65,66 @@ export class User extends Component {
     });
     document.getElementById(id).value = this.state[e.target.name];
   };
-  userEdit = (e) => {
-    const axios = require("axios");
-    const obj = {
-      id: this.state.id,
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-    };
 
-    axios
-      .post("http://localhost/project-react1/travelix/user.php", obj)
-      .then((res) => console.log(res.data))
+  imageChange = (e) => {
+    this.setState({
+      image: e.target.value,
+      selectedFile: e.target.files[0],
+    });
+  };
+
+  userEdit = (e) => {
+    // e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", this.state.name);
+    formData.append("id", this.state.id);
+    formData.append("email", this.state.email);
+    formData.append("password", this.state.password);
+    formData.append("phone", this.state.phone);
+    formData.append(
+      "test",
+      this.state.selectedFile,
+      this.state.selectedFile.name
+    );
+    formData.append("image_name", this.state.selectedFile.name);
+    // const obj = {
+    //   id: this.state.id,
+    //   name: this.state.name,
+    //   email: this.state.email,
+    //   password: this.state.password,
+    //   phone: this.state.phone,
+    //   image: (this.state.selectedFile, this.state.selectedFile.name),
+    //   image_name: this.state.image.split(/(\\|\/)/g).pop(),
+    //   // file: this.state.selectedFile,
+    //   // url: URL.createObjectURL(e.target.files[0]),
+    //   // file: e.target.files[0],
+    // };
+
+    axios({
+      method: "post",
+      url: "http://localhost/project-react1/php/user.php",
+      data: formData,
+      config: { headers: { "content-Type": "multipart/form-data" } },
+    })
+      .then((res) => {
+        console.log(res.data);
+        window.location.href = "http://localhost:3000/User";
+      })
       .catch((error) => {
         console.log(error.response);
       });
-    this.setState({
-      name: JSON.parse(localStorage.getItem("users"))[0].name,
-      email: JSON.parse(localStorage.getItem("users"))[0].email,
-      password: JSON.parse(localStorage.getItem("users"))[0].password,
-      image: JSON.parse(localStorage.getItem("users"))[0].image,
-      id: JSON.parse(localStorage.getItem("users"))[0].id,
-    });
+    // this.setState({
+    //   name: JSON.parse(localStorage.getItem("users"))[0].name,
+    //   email: JSON.parse(localStorage.getItem("users"))[0].email,
+    //   password: JSON.parse(localStorage.getItem("users"))[0].password,
+    //   image: JSON.parse(localStorage.getItem("users"))[0].image,
+    //   id: JSON.parse(localStorage.getItem("users"))[0].id,
+    // });
+    // e.preventDefault();
   };
   render() {
     return (
-      <section>
+      <section className="mb-4">
         {/* <!-- Home --> */}
 
         <div className="home mb-4">
@@ -101,37 +143,26 @@ export class User extends Component {
         <div className="contact_form_section">
           <div className="container">
             <div className="row">
-              <div className="col">
+              <div className="col-lg-4">
                 {/* <!-- Contact Form --> */}
                 <div className="contact_form_container">
-                  <div className="contact_title text-center">
-                    {/* {this.state.row.map((ele) => {
-                      return (
-                        <section>
-                          <img
-                            src={`userImages/${ele.image}`}
-                            alt="user"
-                            width={"90px"}
-                            height={"90px"}
-                          />
-                          <h4>{ele.name}</h4>
-                        </section>
-                      );
-                    })} */}
-                    {JSON.parse(localStorage.getItem("users"))[0].name}
-                  </div>
                   <img
-                    src={`userImages/${this.state.image}`}
+                    src={`userImages/${
+                      JSON.parse(localStorage.getItem("users"))[0].image
+                    }`}
                     alt="user"
                     width={"90px"}
                     height={"90px"}
                     style={{ borderRadius: "50%" }}
                   />
+                  <div className="contact_title text-center">
+                    {JSON.parse(localStorage.getItem("users"))[0].name}
+                  </div>
                   <form id="contact_form" className="contact_form text-center">
                     <input
                       type="text"
                       id="contact_form_name"
-                      className="contact_form_name input_field"
+                      className="contact_form_subject input_field"
                       placeholder="Name"
                       required="required"
                       data-error="Name is required."
@@ -142,13 +173,24 @@ export class User extends Component {
                     <input
                       type="text"
                       id="contact_form_email"
-                      className="contact_form_email input_field"
+                      className="contact_form_subject input_field"
                       placeholder="E-mail"
                       required="required"
                       data-error="Email is required."
                       value={this.state.email}
                       onChange={this.userChange}
                       name="email"
+                    />
+                    <input
+                      type="text"
+                      id="contact_form_email"
+                      className="contact_form_subject input_field"
+                      placeholder="Phone"
+                      required="required"
+                      data-error="Name is required."
+                      value={this.state.phone}
+                      onChange={this.userChange}
+                      name="phone"
                     />
                     <input
                       type="text"
@@ -161,17 +203,55 @@ export class User extends Component {
                       onChange={this.userChange}
                       name="password"
                     />
+                    <input
+                      type="file"
+                      className="contact_form_subject input_field"
+                      name="file"
+                      onChange={this.imageChange}
+                      filename={this.state.image}
+                    />
                     <button
-                      onClick={this.userEdit}
                       id="form_submit_button"
                       className="form_submit_button button trans_200"
+                      onClick={this.userEdit}
                     >
-                      Update<span></span>
-                      <span></span>
-                      <span></span>
+                      Update
                     </button>
                   </form>
                 </div>
+              </div>
+              <div className="col-lg-8">
+                <h2>Bookings</h2>
+                <table className="contact_form_container table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Handle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                      <td>the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
