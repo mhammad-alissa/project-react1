@@ -1,16 +1,13 @@
 import { React, Component } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import "./elements_responsive.css";
-import "./elements_styles.css";
-import Navbar from "./components/layout/Navbar";
 import Landing from './components/landing/Landing';
-import Category from './components/category/Category';
 import Signup from './components/signup/signup';
-
 import Login from "./components/login/Login";
 import User from "./components/user/User";
-import Footer from "./components/layout/Footer";
+import Footer from "./components/Navbar/Footer";
+import Navbar from "./components/Navbar/Navbar";
+import Test from "./components/Navbar/Test";
 import axios from "axios";
 
 class App extends Component {
@@ -18,43 +15,54 @@ class App extends Component {
     super();
     this.state = {
       categories: [],
+      services  : [],
     };
   }
 
-  async componentDidMount() {
-    const url = "http://localhost/project-react1/php/category.php";
-    const res = await fetch(url);
-    console.log(res)
-    const data = await res.json();
-   this.setState({
-     categories: data,
-    })}
+   componentDidMount() {
+     axios.get("http://localhost/project-react1/services.php").then(res=>{
+       this.setState({
+         services : res.data
+       })
+     })
+     axios.get("http://localhost/project-react1/php/category.php").then(res=>{
+       this.setState({
+         categories : res.data
+       })
+     })
+    // const url = "http://localhost/project-react1/php/category.php";
+    // const res =  await fetch(url);
+    // const data = await res.json();
 
+    // const url2  = "http://localhost/project-react1/services.php";
+    // const res2  = await fetch(url2);
+    // const data2 = await res2.json();
 
-    // axios.get('http://localhost/project-react1/php/category.php')
-    // .then(res=> { this.setState({
-    //   categories: res.data,
-    // })})
-    // .catch(error => {
-    //   console.log(error.response)
+    // this.setState({
+    //   categories : data,
+    //   services   : data2,
+    //   })
+  
+  }
 
   
 
   render() {
-    console.log(this.state.categories)
+    
     return (
-
-    <BrowserRouter>
-      <div className="App">
-      <Navbar />
-      <Routes>
-          <Route path='/'  element={<Landing categories={this.state.categories} />}/>
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} /> 
-          <Route path="/User" element={<User />} />
-          </Routes>
-          <Footer />
-        </div>
+      <BrowserRouter>
+      <div className="super_container">
+        <Routes>
+            <Route path="/" element={<Navbar />} >
+            <Route index element={<Landing categories={this.state.categories} services={this.state.services} />}  />
+            <Route path='/login' element={<Login path={'/login'} />} />
+            <Route path='/signup' element={<Signup />} /> 
+            <Route path="/user" element={<User />} />
+            <Route path="/test" element={<Test />} />
+          </Route>                
+        </Routes>
+        <Footer />
+      </div>
       </BrowserRouter>
     );
   }

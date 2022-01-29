@@ -1320,6 +1320,24 @@ section
 	color: #fa9e1b;
 }
 
+.contact_form > div {
+	display: inline-block;
+	width: 100%;
+}
+
+.contact_form div input,
+.contact_form > div > label {
+	width: 100%;
+}
+
+.contact_form > div > label {
+	font-size: 12px;
+	margin-top: 5px;
+	color: black;
+	font-weight: bold;
+}
+
+
 /*********************************
 12. Copyright
 *********************************/

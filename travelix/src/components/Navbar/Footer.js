@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link} from "react-router-dom";
+
 
 export class footer extends Component {
   render() {
@@ -16,7 +17,7 @@ export class footer extends Component {
 							<div className="logo_container footer_logo">
 								<div className="logo"><Link to="/"><img src="images/logo.png" alt=""/>travelix</Link></div>
 							</div>
-							<p className="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula pretium.</p>
+							<p className="footer_about_text">Travleix, is an exclusive travel and lifestyle service, founded by Mashi Group 2022. Since its inception, it has encapsulated a simple idea: exceptional personal service at an unsurpassed level. </p>
 							<ul className="footer_social_list">
 								<li className="footer_social_item"><Link to="/"><i className="fa fa-pinterest"></i></Link></li>
 								<li className="footer_social_item"><Link to="/"><i className="fa fa-facebook-f"></i></Link></li>
@@ -92,11 +93,11 @@ export class footer extends Component {
 							<ul className="contact_info_list">
 								<li className="contact_info_item d-flex flex-row">
 									<div><div className="contact_info_icon"><img src="images/placeholder.svg" alt=""/></div></div>
-									<div className="contact_info_text">4127 Raoul Wallenber 45b-c Gibraltar</div>
+									<div className="contact_info_text">Al 'abdali, Amman, Jordanr</div>
 								</li>
 								<li className="contact_info_item d-flex flex-row">
 									<div><div className="contact_info_icon"><img src="images/phone-call.svg" alt=""/></div></div>
-									<div className="contact_info_text">2556-808-8613</div>
+									<div className="contact_info_text">+962-7777-777-777</div>
 								</li>
 								<li className="contact_info_item d-flex flex-row">
 									<div><div className="contact_info_icon"><img src="images/message.svg" alt=""/></div></div>
