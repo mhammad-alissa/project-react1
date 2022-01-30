@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Search from "../weather/components/Search";
-import Weather from "../weather/Weather";
 import { Outlet, Link } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
 
@@ -124,10 +122,10 @@ class Navbar extends Component {
                       >
                         <Link to="">Logout</Link>
                       </li>
-                        {/* <li className="main_nav_item" style={{transform:'scale(0.5)'}}>
-                          <Weather/>
-                        </li> */}
+                        <li className="main_nav_item" style={{transform:'scale(0.5)'}}> */}
+                       </li>
                     </ul>
+                      {/*
                   </div>
 
                   <form id="search_form" className="search_form bez_1">
@@ -139,8 +137,7 @@ class Navbar extends Component {
 
                   <div className="hamburger">                    
                     <i className="fa fa-bars trans_200"></i>
-					{/* <div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div> */}
-{/* <img src="./home_slider.jpg" alt=""></img> */}
+					 <div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div>  <img src="./home_slider.jpg" alt=""></img> */}
                   </div>
                   
                 </div>

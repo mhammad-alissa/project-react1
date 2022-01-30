@@ -3,7 +3,8 @@ import React from "react";
 import Weather from "./Weather";
 import Forecast from "./Forecast";
 
-import "../styles/WeatherAndForecast.css";
+import "../wstyles/WeatherAndForecast.css";
+
 
 function WeatherAndForecast({ weatherInfo, location }) {
   const date = dateBuilder(new Date());
