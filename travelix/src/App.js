@@ -14,6 +14,10 @@ import Subcategory from "./components/offers/subcategory";
 import Service from "./components/service/Service";
 import Weather from "./components/weather/Weather";
 import About from "./components/about/About";
+import "./main_styles.css"
+import "./responsive.css"
+import Category from "./components/category/Category";
+
 
 // import Subcategory from "./components/offers/Subcategory";
 
@@ -65,6 +69,7 @@ class App extends Component {
                 }
               />
               <Route path="/login" element={<Login path={"/login"} />} />
+              <Route path="/category" element={<Category categories={this.state.categories} />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/user" element={<User />} />
               <Route path="/test" element={<Test />} />

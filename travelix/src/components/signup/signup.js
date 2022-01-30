@@ -162,7 +162,7 @@ class Signup extends Component {
               image: res.data.image,
             };
             localStorage.setItem("users", JSON.stringify(obj));
-            window.location.href = "http://localhost:3000";
+            window.location.href = "/ ";
             console.log(res.data);
           } else {
             this.setState({

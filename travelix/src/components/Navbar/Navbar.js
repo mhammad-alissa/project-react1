@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Search from "../weather/components/Search";
-import Weather from "../weather/Weather";
 import { Outlet, Link } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
 
@@ -31,17 +29,22 @@ class Navbar extends Component {
                 <div className="col main_nav_col landing-nav d-flex flex-row align-items-center justify-content-start">
                   <div className="logo_container">
                     <div className="logo">
-                      <Link to="/">
+                      <Link onClick={(e) => this.locationHandler(e)} to="/">
                         <img src="images/logo.png" alt="logo" />
                         travelix
                       </Link>
                     </div>
                   </div>
-                  <div className="main_nav_container ml-auto">
+                  <div className="main_nav_container ml-auto mr-0">
                     <ul className="main_nav_list">
                       <li className="main_nav_item">
                         <Link to="/" onClick={(e) => this.locationHandler(e)}>
                           Home
+                        </Link>
+                      </li>
+                      <li className="main_nav_item">
+                        <Link to="/category" onClick={(e) => this.locationHandler(e)}>
+                          Categories
                         </Link>
                       </li>
                       <li className="main_nav_item">
@@ -128,6 +131,7 @@ class Navbar extends Component {
                           <Weather/>
                         </li> */}
                     </ul>
+                      {/*
                   </div>
 
                   <form id="search_form" className="search_form bez_1">
@@ -139,8 +143,7 @@ class Navbar extends Component {
 
                   <div className="hamburger">                    
                     <i className="fa fa-bars trans_200"></i>
-					{/* <div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div> */}
-{/* <img src="./home_slider.jpg" alt=""></img> */}
+					 <div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div>  <img src="./home_slider.jpg" alt=""></img> */}
                   </div>
                   
                 </div>
