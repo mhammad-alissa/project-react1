@@ -24,6 +24,23 @@
 .CardActions{
     justify-content: center;
 }
+
+.form_submit_button {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 53px;
+    padding-left: 29px;
+    padding-right: 29px;
+    background: #31124b;
+    transform: translateY(15px);
+    border: none;
+    outline: none;
+    margin-top: 37px;
+    cursor: pointer;
+    margin-left: 0px;
+}
 @media only screen and (max-width: 575px){
  
       .cardStyle{

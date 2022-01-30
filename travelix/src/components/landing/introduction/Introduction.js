@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Weather from '../../weather/Weather';
 import IntroItem from './IntroItem';
 
 export class Introduction extends Component {
@@ -21,7 +22,6 @@ export class Introduction extends Component {
 			<div className="row intro_items">
 
 				{/* <!-- Intro Item --> */}
-
 				<IntroItem categories={this.props.categories} />
 		
 			</div>

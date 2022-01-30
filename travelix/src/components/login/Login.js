@@ -61,7 +61,7 @@ class login extends Component {
 
         if (res.data.id != null) {
           localStorage.setItem("users", JSON.stringify(obj));
-          window.location.href = "http://localhost:3000";
+          window.location.href = "/";
         }
       })
       .catch((error) => {

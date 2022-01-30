@@ -12,7 +12,7 @@ export class Service extends Component {
       subcategory: [],
     };
   }
-  componentDidMount() {
+  componentDidMount() { 
     const url = "http://localhost/project-react1/php/service.php";
     axios
       .get(url)
@@ -326,7 +326,7 @@ export class Service extends Component {
                             <option>03</option>
                           </select>
                         </div>
-                        <button className="button search_button">
+                        <button className="button search_button-single">
                           search<span></span>
                           <span></span>
                           <span></span>

@@ -1,8 +1,8 @@
 import React from "react";
 
-import "../styles/Weather.css";
+import "../wstyles/Weather.css";
 
-export default function Current({ weatherInfo, location, date }) {
+ function Current({ weatherInfo, location, date }) {
   return (
     <div className="Weather">
       <div className="Weather__info">
@@ -30,7 +30,7 @@ export default function Current({ weatherInfo, location, date }) {
       <div className="Weather__other-info">
         <h2 className="other-info__city">
           {location.city || location.town},{" "}
-          {location.state || location.country.toUpperCase()}
+          {location.state || location.country}
         </h2>
         <h3 className="other-info__clouds">{date}</h3>
         <h3 className="other-info__clouds">
@@ -40,3 +40,4 @@ export default function Current({ weatherInfo, location, date }) {
     </div>
   );
 }
+export default Current;

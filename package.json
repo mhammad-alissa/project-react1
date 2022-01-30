@@ -1,9 +1,6 @@
 {
   "dependencies": {
-<<<<<<< HEAD
     "jquery": "^3.6.0",
-=======
->>>>>>> 31ac8b024349bd568db0774bad5611d420618697
     "sweetalert2": "^11.3.10"
   }
 }

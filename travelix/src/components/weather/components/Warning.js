@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/Warning.css";
+import "../wstyles/Warning.css";
 
 function Warning() {
   return (
