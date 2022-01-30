@@ -58,7 +58,7 @@ function WeatherAndForecast({ weatherInfo, location }) {
   }
 
   return (
-    <div className="WeatherAndForecast">
+    <div className="WeatherAndForecast mini_waf">
       <Weather weatherInfo={weatherInfo} location={location} date={date[0]} />
       {ShowForcast()}
     </div>

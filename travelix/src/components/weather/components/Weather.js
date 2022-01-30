@@ -4,8 +4,8 @@ import "../wstyles/Weather.css";
 
  function Current({ weatherInfo, location, date }) {
   return (
-    <div className="Weather">
-      <div className="Weather__info">
+    <div className="Weather mini_weather">
+      <div className="Weather__info mini_weather_info">
         <img
           className="Weather__icon"
           src={
@@ -15,8 +15,8 @@ import "../wstyles/Weather.css";
           }
           alt={weatherInfo.current.weather[0].main}
         />
-        <ul className="Weather__list">
-          <li className="list__temperature">
+        <ul className="Weather__list mini_weather_list">
+          <li className="list__temperature mini_list">
             {Math.round(weatherInfo.current.temp)}
             <sup className="list__temperature-symbol">°C</sup>
           </li>
@@ -27,7 +27,7 @@ import "../wstyles/Weather.css";
           </li>
         </ul>
       </div>
-      <div className="Weather__other-info">
+      <div className="Weather__other-info mini_other_info">
         <h2 className="other-info__city">
           {location.city || location.town},{" "}
           {location.state || location.country}

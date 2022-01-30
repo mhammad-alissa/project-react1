@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./wstyles/Weather.css";
-import "./wstyles/App.css";
+import "./wstyles/miniweather.css";
 import Header from "./components/Header";
 import WeatherAndForecast from "./components/WeatherAndForecast";
 import Loader from "./components/Loader";
@@ -110,9 +109,8 @@ function Weather() {
   };
 
   return (
-    <div className="App">
-      <div className="Appbg">
-      <div className="App__container">
+    <div className="App mini_app">
+      <div className="App__container mini_app_container">
         <>
         {
           window.location.href.endsWith("/weather")
@@ -123,7 +121,6 @@ function Weather() {
         }
           {Main[contentState]()}
         </>
-      </div>
       </div>
     </div>
   );
