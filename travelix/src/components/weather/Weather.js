@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-
+import "./wstyles/Weather.css";
+import "./wstyles/App.css";
 import Header from "./components/Header";
 import WeatherAndForecast from "./components/WeatherAndForecast";
 import Loader from "./components/Loader";
 import Warning from "./components/Warning";
-
 import getAddressOfCoordinates from "./api/reverseGeocoding";
 import getCoordinatesOfAddress from "./api/forwardGeocoding";
 import getWeatherAndForecast from "./api/weatherAndForecast";
