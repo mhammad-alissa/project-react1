@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import ServiceItem from './ServiceItem';
 
 export class Services extends Component {
+
   render() {
+	  const services = this.props.services.filter(service=>{
+				return service.category_name === "Hotels";
+			})
+
     return (
         <div className="offers">
 		<div className="container">
@@ -11,44 +17,11 @@ export class Services extends Component {
 				</div>
 			</div>
 			<div className="row offers_items">
-
-				{/* <!-- Offers Item --> */}
-				<div className="col-lg-6 offers_col">
-					<div className="offers_item">
-						<div className="row">
-							<div className="col-lg-6">
-								<div className="offers_image_container">
-									{/* <!-- Image by https://unsplash.com/@kensuarez --> */}
-									<div className="offers_image_background" style={{backgroundImage:"url(images/offer_1.jpg)"}}></div>
-									<div className="offer_name"><a href="#">grand castle</a></div>
-								</div>
-							</div>
-							<div className="col-lg-6">
-								<div className="offers_content">
-									<div className="offers_price">$70<span>per night</span></div>
-									<div className="rating_r rating_r_4 offers_rating">
-										<i></i>
-										<i></i>
-										<i></i>
-										<i></i>
-										<i></i>
-									</div>
-									<p className="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
-									<div className="offers_icons">
-										<ul className="offers_icons_list">
-											<li className="offers_icons_item"><img src="images/post.png" alt="" /></li>
-											<li className="offers_icons_item"><img src="images/compass.png" alt="" /></li>
-											<li className="offers_icons_item"><img src="images/bicycle.png" alt="" /></li>
-											<li className="offers_icons_item"><img src="images/sailboat.png" alt="" /></li>
-										</ul>
-									</div>
-									<div className="offers_link"><a href="offers.html">read more</a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
+			{	
+				services.map(service => {
+					return  <ServiceItem key={service.id} name={service.name} image={service.image} description={service.description} price={service.price}  />
+				})
+			}
 				
 
 			</div>

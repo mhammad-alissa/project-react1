@@ -5,13 +5,11 @@ export class IntroItem extends Component {
   render() {
     return (
         <>
-		{/* {`/Subcategory/${category.id}`} */}
         {this.props.categories.map(category=>{
             return (
-                    <div key={category.id} className="col-lg-4 intro_col">
+                    <div key={category.id} className="col-lg-4 mb-3 intro_col">
 					<div className="intro_item">
 						<div className="intro_item_overlay"></div>
-						{/* <!-- Image by https://unsplash.com/@dnevozhai --> */}
 						<div className="intro_item_background" style={{backgroundImage:`url(categoryImages/${category.image})`}}></div>
 						<div className="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							{/* <div className="intro_date">May 25th - June 01st</div> */}

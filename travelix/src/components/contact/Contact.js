@@ -1,81 +1,114 @@
 import React, { Component } from 'react';
-// import './contact_responsive.css';
-// import './contact_styles.css';
-// import './contact_custom'
-
 import axios from 'axios';
+import Swal from "sweetalert2";
 import './contact.css'
-// import { Link } from 'react-router-dom';
 
-export class Contact extends Component {
-
-	constructor(props){
-		super(props);
-		this.handleNameChange = this.handleNameChange.bind(this);
-		this.handleEmailChange = this.handleEmailChange.bind(this);
-		this.handleSubjectChange = this.handleSubjectChange.bind(this);
-		this.handleMessageChange = this.handleMessageChange.bind(this);
-
-		this.state={
-			name:"",
-			email:"",
-			subject:"",
-			message:""
+class Contact extends Component {
+ 
+	state = {
+		contact : {
+			name    : "",
+			email   : "",
+			subject : "",
+			message : "",
+		},
+		errors : {
+			name    : "",
+			email   : "",
+			subject : "",
+			message : "",
 		}
 	}
 
-	handleNameChange=(event)=>{
-		this.setState({
-			name:event.target.value
-		})
+	ContactHandler = (event) => {
+	event.preventDefault()
+	let regexEmail = /^[A-ZA-z0-9._-]+@(hotmail|gmail|yahoo|outlook).com$/;
+	let {name, email, subject, message} = this.state.contact
+	let error  = false;
+	for(let key in this.state.contact){
+		if(this.state.contact[key].trim() === "" ){
+			error = true;	
+			this.ErrorValues(key,true);		
+		}
+		else {
+			this.ErrorValues(key,false);
+			if(key === 'email' && !(regexEmail.test(this.state.contact[key]))) {
+			this.setState( preState => ({
+			...preState ,
+		errors: {
+			...preState.errors , [key]: "Must be Email"
+		}
+		}))
+			}
+		}
 	}
-	handleEmailChange=(event)=>{
-		this.setState({
-			email:event.target.value
-		})
-	}
-	handleSubjectChange=(event)=>{
-		this.setState({
-			subject:event.target.value
-		})
-	}
-	handleMessageChange=(event)=>{
-		this.setState({
-			message:event.target.value
-		})
-	}
-	handleSubmitChange=(event)=>{
-		event.preventDefault();
-		console.log(event);
-
-		const obj ={
-			name:this.state.name,
-        	email:this.state.email,
-			subject:this.state.subject,
-			message:this.state.message
-          };
-
-		axios.post('http://localhost/project-react1/php/contact.php',obj)
-
-		
-
-		this.setState({
-			name:"",
-			email:"",
-			subject:"",
-			message:""
-		})
-		
-	}
-
 	
+	if(!error)
+{
+	  let formData = new FormData();
+      formData.append('name', name)
+      formData.append('email', email)
+      formData.append('subject', subject)
+      formData.append('message', message)
+
+        axios({
+            method: 'post',
+            url: 'http://localhost/project-react1/contact.php',
+			data: formData,
+			config: { headers: {'Content-Type': 'multipart/form-data' }},
+        })
+        .then((response) => {
+            if(response.status === 200) {
+				this.ClearContactValues()
+                Swal.fire(
+				'Sent Succesfully',
+				'Thank you for contacting us',
+				'success'
+				)
+            }
+        })
+        .catch(function (response) {
+            console.log(response)
+        });
+	}
+  }    
+
+  	ErrorValues = (key,status) => {
+			this.setState( preState => ({
+			...preState ,
+		errors: {
+			...preState.errors , [key]: status ? "* This field is required! " : ""
+		}
+		}))  
+	  }
+
+	  ClearContactValues = () => {
+		  this.setState({
+			  contact : {
+				  	name    : "",
+					email   : "",
+					subject : "",
+					message : "",
+			  }
+		  })
+	  }
+
+	ContactValues = (event) => {
+		this.setState( preState => ({
+			...preState ,
+		contact: {
+			...preState.contact , [event.target.name]: event.target.value
+		}
+		}))
+	}
+
 	
   render() {
     return (
-    	<div className="contact">
-		{/* <!-- Home --> */}
-		<div className="home ">
-		<img
+      <div className="contact">
+        {/* <!-- Home --> */}
+        <div className="home ">
+          <img
             className="home_background parallax-window"
             data-parallax="scroll"
             src="images/contact_background.jpg"
@@ -92,12 +125,25 @@ export class Contact extends Component {
 				<div className="col-lg-12" >
 					<div className="contact_form_container">
 						<div className="contact_title">get in touch</div>
-						<form id="contact_form" className="contact_form">
-							<input type="text"  value={this.state.name} onChange={this.handleNameChange} id="contact_form_name" className="contact_form_name input_field" placeholder="Name" required data-error="Name is required."/>
-							<input type="text"  value={this.state.email} onChange={this.handleEmailChange} id="contact_form_email" className="contact_form_email input_field" placeholder="E-mail" required  data-error="Email is required."/>
-							<input type="text"  value={this.state.subject} onChange={this.handleSubjectChange} id="contact_form_subject" className="contact_form_subject input_field" placeholder="Subject" required  data-error="Subject is required."/>
-							<textarea id="contact_form_message"  value={this.state.message} onChange={this.handleMessageChange} className="text_field contact_form_message" name="message" rows="4" placeholder="Message" required  data-error="Please, write us a message."></textarea>
-							<button type="submit" value="submit" id="form_submit_button" onClick={this.handleSubmitChange} className="form_submit_button button">send message<span></span><span></span><span></span></button>
+						<form id="contact_form" className="contact_form" noValidate>
+					
+								<input value={this.state.contact.name} id='contact_form_name' autoComplete='off' type="text"  className="contact_form_name input_field" placeholder="Name"  name='name' onInput={this.ContactValues} />
+								<br/>
+								<span className='error' htmlFor="">{this.state.errors.name}</span>
+								<br/>
+								<input value={this.state.contact.email} id='contact_form_email' autoComplete='off' type="email"  className="contact_form_email input_field" placeholder="E-mail"  name='email' onInput={this.ContactValues} />
+								<br/>
+								<span className='error' htmlFor="">{this.state.errors.email}</span>
+								<br/>
+								<input value={this.state.contact.subject} id='contact_form_subject' autoComplete='off' type="text" className="contact_form_subject input_field" placeholder="Subject"  name='subject' onInput={this.ContactValues} />
+								<br/>
+								<span className='error'  htmlFor="">{this.state.errors.subject}</span>								
+								<br/>
+								<textarea value={this.state.contact.message}  id='contact_form_message' className="text_field contact_form_message" name="message" rows="4" placeholder="Message" onInput={this.ContactValues} ></textarea>
+								<br/>
+								<span className='error' htmlFor="">{this.state.errors.message}</span>								
+								<br/>
+							<button onClick={(e)=>this.ContactHandler(e)} className="form_submit_button button">send message<span></span><span></span><span></span></button>
 						</form>
 					</div>
 				</div>
@@ -119,7 +165,7 @@ export class Contact extends Component {
 
 				</div>
 
-				<div className="col-lg-4">
+				<div className="col-lg-4 About-text">
 					
 					{/* <!-- About - Content --> */}
 
@@ -127,7 +173,12 @@ export class Contact extends Component {
 						<div className="logo_container about_logo">
 							<div className="logo"><a href="#"><img src="images/logo.png" alt="" />travelix</a></div>
 						</div>
-						<p className="about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula iaculis consequat nisl. Nunc et suscipit urna pretium.</p>
+						<p className="about_text">GOING BEYOND SATISFACTION
+								To deliver the best experience each day, we personalize each point of contact with great 
+								care and attention to detail, whether for our clients, partners or employees. We consistently
+								strive for excellence
+								and share the desire to
+								surpass expectations and offer the best to our members.</p>
 						<ul className="about_social_list">
 							<li className="about_social_item"><a href="#"><i className="fa fa-pinterest"></i></a></li>
 							<li className="about_social_item"><a href="#"><i className="fa fa-facebook-f"></i></a></li>
@@ -175,7 +226,3 @@ export class Contact extends Component {
 }
 
 export default Contact;
-
-
-
-

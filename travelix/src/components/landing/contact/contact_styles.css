@@ -37,8 +37,8 @@
 @font-face
 {
 	font-family: 'Beyond';
-	src: url('../fonts/beyond_the_mountains.otf')  format('truetype'),
-		 url('../fonts/beyond_the_mountains.ttf')  format('opentype');
+	src: url('../../../../public/fonts/beyond_the_mountains.otf')  format('truetype'),
+		 url('../../../../public/fonts/beyond_the_mountains.ttf')  format('opentype');
 }
 
 /*********************************
@@ -418,6 +418,18 @@ section
 	height: 9px;
 	content: '';
 }
+
+.search-booking {
+    color: black;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 5px;	
+}
+
+.main_nav_col.landing-nav {
+	height: 110px;
+}
+
 .main_nav_col
 {
 	height: 143px;
@@ -1265,6 +1277,24 @@ section
 {
 	color: #fa9e1b;
 }
+
+.contact_form > div {
+	display: inline-block;
+	width: 100%;
+}
+
+.contact_form div input,
+.contact_form > div > label {
+	width: 100%;
+}
+
+.contact_form > div > label {
+	font-size: 12px;
+	margin-top: 5px;
+	color: black;
+	font-weight: bold;
+}
+
 
 /*********************************
 9. Copyright

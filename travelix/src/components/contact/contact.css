@@ -15,12 +15,31 @@
     font-size: 18px;
 }
 
+.contact_title{
+    text-align: center;
+}
+
+.contact_form .error{
+    
+    border-radius: 5px;
+    padding: 10px;
+    color: rgb(58, 21, 100,1);
+    font-size: 18px;
+}
+
 .contact_form textarea{
     font-size: 16px;
 }
 
-.aboutContainer{
-    margin-left: 0;
+.contact_form .input_field{
+    width: 100%;
+}
+
+
+
+.about{
+    padding-bottom: 85px;
+    padding-top: 30px;
 }
 
 .contact_info_text{
@@ -69,6 +88,15 @@
 .about_social_item:hover{
     background-color:#fa9e1b ;
 }
+
+
+@media only screen and (max-width: 990px) {
+    .About-text{
+        padding-top: 10%;
+    }
+  }
+
+
 
 
 

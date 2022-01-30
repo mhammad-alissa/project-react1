@@ -1,61 +1,77 @@
 import { React, Component } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css';
-import './elements_responsive.css'
-import './elements_styles.css'
-import Navbar from "./components/layout/Navbar";
-import Landing from './components/landing/Landing';
-// import Category from './components/category/Category';
-import Signup from './components/signup/signup';
-
+import "./App.css";
+import Landing from "./components/landing/Landing";
+import Signup from "./components/signup/signup";
 import Login from "./components/login/Login";
 import User from "./components/user/User";
-import Footer from "./components/layout/Footer";
-import History from './History';
+import Navbar from "./components/Navbar/Navbar";
+import Test from "./components/Navbar/Test";
 import axios from "axios";
 import Contact from "./components/contact/Contact";
-import Subcategory from "./components/offers/Subcategory";
+import Footer from "./components/Navbar/Footer";
+import Subcategory from "./components/offers/subcategory";
+import Weather from "./components/weather/Weather";
+import About from "./components/about/About";
+
+// import Subcategory from "./components/offers/Subcategory";
 
 class App extends Component {
+
+  
   constructor() {
     super();
     this.state = {
       categories: [],
+      services: [],
+      location: '', 
+      degree: '',
+      forecast: [],
+      main: ''
     };
   }
 
-  async componentDidMount() {
-    const url = "http://localhost/project-react1/php/category.php";
-    const res = await fetch(url);
-    console.log(res)
-    const data = await res.json();
-   this.setState({
-     categories: data,
-    })}
-
-
-    // axios.get('http://localhost/project-react1/php/category.php')
-    // .then(res=> { this.setState({
-    //   categories: res.data,
-    // })})
-    // .catch(error => {
-    //   console.log(error.response)
-    
+  componentDidMount() {
+    axios.get("http://localhost/project-react1/services.php").then((res) => {
+      this.setState({
+        services: res.data,
+      });
+    });
+    axios
+      .get("http://localhost/project-react1/php/category.php")
+      .then((res) => {
+        this.setState({
+          categories: res.data,
+        });
+      });
+   
+  }
 
   render() {
-    console.log(this.state.categories)
+   
     return (
-
-    <BrowserRouter>
-      <div className="App">
-      <Navbar />
-      <Routes History={History}>
-          <Route path='/'  element={<Landing categories={this.state.categories} />}/>
-          <Route path='/login' element={<Login />} />
-          <Route path='/Subcategory' element={<Subcategory subcategory={this.state.subcategory} />}/>
-          <Route path='/signup' element={<Signup />} /> 
-          <Route path="/User" element={<User />} />
-          <Route path="/contact" element={<Contact/>} />
+      <BrowserRouter>
+        <div className="super_container">
+          <Routes>
+            <Route path="/" element={<Navbar />}>
+              <Route
+                index
+                element={
+                  <Landing
+                    categories={this.state.categories}
+                    services={this.state.services}
+                  />
+                }
+              />
+              <Route path="/login" element={<Login path={"/login"} />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/user" element={<User />} />
+              <Route path="/test" element={<Test />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/weather" element={<Weather />} />
+              <Route path="/Subcategory" element={<Subcategory />} />
+            </Route>
           </Routes>
           <Footer />
         </div>
