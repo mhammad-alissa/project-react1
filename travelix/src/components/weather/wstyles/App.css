@@ -18,10 +18,7 @@ body {
   background-image: url(../img/background.jpg);
  height: 800px;
 }
-.Appbg {
-  background-color: rgba(0,0,0,.45);
- height: 800px;
-}
+
 .App__container {
   max-width: 500px;
   min-height: 50vh;

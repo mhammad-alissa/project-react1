@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
-import Miniweather from "../weather/Miniweather";
 
 
 class Navbar extends Component {
@@ -125,9 +124,9 @@ class Navbar extends Component {
                       >
                         <Link to="">Logout</Link>
                       </li>
-                        <li className="main_nav_item" style={{transform:'scale(0.3)'}}>
-                          <Miniweather /> 
-                        </li>
+                        {/* <li className="main_nav_item" style={{transform:'scale(0.5)'}}>
+                          <Weather/>
+                        </li> */}
                     </ul>
                      
                   </div>
@@ -204,7 +203,7 @@ class Navbar extends Component {
                       >
                         <Link to="">Logout</Link>
               </li>
-            
+
             </ul>
           </div>
         </div> 

@@ -111,7 +111,6 @@ function Weather() {
 
   return (
     <div className="App">
-       <div className="Appbg">
       <div className="App__container">
         <>
         {
@@ -123,7 +122,6 @@ function Weather() {
         }
           {Main[contentState]()}
         </>
-      </div>
       </div>
     </div>
   );
