@@ -113,7 +113,13 @@ function Weather() {
     <div className="App">
       <div className="App__container">
         <>
+        {
+          window.location.href.endsWith("/weather")
+          ?
           <Header searchCity={searchCity} />
+          :
+          ""
+        }
           {Main[contentState]()}
         </>
       </div>

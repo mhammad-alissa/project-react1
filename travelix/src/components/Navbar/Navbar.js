@@ -31,17 +31,22 @@ class Navbar extends Component {
                 <div className="col main_nav_col landing-nav d-flex flex-row align-items-center justify-content-start">
                   <div className="logo_container">
                     <div className="logo">
-                      <Link to="/">
+                      <Link onClick={(e) => this.locationHandler(e)} to="/">
                         <img src="images/logo.png" alt="logo" />
                         travelix
                       </Link>
                     </div>
                   </div>
-                  <div className="main_nav_container ml-auto">
+                  <div className="main_nav_container ml-auto mr-0">
                     <ul className="main_nav_list">
                       <li className="main_nav_item">
                         <Link to="/" onClick={(e) => this.locationHandler(e)}>
                           Home
+                        </Link>
+                      </li>
+                      <li className="main_nav_item">
+                        <Link to="/category" onClick={(e) => this.locationHandler(e)}>
+                          Categories
                         </Link>
                       </li>
                       <li className="main_nav_item">
@@ -124,6 +129,10 @@ class Navbar extends Component {
                       >
                         <Link to="">Logout</Link>
                       </li>
+                      <li>
+                        {/* <Weather /> */}
+                      </li>
+
                         {/* <li className="main_nav_item" style={{transform:'scale(0.5)'}}>
                           <Weather/>
                         </li> */}
