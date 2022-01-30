@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./wstyles/Weather.css";
 import "./wstyles/App.css";
+import "./wstyles/miniweather.css";
 import Header from "./components/Header";
 import WeatherAndForecast from "./components/WeatherAndForecast";
 import Loader from "./components/Loader";
@@ -110,7 +111,7 @@ function Weather() {
   };
 
   return (
-    <div className="App">
+    <div className="App miniapp">
        <div className="Appbg">
       <div className="App__container">
         <>
