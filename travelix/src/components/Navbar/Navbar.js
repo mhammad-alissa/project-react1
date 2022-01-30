@@ -122,11 +122,8 @@ class Navbar extends Component {
                         }
                         onClick={this.logout}
                       >
-                        <Link to="">Logout</Link>
+                        <Link to="/">Logout</Link>
                       </li>
-                        {/* <li className="main_nav_item" style={{transform:'scale(0.5)'}}>
-                          <Weather/>
-                        </li> */}
                     </ul>
                      
                   </div>
