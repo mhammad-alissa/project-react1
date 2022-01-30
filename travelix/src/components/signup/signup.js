@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import TextBox from "../../core/textField/textField";
 
+
 import { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -215,14 +216,14 @@ class Signup extends Component {
                 onChange={this.onChangePhone}
               />
               <small id="phoneMessageError" className="form-text"></small>
-
+          
               <TextBox
+                type={'password'}
                 label="Password"
                 value={this.state.password}
                 onChange={this.onChangePassword}
               />
               <small id="passMessageError" className="form-text"></small>
-
               <TextBox
                 label="Conform Password"
                 value={this.state.passwordConform}
