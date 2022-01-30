@@ -83,7 +83,6 @@ export class Search extends Component {
         })
         .then((response) => {
             if(response.status === 200) {
-				console.log(response)
                 Swal.fire(
 				'Booking Succesfull',
 				`Booking ID is: ${response.data[1]} `,
@@ -92,7 +91,6 @@ export class Search extends Component {
             }
         })
         .catch(function (response) {
-            console.log(response)
         });
 			}
 		}
@@ -166,7 +164,6 @@ export class Search extends Component {
 					</div>
 
 					{/* <!-- Search Panel --> */}
-							{console.log(this.state.bookingErrors.service)}
 					<div className="search_panel active">
 						<form id="search_form_1" className="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div style={this.state.bookingErrors.service !== "" ? {marginTop:"32px"} : {} } className="search_item">

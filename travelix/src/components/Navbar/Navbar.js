@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
-import image3 from './home_slider.jpg'; 
 
-export class Navbar extends Component {
+
+class Navbar extends Component {
   state = {
     url: window.location.href,
   };
@@ -43,16 +43,16 @@ export class Navbar extends Component {
                         </Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/about">about us</Link>
+                        <Link to="/about" onClick={(e) => this.locationHandler(e)}>about us</Link>
                       </li>
                       <li className="main_nav_item">
                         <Link to="/offers">offers</Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/contact">contact</Link>
+                        <Link to="/contact" onClick={(e) => this.locationHandler(e)}>contact</Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/weather">Weather</Link>
+                        <Link to="/weather" onClick={(e) => this.locationHandler(e)}>Weather</Link>
                       </li>
                       <li
                         style={
@@ -172,9 +172,8 @@ export class Navbar extends Component {
               </li>
             </ul>
           </div>
-        </div>
-
-        {this.state.url.endsWith("/") ? <HedaerIndex /> : ""}
+        </div> 
+        {this.state.url.endsWith("/") ? <HedaerIndex display={"block"}/> : <HedaerIndex display={"none"} />  }
 
         <Outlet />
       </>
