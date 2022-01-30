@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Weather from '../../weather/Weather';
 import IntroItem from './IntroItem';
 
 export class Introduction extends Component {
