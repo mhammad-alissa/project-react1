@@ -11,6 +11,7 @@ import axios from "axios";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/Navbar/Footer";
 import Subcategory from "./components/offers/subcategory";
+import Service from "./components/service/Service";
 
 // import Subcategory from "./components/offers/Subcategory";
 
@@ -71,6 +72,7 @@ class App extends Component {
               <Route path="/test" element={<Test />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/Subcategory" element={<Subcategory />} />
+              <Route path="/service" element={<Service />} />
             </Route>
           </Routes>
           <Footer />
