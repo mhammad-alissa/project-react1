@@ -1,0 +1,43 @@
+.main_nav_container {
+    margin-right: 150px !important;
+}
+
+.mini_app_container{
+    margin-left: 150px !important;
+}
+
+.mini_app {
+    background: none;
+    height: 0 !important;
+    position: absolute;
+    bottom: 130px;
+}
+
+.mini_weather{
+    align-items: center;
+   
+}
+
+.mini_weather_info{
+   margin-right: 30px;
+
+}
+
+
+
+.mini_weather_list .mini_list{
+    font-size: 30px;
+    margin: 0;
+}
+
+
+.mini_weather_list li{
+    font-size: 25px;
+    margin: 0;
+}
+
+.mini_other_info h2, .mini_other_info h3{
+    font-size: 25px;
+    margin: 0;
+}
+
