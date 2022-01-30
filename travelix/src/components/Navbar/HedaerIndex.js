@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import image3 from './home_slider.jpg'; 
 import Slider from './Slider';
 export class HedaerIndex extends Component {
   render() {
