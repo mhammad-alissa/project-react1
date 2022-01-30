@@ -3,7 +3,6 @@ import "./single_listing_styles.css";
 import "./single_listing_responsive.css";
 import "./single_listing_custom.js";
 import axios from "axios";
-import { Outlet, Link } from "react-router-dom";
 
 export class Service extends Component {
   constructor(props) {

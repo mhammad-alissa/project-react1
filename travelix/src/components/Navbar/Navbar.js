@@ -191,7 +191,7 @@ class Navbar extends Component {
                             : {}
                         }
                       >
-                        <Link to="/signup">Signup</Link>
+                        <Link onClick={(e) => this.locationHandler(e)} to="/signup">Signup</Link>
               </li>
               
               <li className="menu_item"   style={
