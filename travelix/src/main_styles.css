@@ -1861,6 +1861,9 @@ section
 	outline: none;
 	margin-top: 37px;
 	cursor: pointer;
+	margin-right: 0 ;
+	display: block ;
+ 	margin-left: auto ;
 }
 .form_submit_button:hover
 {
