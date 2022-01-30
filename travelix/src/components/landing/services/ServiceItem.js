@@ -7,7 +7,7 @@ export class ServiceItem extends Component {
 				<div className="col-lg-6 offers_col">
 					<div className="offers_item">
 						<div className="row">
-							<div className="col-lg-6" style={{minHeight : "480px"}}>
+							<div className="col-lg-6" style={{minHeight : "50px"}}>
 								<div className="offers_image_container">
 									<div className="offers_image_background" style={{backgroundImage:`url(servicesImages/${this.props.image})`}}></div>
 									<div className="offer_name"><a href="#">{this.props.name}</a></div>
