@@ -261,7 +261,7 @@ export class User extends Component {
                       <th scope="row">{row.booking_id}</th>
                       <td>{row.user_name}</td>
                       <td>{row.service_name}</td>
-                      <td>{row.delivery}</td>
+                      <td>{`${row.delivery ? "Yes" : "No"}`}</td>
                       <td>{row.booking_date}</td>
                       <td>{row.time_of_day}</td>
                       <td>{row.date_chosen}</td>
