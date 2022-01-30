@@ -1,69 +1,108 @@
-import React, { Component } from "react";
-// import "./contact_responsive.css";
-// import './contact_styles.css';
-// import "./contact_custom";
+import React, { Component } from 'react';
+import axios from 'axios';
+import Swal from "sweetalert2";
+import './contact.css'
 
-import axios from "axios";
-// import "./contact.css";
-// import { Link } from 'react-router-dom';
+class Contact extends Component {
+ 
+	state = {
+		contact : {
+			name    : "",
+			email   : "",
+			subject : "",
+			message : "",
+		},
+		errors : {
+			name    : "",
+			email   : "",
+			subject : "",
+			message : "",
+		}
+	}
 
-export class Contact extends Component {
-  constructor(props) {
-    super(props);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleSubjectChange = this.handleSubjectChange.bind(this);
-    this.handleMessageChange = this.handleMessageChange.bind(this);
+	ContactHandler = (event) => {
+	event.preventDefault()
+	let regexEmail = /^[A-ZA-z0-9._-]+@(hotmail|gmail|yahoo|outlook).com$/;
+	let {name, email, subject, message} = this.state.contact
+	let error  = false;
+	for(let key in this.state.contact){
+		if(this.state.contact[key].trim() === "" ){
+			error = true;	
+			this.ErrorValues(key,true);		
+		}
+		else {
+			this.ErrorValues(key,false);
+			if(key === 'email' && !(regexEmail.test(this.state.contact[key]))) {
+			this.setState( preState => ({
+			...preState ,
+		errors: {
+			...preState.errors , [key]: "Must be Email"
+		}
+		}))
+			}
+		}
+	}
+	
+	if(!error)
+{
+	  let formData = new FormData();
+      formData.append('name', name)
+      formData.append('email', email)
+      formData.append('subject', subject)
+      formData.append('message', message)
 
-    this.state = {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    };
-  }
+        axios({
+            method: 'post',
+            url: 'http://localhost/project-react1/contact.php',
+			data: formData,
+			config: { headers: {'Content-Type': 'multipart/form-data' }},
+        })
+        .then((response) => {
+            if(response.status === 200) {
+				this.ClearContactValues()
+                Swal.fire(
+				'Sent Succesfully',
+				'Thank you for contacting us',
+				'success'
+				)
+            }
+        })
+        .catch(function (response) {
+            console.log(response)
+        });
+	}
+  }    
 
-  handleNameChange = (event) => {
-    this.setState({
-      name: event.target.value,
-    });
-  };
-  handleEmailChange = (event) => {
-    this.setState({
-      email: event.target.value,
-    });
-  };
-  handleSubjectChange = (event) => {
-    this.setState({
-      subject: event.target.value,
-    });
-  };
-  handleMessageChange = (event) => {
-    this.setState({
-      message: event.target.value,
-    });
-  };
-  handleSubmitChange = (event) => {
-    event.preventDefault();
-    console.log(event);
+  	ErrorValues = (key,status) => {
+			this.setState( preState => ({
+			...preState ,
+		errors: {
+			...preState.errors , [key]: status ? "* This field is required! " : ""
+		}
+		}))  
+	  }
 
-    const obj = {
-      name: this.state.name,
-      email: this.state.email,
-      subject: this.state.subject,
-      message: this.state.message,
-    };
+	  ClearContactValues = () => {
+		  this.setState({
+			  contact : {
+				  	name    : "",
+					email   : "",
+					subject : "",
+					message : "",
+			  }
+		  })
+	  }
 
-    axios.post("http://localhost/project-react1/php/contact.php", obj);
+	ContactValues = (event) => {
+		this.setState( preState => ({
+			...preState ,
+		contact: {
+			...preState.contact , [event.target.name]: event.target.value
+		}
+		}))
+	}
 
-    this.setState({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-  };
-
+	
   render() {
     return (
       <div className="contact">
@@ -75,192 +114,114 @@ export class Contact extends Component {
             src="images/contact_background.jpg"
             alt="user profile"
           />
-          <div className="home_content">
-            <div className="home_title">contact</div>
-          </div>
-        </div>
+			<div className="home_content">
+				<div className="home_title">contact</div>
+			</div>
+		</div>
 
-        {/* <!-- Contact --> */}
-        <div className="container C-container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="contact_form_container">
-                <div className="contact_title">get in touch</div>
-                <form id="contact_form" className="contact_form">
-                  <input
-                    type="text"
-                    value={this.state.name}
-                    onChange={this.handleNameChange}
-                    id="contact_form_name"
-                    className="contact_form_name input_field"
-                    placeholder="Name"
-                    required
-                    data-error="Name is required."
-                  />
-                  <input
-                    type="text"
-                    value={this.state.email}
-                    onChange={this.handleEmailChange}
-                    id="contact_form_email"
-                    className="contact_form_email input_field"
-                    placeholder="E-mail"
-                    required
-                    data-error="Email is required."
-                  />
-                  <input
-                    type="text"
-                    value={this.state.subject}
-                    onChange={this.handleSubjectChange}
-                    id="contact_form_subject"
-                    className="contact_form_subject input_field"
-                    placeholder="Subject"
-                    required
-                    data-error="Subject is required."
-                  />
-                  <textarea
-                    id="contact_form_message"
-                    value={this.state.message}
-                    onChange={this.handleMessageChange}
-                    className="text_field contact_form_message"
-                    name="message"
-                    rows="4"
-                    placeholder="Message"
-                    required
-                    data-error="Please, write us a message."
-                  ></textarea>
-                  <button
-                    type="submit"
-                    value="submit"
-                    id="form_submit_button"
-                    onClick={this.handleSubmitChange}
-                    className="form_submit_button button"
-                  >
-                    send message<span></span>
-                    <span></span>
-                    <span></span>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+		{/* <!-- Contact --> */}
+		<div className="container C-container">
+			<div className="row">
+				<div className="col-lg-12" >
+					<div className="contact_form_container">
+						<div className="contact_title">get in touch</div>
+						<form id="contact_form" className="contact_form" noValidate>
+					
+								<input value={this.state.contact.name} id='contact_form_name' autoComplete='off' type="text"  className="contact_form_name input_field" placeholder="Name"  name='name' onInput={this.ContactValues} />
+								<br/>
+								<span className='error' htmlFor="">{this.state.errors.name}</span>
+								<br/>
+								<input value={this.state.contact.email} id='contact_form_email' autoComplete='off' type="email"  className="contact_form_email input_field" placeholder="E-mail"  name='email' onInput={this.ContactValues} />
+								<br/>
+								<span className='error' htmlFor="">{this.state.errors.email}</span>
+								<br/>
+								<input value={this.state.contact.subject} id='contact_form_subject' autoComplete='off' type="text" className="contact_form_subject input_field" placeholder="Subject"  name='subject' onInput={this.ContactValues} />
+								<br/>
+								<span className='error'  htmlFor="">{this.state.errors.subject}</span>								
+								<br/>
+								<textarea value={this.state.contact.message}  id='contact_form_message' className="text_field contact_form_message" name="message" rows="4" placeholder="Message" onInput={this.ContactValues} ></textarea>
+								<br/>
+								<span className='error' htmlFor="">{this.state.errors.message}</span>								
+								<br/>
+							<button onClick={(e)=>this.ContactHandler(e)} className="form_submit_button button">send message<span></span><span></span><span></span></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        {/* <!-- About --> */}
-        <div className="about">
-          <div className="container aboutContainer">
-            <div className="row">
-              <div className="col-lg-5">
-                {/* <!-- About - Image --> */}
 
-                <div className="about_image">
-                  <img src="images/man.png" alt="" />
-                </div>
-              </div>
+	{/* <!-- About --> */}
+	<div className="about">
+		<div className="container aboutContainer">
+			<div className="row">
+				<div className="col-lg-5">
+					
+					{/* <!-- About - Image --> */}
 
-              <div className="col-lg-4">
-                {/* <!-- About - Content --> */}
+					<div className="about_image">
+						<img src="images/man.png" alt=""/>
+					</div>
 
-                <div className="about_content">
-                  <div className="logo_container about_logo">
-                    <div className="logo">
-                      <a href="#">
-                        <img src="images/logo.png" alt="" />
-                        travelix
-                      </a>
-                    </div>
-                  </div>
-                  <p className="about_text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc
-                    et suscipit urna. Integer eleme ntum orci eu vehicula
-                    iaculis consequat nisl. Nunc et suscipit urna pretium.
-                  </p>
-                  <ul className="about_social_list">
-                    <li className="about_social_item">
-                      <a href="#">
-                        <i className="fa fa-pinterest"></i>
-                      </a>
-                    </li>
-                    <li className="about_social_item">
-                      <a href="#">
-                        <i className="fa fa-facebook-f"></i>
-                      </a>
-                    </li>
-                    <li className="about_social_item">
-                      <a href="#">
-                        <i className="fa fa-twitter"></i>
-                      </a>
-                    </li>
-                    <li className="about_social_item">
-                      <a href="#">
-                        <i className="fa fa-dribbble"></i>
-                      </a>
-                    </li>
-                    <li className="about_social_item">
-                      <a href="#">
-                        <i className="fa fa-behance"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+				</div>
 
-              <div className="col-lg-3">
-                {/* <!-- About Info --> */}
+				<div className="col-lg-4 About-text">
+					
+					{/* <!-- About - Content --> */}
 
-                <div className="about_info">
-                  <ul className="contact_info_list">
-                    <li className="contact_info_item d-flex flex-row">
-                      <div>
-                        <div className="contact_info_icon">
-                          <img src="images/placeholder.svg" alt="" />
-                        </div>
-                      </div>
-                      <div className="contact_info_text">
-                        4127 Raoul Wallenber 45b-c Gibraltar
-                      </div>
-                    </li>
-                    <li className="contact_info_item d-flex flex-row">
-                      <div>
-                        <div className="contact_info_icon">
-                          <img src="images/phone-call.svg" alt="" />
-                        </div>
-                      </div>
-                      <div className="contact_info_text">2556-808-8613</div>
-                    </li>
-                    <li className="contact_info_item d-flex flex-row">
-                      <div>
-                        <div className="contact_info_icon">
-                          <img src="images/message.svg" alt="" />
-                        </div>
-                      </div>
-                      <div className="contact_info_text">
-                        <a
-                          href="mailto:contactme@gmail.com?Subject=Hello"
-                          target="_top"
-                        >
-                          contactme@gmail.com
-                        </a>
-                      </div>
-                    </li>
-                    <li className="contact_info_item d-flex flex-row">
-                      <div>
-                        <div className="contact_info_icon">
-                          <img src="images/planet-earth.svg" alt="" />
-                        </div>
-                      </div>
-                      <div className="contact_info_text">
-                        <a href="https://colorlib.com">www.colorlib.com</a>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+					<div className="about_content">
+						<div className="logo_container about_logo">
+							<div className="logo"><a href="#"><img src="images/logo.png" alt="" />travelix</a></div>
+						</div>
+						<p className="about_text">GOING BEYOND SATISFACTION
+								To deliver the best experience each day, we personalize each point of contact with great 
+								care and attention to detail, whether for our clients, partners or employees. We consistently
+								strive for excellence
+								and share the desire to
+								surpass expectations and offer the best to our members.</p>
+						<ul className="about_social_list">
+							<li className="about_social_item"><a href="#"><i className="fa fa-pinterest"></i></a></li>
+							<li className="about_social_item"><a href="#"><i className="fa fa-facebook-f"></i></a></li>
+							<li className="about_social_item"><a href="#"><i className="fa fa-twitter"></i></a></li>
+							<li className="about_social_item"><a href="#"><i className="fa fa-dribbble"></i></a></li>
+							<li className="about_social_item"><a href="#"><i className="fa fa-behance"></i></a></li>
+						</ul>
+					</div>
+
+				</div>
+
+				<div className="col-lg-3">
+					
+					{/* <!-- About Info --> */}
+
+					<div className="about_info">
+						<ul className="contact_info_list">
+							<li className="contact_info_item d-flex flex-row">
+								<div><div className="contact_info_icon"><img src="images/placeholder.svg" alt="" /></div></div>
+								<div className="contact_info_text">4127 Raoul Wallenber 45b-c Gibraltar</div>
+							</li>
+							<li className="contact_info_item d-flex flex-row">
+								<div><div className="contact_info_icon"><img src="images/phone-call.svg" alt="" /></div></div>
+								<div className="contact_info_text">2556-808-8613</div>
+							</li>
+							<li className="contact_info_item d-flex flex-row">
+								<div><div className="contact_info_icon"><img src="images/message.svg" alt="" /></div></div>
+								<div className="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">contactme@gmail.com</a></div>
+							</li>
+							<li className="contact_info_item d-flex flex-row">
+								<div><div className="contact_info_icon"><img src="images/planet-earth.svg" alt="" /></div></div>
+								<div className="contact_info_text"><a href="https://colorlib.com">www.colorlib.com</a></div>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+        );
   }
 }
 

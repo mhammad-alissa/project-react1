@@ -6,7 +6,7 @@ class Subcategory extends Component {
   render() {
     return (
       <>
-        <div class="home">
+        <div className="home">
           <img
             className="home_background parallax-window"
             data-parallax="scroll"
