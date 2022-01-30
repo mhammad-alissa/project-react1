@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Search from "../weather/components/Search";
-import Weather from "../weather/Weather";
 import { Outlet, Link } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
 
@@ -17,7 +15,7 @@ class Navbar extends Component {
   };
   logout = () => {
     localStorage.removeItem("users");
-    window.location.href = "http://localhost:3000";
+    window.location.href = "/";
   };
 
   render() {
@@ -28,16 +26,16 @@ class Navbar extends Component {
           <nav className="main_nav">
             <div className="container">
               <div className="row">
-                <div className="col main_nav_col landing-nav d-flex flex-row align-items-center justify-content-start">
+                <div className="col main_nav_col landing-nav d-flex flex-row align-items-center justify-content-lg-start justify-content-between  ">
                   <div className="logo_container">
                     <div className="logo">
-                      <Link to="/">
+                      <Link onClick={(e) => this.locationHandler(e)} to="/">
                         <img src="images/logo.png" alt="logo" />
                         travelix
                       </Link>
                     </div>
                   </div>
-                  <div className="main_nav_container ml-auto">
+                  <div className="main_nav_container ml-auto mr-0">
                     <ul className="main_nav_list">
                       <li className="main_nav_item">
                         <Link to="/" onClick={(e) => this.locationHandler(e)}>
@@ -45,10 +43,12 @@ class Navbar extends Component {
                         </Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/about" onClick={(e) => this.locationHandler(e)}>about us</Link>
+                        <Link to="/category" onClick={(e) => this.locationHandler(e)}>
+                          Services
+                        </Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/offers">offers</Link>
+                        <Link to="/about" onClick={(e) => this.locationHandler(e)}>about us</Link>
                       </li>
                       <li className="main_nav_item">
                         <Link to="/contact" onClick={(e) => this.locationHandler(e)}>contact</Link>
@@ -128,19 +128,12 @@ class Navbar extends Component {
                           <Weather/>
                         </li> */}
                     </ul>
+                     
                   </div>
 
-                  <form id="search_form" className="search_form bez_1">
-                    <input
-                      type="search"
-                      className="search_content_input bez_1"
-                    />
-                  </form>
-
-                  <div className="hamburger">                    
+                  <div className="hamburger" style={{marginRight:"30px"}}>                    
                     <i className="fa fa-bars trans_200"></i>
-					{/* <div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div> */}
-{/* <img src="./home_slider.jpg" alt=""></img> */}
+
                   </div>
                   
                 </div>
@@ -155,26 +148,62 @@ class Navbar extends Component {
               <div className="menu_close"></div>
             </div>
             <div className="logo menu_logo">
-              <a href="#">
-                <img src="images/logo.png" alt="logo" />
-              </a>
+            <Link onClick={(e) => this.locationHandler(e)} to="/">
+                        <img src="images/logo.png" alt="logo" />
+              </Link>
             </div>
             <ul>
               <li className="menu_item">
-                <a href="#">home</a>
+                <Link to="/" onClick={(e) => this.locationHandler(e)}>
+                    Home
+                </Link>
               </li>
               <li className="menu_item">
-                <a href="about.html">about us</a>
+                <Link to="/category" onClick={(e) => this.locationHandler(e)}>
+                    Services
+                 </Link>
               </li>
               <li className="menu_item">
-                <a href="offers.html">offers</a>
+                <Link to="/about" onClick={(e) => this.locationHandler(e)}>about us</Link>
               </li>
               <li className="menu_item">
-                <a href="blog.html">news</a>
+                <Link to="/contact" onClick={(e) => this.locationHandler(e)}>contact</Link>
               </li>
               <li className="menu_item">
-                <a href="contact.html">contact</a>
+                <Link to="/weather" onClick={(e) => this.locationHandler(e)}>Weather</Link>
               </li>
+              <li className="menu_item"  style={
+                          localStorage.getItem("users")
+                            ? { display: "none" }
+                            : {}
+                        }
+                        >
+                        <Link
+                          to="/login"
+                          onClick={(e) => this.locationHandler(e)}
+                        >
+                          Login
+                        </Link>
+              </li>
+              <li className="menu_item"  style={
+                          localStorage.getItem("users")
+                            ? { display: "none" }
+                            : {}
+                        }
+                      >
+                        <Link to="/signup">Signup</Link>
+              </li>
+              
+              <li className="menu_item"   style={
+                          !localStorage.getItem("users")
+                            ? { display: "none" }
+                            : {}
+                        }
+                        onClick={this.logout}
+                      >
+                        <Link to="">Logout</Link>
+              </li>
+
             </ul>
           </div>
         </div> 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "../styles/Search.css";
+import "../wstyles/Search.css";
 
 export default function Search({ searchCity }) {
   const [currentCity, setCurrentCity] = useState("");

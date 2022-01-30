@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "./single_listing_styles.css";
 import "./single_listing_responsive.css";
+import "./single_listing_custom.js";
 import axios from "axios";
+import { Outlet, Link } from "react-router-dom";
+
 export class Service extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +12,7 @@ export class Service extends Component {
       subcategory: [],
     };
   }
-  componentDidMount() {
+  componentDidMount() { 
     const url = "http://localhost/project-react1/php/service.php";
     axios
       .get(url)
@@ -323,7 +326,7 @@ export class Service extends Component {
                             <option>03</option>
                           </select>
                         </div>
-                        <button className="button search_button">
+                        <button className="button search_button-single">
                           search<span></span>
                           <span></span>
                           <span></span>
@@ -670,12 +673,11 @@ export class Service extends Component {
                               <div className="owl-carousel owl-theme hotel_slider">
                                 {/* <!-- Hotel Gallery Slider Item --> */}
                                 <div className="owl-item">
-                                  <a
+                                  <a href="images/listing_1.jpg"
                                     className="colorbox cboxElement"
-                                    href="images/listing_1.jpg"
                                   >
                                     <img
-                                      src={`servicesImages/${service.image1}`}
+                                      src={`servicesImages/${service.sub_image1}`}
                                       alt="https://unsplash.com/@jbriscoe"
                                     />
                                   </a>
@@ -683,12 +685,11 @@ export class Service extends Component {
 
                                 {/* <!-- Hotel Gallery Slider Item --> */}
                                 <div className="owl-item">
-                                  <a
-                                    className="colorbox cboxElement"
-                                    href="images/listing_2.jpg"
-                                  >
+                                  <a hrfe="images/listing_2.jpg"
+                                    className="colorbox cboxElement">
+                                  
                                     <img
-                                      src={`servicesImages/${service.image2}`}
+                                      src={`servicesImages/${service.sub_image}`}
                                       alt="https://unsplash.com/@grovemade"
                                     />
                                   </a>
@@ -701,14 +702,14 @@ export class Service extends Component {
                                   version="1.1"
                                   id="Layer_6"
                                   xmlns="http://www.w3.org/2000/svg"
-                                  // xmlns:xlink="http://www.w3.org/1999/xlink"
+                                  xmlnsXlink="http://www.w3.org/1999/xlink"
                                   x="0px"
                                   y="0px"
                                   width="28px"
                                   height="33px"
                                   viewBox="0 0 28 33"
                                   enable-background="new 0 0 28 33"
-                                  // xml:space="preserve"
+                                  xmlSpace="preserve"
                                 >
                                   <defs>
                                     <linearGradient id="hotel_grad_prev">
@@ -740,14 +741,14 @@ export class Service extends Component {
                                   version="1.1"
                                   id="Layer_7"
                                   xmlns="http://www.w3.org/2000/svg"
-                                  // xmlns:xlink="http://www.w3.org/1999/xlink"
+                                  xmlnsXlink="http://www.w3.org/1999/xlink"
                                   x="0px"
                                   y="0px"
                                   width="28px"
                                   height="33px"
                                   viewBox="0 0 28 33"
                                   enable-background="new 0 0 28 33"
-                                  // xml:space="preserve"
+                                  xmlSpace="preserve"
                                 >
                                   <defs>
                                     <linearGradient id="hotel_grad_next">

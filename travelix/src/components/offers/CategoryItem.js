@@ -66,8 +66,9 @@ export class CategoryItem extends Component {
                     <div className="col-lg-6">
                       <div className="offers_content">
                         <div className="offers_price">
-                          {subcategory.price}
-                          <span>per night</span>
+                          {subcategory.category_id == 3 || subcategory.category_id == 6?'':`${subcategory.price}$`}
+                          <span>{subcategory.category_id == 1?'Per Km':''}</span>
+                          <span>{subcategory.category_id == 2 || subcategory.category_id == 5 ?'Per Night':''}</span>
                         </div>
                         <div className="rating_r rating_r_4 offers_rating">
                           <i></i>

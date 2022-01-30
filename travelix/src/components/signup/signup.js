@@ -1,10 +1,9 @@
 import "./signup.css";
 import React from "react";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import TextBox from "../../core/textField/textField";
+
 
 import { Component } from "react";
 import axios from "axios";
@@ -164,7 +163,7 @@ class Signup extends Component {
               image: res.data.image,
             };
             localStorage.setItem("users", JSON.stringify(obj));
-            window.location.href = "http://localhost:3000";
+            window.location.href = "/ ";
             console.log(res.data);
           } else {
             this.setState({
@@ -215,14 +214,14 @@ class Signup extends Component {
                 onChange={this.onChangePhone}
               />
               <small id="phoneMessageError" className="form-text"></small>
-
+          
               <TextBox
+                type={'password'}
                 label="Password"
                 value={this.state.password}
                 onChange={this.onChangePassword}
               />
               <small id="passMessageError" className="form-text"></small>
-
               <TextBox
                 label="Conform Password"
                 value={this.state.passwordConform}
@@ -250,7 +249,7 @@ class Signup extends Component {
 <small style={{ color: "red", display: "inline-block" ,fontWeight:'bold',fontSize:"25px"}}>
               {this.state.error}
             </small>
-            <button style={{marginBottom:'30px',marginTop: '0'}}  onClick={this.onSubmit} id="form_submit_button" class="form_submit_button button trans_200"> SIGNUP{" "}<span></span><span></span><span></span></button>
+            <button style={{marginBottom:'30px',marginTop: '0'}}  onClick={this.onSubmit} id="form_submit_button" class="form_submit_button1 button trans_200"> SIGNUP{" "}<span></span><span></span><span></span></button>
 
 <br></br>
          

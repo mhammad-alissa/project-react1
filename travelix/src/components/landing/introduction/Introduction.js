@@ -21,7 +21,6 @@ export class Introduction extends Component {
 			<div className="row intro_items">
 
 				{/* <!-- Intro Item --> */}
-
 				<IntroItem categories={this.props.categories} />
 		
 			</div>

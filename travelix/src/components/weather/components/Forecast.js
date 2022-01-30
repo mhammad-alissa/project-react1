@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/Forecast.css";
+import "../wstyles/Forecast.css";
 
 export default function Forecast({ weatherInfo, date }) {
   return (

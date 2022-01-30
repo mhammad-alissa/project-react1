@@ -38,7 +38,7 @@ $row = mysqli_fetch_assoc($result);
  } else{
 
      // If the record inserted successfully then show the message.
-     $InvalidMSG = 'Invalid Username or Password Please Try Again' ;
+     $InvalidMSG = 'Invalid Username or Password' ;
 
      // Converting the message into JSON format.
      $InvalidMSGJSon = json_encode($InvalidMSG);
