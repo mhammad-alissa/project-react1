@@ -22,7 +22,7 @@ class Subcategory extends Component {
               <div className="col text-center"></div>
             </div>
             <div className="row offers_items">
-              {/* <CategoryItem subcategory={this.props.subcategory} /> */}
+              <CategoryItem subcategory={this.props.subcategory} />
             </div>
           </div>
         </div>
