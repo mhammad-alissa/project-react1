@@ -7,12 +7,12 @@ export class Search extends Component {
 
     state = {
         images : {
-            0 : "fa-utensils",
-            1 : "suitcase.png",
-            2 : "departure.png",
-            3 : "island.png",
-            4 : "cruise.png",
-            5 : "diving.png",
+            0 : "fa-car",
+            1 : "fa-hotel",
+            2 : "fa-utensils-alt",
+            3 : "fa-suitcase-rolling",
+            4 : "fa-hospital-alt",
+            5 : "fa-shopping-cart",
         },
 		booking : {
 			service  : "",
@@ -111,7 +111,11 @@ export class Search extends Component {
         document.querySelectorAll(".icon").forEach(ele=>{
             ele.classList.remove("active")
         })
+		 document.querySelectorAll("i").forEach(ele=>{
+            ele.style.color = "#FBAC3D"
+        })
         e.target.classList.add("active");
+		e.target.querySelector('i').style.color="white"
         this.setState({
             servicesFiltered : this.props.services.filter(ele=>{return ele.category_id === e.target.id})
         })
@@ -152,9 +156,8 @@ export class Search extends Component {
 						<div className="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 
                             {this.props.categories.map((category,index)=>{
-                                return  (<div onClick={(e)=>this.IconClickHandler(e)} id={category.id} key={category.id} className={`search_tab ${index === 0 ? "active" : "" }  d-flex flex-row align-items-center justify-content-lg-center jusify-content-start icon`}>
-											<i className={`fas ${this.state.images[index]}`}></i>
-                                            {/* <img src={`images/${this.state.images[index]}`} alt={category.name} /> */}
+                                return  (<div onClick={(e)=>this.IconClickHandler(e)} id={category.id} key={category.id} className={`search_tab search-bar-landing ${index === 0 ? "active" : "" }  d-flex flex-row align-items-center justify-content-lg-center jusify-content-start icon`}>
+											<i style={{marginRight:"10px" , fontSize : "20px"}} class={`fas ${this.state.images[index]}`}></i>
                                             <span>{category.name}</span>
                                           </div>
                                           )

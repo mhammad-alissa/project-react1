@@ -7,7 +7,7 @@ import Contact from './contact/Contact';
 import { Search } from '../Navbar/Search';
 
 export class Landing extends Component {
-  render() { 
+  render() {   
     return (
         <>
             <Search  categories={this.props.categories} services={this.props.services} />
