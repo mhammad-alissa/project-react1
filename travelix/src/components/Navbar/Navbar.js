@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Search from "../weather/components/Search";
+import Weather from "../weather/Weather";
 import { Outlet, Link } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
 
@@ -122,6 +124,9 @@ class Navbar extends Component {
                       >
                         <Link to="">Logout</Link>
                       </li>
+                        {/* <li className="main_nav_item" style={{transform:'scale(0.5)'}}>
+                          <Weather/>
+                        </li> */}
                     </ul>
                   </div>
 
