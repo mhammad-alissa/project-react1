@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Outlet, Link, withRouter } from "react-router-dom";
+import Search from "../weather/components/Search";
+import Weather from "../weather/Weather";
 import { HedaerIndex } from "./HedaerIndex";
 import image3 from './home_slider.jpg'; 
 
@@ -123,6 +125,9 @@ export class Navbar extends Component {
                       >
                         <Link to="">Logout</Link>
                       </li>
+                        {/* <li className="main_nav_item" style={{transform:'scale(0.5)'}}>
+                          <Weather/>
+                        </li> */}
                     </ul>
                   </div>
                   {/* <div className="content_search ml-lg-0 ml-auto">
