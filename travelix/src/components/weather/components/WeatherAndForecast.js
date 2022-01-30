@@ -39,16 +39,28 @@ function WeatherAndForecast({ weatherInfo, location }) {
     ];
   }
 
-  return (
-    <div className="WeatherAndForecast">
-      <Weather weatherInfo={weatherInfo} location={location} date={date[0]} />
-      <div className="WeatherAndForecast__container">
+  function ShowForcast () {
+    if(window.location.href.endsWith("/weather"))
+    {
+      return (
+        <div className="WeatherAndForecast__container">
         <Forecast weatherInfo={weatherInfo.daily[0]} date={date[0]} />
         <Forecast weatherInfo={weatherInfo.daily[1]} date={date[1]} />
         <Forecast weatherInfo={weatherInfo.daily[2]} date={date[2]} />
         <Forecast weatherInfo={weatherInfo.daily[3]} date={date[3]} />
         <Forecast weatherInfo={weatherInfo.daily[4]} date={date[4]} />
       </div>
+      )
+    }
+    else {
+      return ""
+    }
+  }
+
+  return (
+    <div className="WeatherAndForecast">
+      <Weather weatherInfo={weatherInfo} location={location} date={date[0]} />
+      {ShowForcast()}
     </div>
   );
 }
