@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
+import Miniweather from "../weather/Miniweather"
 
 
 class Navbar extends Component {
