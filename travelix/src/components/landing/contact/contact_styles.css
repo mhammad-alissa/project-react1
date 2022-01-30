@@ -418,6 +418,18 @@ section
 	height: 9px;
 	content: '';
 }
+
+.search-booking {
+    color: black;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 5px;	
+}
+
+.main_nav_col.landing-nav {
+	height: 110px;
+}
+
 .main_nav_col
 {
 	height: 143px;

@@ -3,7 +3,7 @@ import axios from 'axios';
 import Swal from "sweetalert2";
 import './contact.css'
 
-export class Contact extends Component {
+class Contact extends Component {
  
 	state = {
 		contact : {

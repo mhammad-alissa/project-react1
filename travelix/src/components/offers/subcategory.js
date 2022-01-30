@@ -6,7 +6,7 @@ class Subcategory extends Component {
   render() {
     return (
       <>
-        <div class="home">
+        <div className="home">
           <img
             className="home_background parallax-window"
             data-parallax="scroll"
@@ -22,7 +22,7 @@ class Subcategory extends Component {
               <div className="col text-center"></div>
             </div>
             <div className="row offers_items">
-              {/* <CategoryItem subcategory={this.props.subcategory} /> */}
+              <CategoryItem subcategory={this.props.subcategory} />
             </div>
           </div>
         </div>

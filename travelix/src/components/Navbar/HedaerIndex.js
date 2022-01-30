@@ -1,59 +1,28 @@
 import React, { Component } from 'react';
-import image3 from './home_slider.jpg'; 
+
+import Slider from './Slider';
 export class HedaerIndex extends Component {
   render() {
+
+	
+	
     return (
         	// <!-- Home -->
 
-	<div className="home-landing">
+	<div className="home-landing" style={{display:this.props.display}}>
 		
 		{/* <!-- Home Slider --> */}
 
 		<div className="home_slider_container">
 			
-			{/* <div className="owl-carousel owl-theme home_slider"> */}
+			<div className="owl-carousel owl-theme home_slider">
 
 				{/* <!-- Slider Item --> */}
-				<div className="owl-item home_slider_item">
-					<div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div>
-					{/* <div class="home_background parallax-window" data-parallax="scroll" style={{ backgroundImage:`url(${image3})` }}></div> */}
+					<Slider src={"images/petra.webp"} />
+					<Slider src={"images/petra2.jpg"} />
+					<Slider src={"images/Ajluin.jpg"} />
 
-					<div className="home_slider_content text-center">
-						<div className="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>discover</h1>
-							<h1>jordan</h1>
-							{/* <div className="button home_slider_button"><div className="button_bcg"></div><a>explore now<span></span><span></span><span></span></a></div> */}
-						</div>
-					</div>
-				</div>
-
-				{/* <!-- Slider Item --> */}
-				{/* <div className="owl-item home_slider_item">
-					<div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div>
-
-					<div className="home_slider_content text-center">
-						<div className="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>discover</h1>
-							<h1>the world</h1>
-							<div className="button home_slider_button"><div className="button_bcg"></div><a>explore now<span></span><span></span><span></span></a></div>
-						</div>
-					</div>
-				</div> */}
-
-				{/* <!-- Slider Item --> */}
-				{/* <div className="owl-item home_slider_item">
-					<div className="home_slider_background" style={{ backgroundImage:`url(${image3})` }}></div>
-
-					<div className="home_slider_content text-center">
-						<div className="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>discover</h1>
-							<h1>the world</h1>
-							<div className="button home_slider_button"><div className="button_bcg"></div><a>explore now<span></span><span></span><span></span></a></div>
-						</div>
-					</div>
-				</div> */}
-
-			{/* </div> */}
+			</div>
 			
 			{/* <!-- Home Slider Nav - Prev --> */}
 		 <div className="home_slider_nav home_slider_prev">
@@ -102,8 +71,8 @@ export class HedaerIndex extends Component {
 			</div>
 			
 		</div>
+		 </div>
 
-	</div>
     );
   }
 }
