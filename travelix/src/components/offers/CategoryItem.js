@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
 import axios from "axios";
-// import subcategory from "./Subcategory";
 
 export class CategoryItem extends Component {
   constructor(props) {

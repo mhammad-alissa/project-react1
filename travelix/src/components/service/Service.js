@@ -31,6 +31,7 @@ export class Service extends Component {
   }
 
   componentDidMount() {
+    document.getElementById("home-landing").style.display = "none";
     const url = "http://localhost/project-react1/php/service.php";
     axios
       .get(url)

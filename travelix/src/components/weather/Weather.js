@@ -10,6 +10,7 @@ import getCoordinatesOfAddress from "./api/forwardGeocoding";
 import getWeatherAndForecast from "./api/weatherAndForecast";
 
 function Weather() {
+  document.getElementById("home-landing").style.display = "none";
   const [address, setAddress] = useState("");
   const [coordinates, setCoordinates] = useState({});
   const [weatherAndForecastInfo, setWeatherAndForecastInfo] = useState({});
@@ -17,6 +18,7 @@ function Weather() {
   const [contentState, setContentState] = useState("blank");
 
   function searchCity(target) {
+    
     setAddress(target);
   }
 

@@ -54,11 +54,12 @@ class Contact extends Component {
 
         axios({
             method: 'post',
-            url: 'http://localhost/project-react1/contact.php',
+            url: 'http://localhost/project-react1/php/contact.php',
 			data: formData,
 			config: { headers: {'Content-Type': 'multipart/form-data' }},
         })
         .then((response) => {
+			console.log(response)
             if(response.status === 200) {
 				this.ClearContactValues()
                 Swal.fire(
@@ -69,7 +70,7 @@ class Contact extends Component {
             }
         })
         .catch(function (response) {
-            console.log(response)
+            console.log(response,"Error")
         });
 	}
   }    

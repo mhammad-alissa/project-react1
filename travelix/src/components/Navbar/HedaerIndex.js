@@ -15,7 +15,7 @@ export class HedaerIndex extends Component {
     return (
 		// <!-- Home -->
 		<>
-		{
+		
 			
 	<div id="home-landing" className="home-landing" style={{display : this.show}} >
 		
@@ -80,7 +80,7 @@ export class HedaerIndex extends Component {
 			
 		</div>
 		 </div>
-}
+
 </>
     );
   }
