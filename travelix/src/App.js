@@ -18,9 +18,6 @@ import "./main_styles.css"
 import "./responsive.css"
 import Category from "./components/category/Category";
 
-
-// import Subcategory from "./components/offers/Subcategory";
-
 class App extends Component {
 
   

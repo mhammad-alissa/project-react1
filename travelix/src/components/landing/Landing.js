@@ -5,9 +5,10 @@ import Testimonials from './testimonials/Testimonials';
 import Slider from './slider/Slider'
 import Contact from './contact/Contact';
 import { Search } from '../Navbar/Search';
+import Youtube from './youtube/Youtube';
 
 export class Landing extends Component {
-  render() { 
+  render() {   
     return (
         <>
             <Search  categories={this.props.categories} services={this.props.services} />

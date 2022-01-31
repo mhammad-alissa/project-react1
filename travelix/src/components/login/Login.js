@@ -18,6 +18,7 @@ class login extends Component {
     this.state = {
       email: "",
       password: "",
+      error:''
     };
   }
 
@@ -53,6 +54,11 @@ class login extends Component {
           image: res.data.image,
         };
         console.log(res.data);
+        if (res.data === "Invalid Username or Password")
+        this.setState({
+          error:res.data
+        })
+
         if (res.data.id != null) {
           localStorage.setItem("users", JSON.stringify(obj));
           window.location.href = "/";
@@ -94,7 +100,9 @@ class login extends Component {
 
             {/* <Button style={{background:'black',color:'white'}} onClick={this.onSubmit}> LOGIN</Button> */}
           </CardActions>
+          <small id="loginError" style={{color:'red',fontWeight:'bold',marginLeft:'140px',fontSize:'14px'}}>{this.state.error}</small>
         </Card>
+        
       </div>
     );
   }

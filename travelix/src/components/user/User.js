@@ -13,6 +13,7 @@ export class User extends Component {
       phone: JSON.parse(localStorage.getItem("users")).phone,
       url: "",
       selectedFile: "",
+      booking:[]
     };
   }
   // componentDidMount() {
@@ -55,6 +56,16 @@ export class User extends Component {
   //       // window.location.href = "http://localhost:3000/User";
   //     });
   // }
+  componentDidMount() {
+    const url = "http://localhost/project-react1/php/userbooking.php";
+    axios
+      .get(url)
+      .then((response) => response.data)
+      .then((data) => {
+        this.setState({ booking: data });
+        console.log(this.state.booking);
+      });
+  }
   userChange = (e) => {
     var id = e.target.id;
     this.setState({
@@ -122,6 +133,7 @@ export class User extends Component {
     // e.preventDefault();
   };
   render() {
+    var id = JSON.parse(localStorage.getItem('users')).id
     return (
       <section className="mb-4">
         {/* <!-- Home --> */}
@@ -142,7 +154,7 @@ export class User extends Component {
         <div className="contact_form_section">
           <div className="container">
             <div className="row">
-              <div className="col-lg-4">
+              <div className="col-lg-5 col-md-12 col-sm-12">
                 {/* <!-- Contact Form --> */}
                 <div className="contact_form_container">
                   <img
@@ -152,7 +164,7 @@ export class User extends Component {
                     alt="user"
                     width={"90px"}
                     height={"90px"}
-                    style={{ borderRadius: "50%" }}
+                    style={{ borderRadius: "50%" , marginLeft:"34%"}}
                   />
                   <div className="contact_title text-center">
                     {JSON.parse(localStorage.getItem("users")).name}
@@ -191,8 +203,9 @@ export class User extends Component {
                       onChange={this.userChange}
                       name="phone"
                     />
+                    <label style={{color:'white',fontSize:'15px',marginRight:'210px',marginTop:'10px'}}>Passowrd</label>
                     <input
-                      type="text"
+                      type="password"
                       id="contact_form_subject"
                       className="contact_form_subject input_field"
                       placeholder="Password"
@@ -201,6 +214,7 @@ export class User extends Component {
                       value={this.state.password}
                       onChange={this.userChange}
                       name="password"
+                      style={{padding:'-3px'}}
                     />
                     <input
                       type="file"
@@ -220,38 +234,44 @@ export class User extends Component {
                   </form>
                 </div>
               </div>
-              <div className="col-lg-8">
+              <div className="col-lg-7">
                 <h2>Bookings</h2>
-                <table className="contact_form_container table">
+                <div className="table-responsive">
+                <table className="contact_form_container table text-white">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Handle</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Service Name</th>
+                      <th scope="col">Delivery</th>
+                      <th scope="col">Booking Date</th>
+                      <th scope="col">Time of Day</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Status</th>
                     </tr>
                   </thead>
                   <tbody>
+                  {this.state.booking
+          .filter((ele) => {
+            return ele.user_id === `${id}`;
+          })
+          .map((row) => {
+            return (
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                      <th scope="row">{row.booking_id}</th>
+                      <td>{row.user_name}</td>
+                      <td>{row.service_name}</td>
+                      <td>{`${row.delivery ? "Yes" : "No"}`}</td>
+                      <td>{row.booking_date}</td>
+                      <td>{row.time_of_day}</td>
+                      <td>{row.date_chosen}</td>
+                      <td>{row.status}</td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
+                </div>
               </div>
             </div>
           </div>

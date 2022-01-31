@@ -3,9 +3,7 @@
  * Copyright 2013-2017 David Deutsch
  * Licensed under  ()
  */
-
 /**
-
  * Owl carousel
  * @version 2.1.6
  * @author Bartosz Wojciechowski
