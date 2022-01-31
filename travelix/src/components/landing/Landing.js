@@ -5,9 +5,13 @@ import Testimonials from './testimonials/Testimonials';
 import Slider from './slider/Slider'
 import Contact from './contact/Contact';
 import { Search } from '../Navbar/Search';
-import Youtube from './youtube/Youtube';
 
 export class Landing extends Component {
+
+componentDidMount(){
+      document.getElementById("home-landing").style.display = "block"
+}
+
   render() {   
     return (
         <>

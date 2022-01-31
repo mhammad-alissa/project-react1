@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export class ServiceItem extends Component {
   render() {
@@ -10,7 +11,7 @@ export class ServiceItem extends Component {
 							<div className="col-lg-6" style={{minHeight : "50px"}}>
 								<div className="offers_image_container">
 									<div className="offers_image_background" style={{backgroundImage:`url(servicesImages/${this.props.image})`}}></div>
-									<div className="offer_name"><a href="#">{this.props.name}</a></div>
+									<div className="offer_name"><Link to="/">{this.props.name}</Link></div>
 								</div>
 							</div>
 							<div className="col-lg-6">

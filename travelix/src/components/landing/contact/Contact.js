@@ -54,7 +54,7 @@ export class Contact extends Component {
 
         axios({
             method: 'post',
-            url: 'http://localhost/project-react1/contact.php',
+            url: 'http://localhost/project-react1/php/contact_landing.php',
 			data: formData,
 			config: { headers: {'Content-Type': 'multipart/form-data' }},
         })
