@@ -28,8 +28,11 @@ if(empty($email)){
   }
 
 
-if(isset($postdata) && !empty($postdata)){
+if(isset($_POST) && !empty($_POST)){
     // $request = json_decode($postdata);
+   
+     
+  
     $name = $_POST['name'];
     $email = $_POST['email'];
     $subject = $_POST['subject'];
@@ -37,7 +40,7 @@ if(isset($postdata) && !empty($postdata)){
     $sql = "INSERT INTO contacts (name,email,subject,message) VALUES ('$name','$email','$subject','$message')";
     if(mysqli_query($db,$sql)){
     
-        http_response_code(200);
+      http_response_code(200);
 
     }
 
