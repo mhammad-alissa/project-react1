@@ -1,5 +1,6 @@
 .card{
     padding: 50px;
+    padding-top: 90px;
     display: flex;
     justify-content: center;
     flex-direction: row;
