@@ -6,61 +6,6 @@ import "./contact_responsive.css";
 import { Link } from "react-router-dom";
 
 class Contact extends Component {
-<<<<<<< HEAD
- 
-	state = {
-		contact : {
-			name    : "",
-			email   : "",
-			subject : "",
-			message : "",
-		},
-		errors : {
-			name    : "",
-			email   : "",
-			subject : "",
-			message : "",
-		}
-	}
-
-	ContactHandler = (event) => {
-	event.preventDefault()
-	let regexEmail = /^[A-ZA-z0-9._-]+@(hotmail|gmail|yahoo|outlook).com$/;
-	let {name, email, subject, message} = this.state.contact
-	let error  = false;
-	for(let key in this.state.contact){
-		if(this.state.contact[key].trim() === "" ){
-			error = true;	
-			this.ErrorValues(key,true);		
-		}
-		else {
-			this.ErrorValues(key,false);
-			if(key === 'email' && !(regexEmail.test(this.state.contact[key]))) {
-			this.setState( preState => ({
-			...preState ,
-		errors: {
-			...preState.errors , [key]: "Must be Email"
-		}
-		}))
-			}
-		}
-	}
-	
-	if(!error)
-{
-	  let formData = new FormData();
-      formData.append('name', name)
-      formData.append('email', email)
-      formData.append('subject', subject)
-      formData.append('message', message)
-
-        axios({
-            method: 'post',
-            url: 'http://localhost/project-react1/php/contact.php',
-			data: formData,
-			config: { headers: {'Content-Type': 'multipart/form-data' }},
-        })
-=======
   state = {
     contact: {
       name: "",
@@ -112,7 +57,6 @@ class Contact extends Component {
         data: formData,
         config: { headers: { "Content-Type": "multipart/form-data" } },
       })
->>>>>>> 828da2c966154f2378d9f565d688d82a88b6088c
         .then((response) => {
           console.log(response);
           if (response.status === 200) {
