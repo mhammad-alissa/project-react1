@@ -8,13 +8,13 @@ export class Introduction extends Component {
 		<div className="container">
 			<div className="row">
 				<div className="col">
-					<h2 className="intro_title text-center">We have the best tours</h2>
+					<h1 className="intro_title text-center">We have the best services</h1>
 				</div>
 			</div>
 			<div className="row">
 				<div className="col-lg-10 offset-lg-1">
 					<div className="intro_text text-center">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec. </p>
+						<p>Convenient service at an affordable price</p>
 					</div>
 				</div>
 			</div>

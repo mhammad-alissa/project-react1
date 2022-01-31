@@ -36,6 +36,7 @@
 
 @media only screen and (max-width: 1440px)
 {
+
 	
 }
 
@@ -63,6 +64,7 @@
 
 @media only screen and (max-width: 1199px)
 {
+
 	.main_nav_container
 	{
 		margin-right: 121px;
@@ -101,6 +103,9 @@
 
 @media only screen and (max-width: 991px)
 {
+	.contact_image{
+		width: auto ;
+	}
 	.main_nav_container
 	{
 		display: none;
@@ -214,6 +219,10 @@
 
 @media only screen and (max-width: 575px)
 {
+
+	.contact_image{
+		width: auto ;
+	}
 	p{font-size: 13px;}
 	h1{font-size: 28px;}
 	.top_bar

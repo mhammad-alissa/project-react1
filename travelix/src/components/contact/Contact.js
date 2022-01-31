@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Swal from "sweetalert2";
-import './contact.css'
+import './contact.css';
+import './contact_responsive.css';
+import { Link } from 'react-router-dom';
 
 class Contact extends Component {
  
@@ -53,7 +55,7 @@ class Contact extends Component {
 
         axios({
             method: 'post',
-            url: 'http://localhost/project-react1/contact.php',
+            url: 'http://localhost/project-react1/php/contact.php',
 			data: formData,
 			config: { headers: {'Content-Type': 'multipart/form-data' }},
         })
@@ -109,7 +111,7 @@ class Contact extends Component {
         {/* <!-- Home --> */}
         <div className="home ">
           <img
-            className="home_background parallax-window"
+            className="contact_image parallax-window"
             data-parallax="scroll"
             src="images/contact_background.jpg"
             alt="user profile"
@@ -180,11 +182,11 @@ class Contact extends Component {
 								and share the desire to
 								surpass expectations and offer the best to our members.</p>
 						<ul className="about_social_list">
-							<li className="about_social_item"><a href="#"><i className="fa fa-pinterest"></i></a></li>
-							<li className="about_social_item"><a href="#"><i className="fa fa-facebook-f"></i></a></li>
-							<li className="about_social_item"><a href="#"><i className="fa fa-twitter"></i></a></li>
-							<li className="about_social_item"><a href="#"><i className="fa fa-dribbble"></i></a></li>
-							<li className="about_social_item"><a href="#"><i className="fa fa-behance"></i></a></li>
+							<li className="about_social_item"><Link to="//pinterest.com" target="_blank"><i className="fab fa-pinterest"></i></Link></li>
+							<li className="about_social_item"><Link to='//facebook.com' target="_blank" ><i className="fab fa-facebook-f"></i></Link></li>
+							<li className="about_social_item"><Link to="//twitter.com" target="_blank"><i className="fab fa-twitter"></i></Link></li>
+							<li className="about_social_item"><Link to="//dribble.com" target="_blank"><i className="fab fa-dribbble"></i></Link></li>
+							<li className="about_social_item"><Link to="//behance.com" target="_blank"><i className="fab fa-behance"></i></Link></li>
 						</ul>
 					</div>
 

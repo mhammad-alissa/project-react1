@@ -83,6 +83,7 @@ export class Search extends Component {
         })
         .then((response) => {
             if(response.status === 200) {
+				this.BookingClearValues()
                 Swal.fire(
 				'Booking Succesfull',
 				`Booking ID is: ${response.data[1]} `,
@@ -97,6 +98,19 @@ export class Search extends Component {
 		else {
 			window.location.assign("/login")
 		}
+	}
+
+	BookingClearValues = () => {
+		this.setState(preState => ({
+			...preState , booking : {
+				    service  : "",
+					date     : "",
+					time     : "",
+					adults   : "0",
+					children : "0",
+			}
+			}
+	))
 	}
 
 	BookingErrors = (key,status)=> {
@@ -157,7 +171,7 @@ export class Search extends Component {
 
                             {this.props.categories.map((category,index)=>{
                                 return  (<div onClick={(e)=>this.IconClickHandler(e)} id={category.id} key={category.id} className={`search_tab search-bar-landing ${index === 0 ? "active" : "" }  d-flex flex-row align-items-center justify-content-lg-center jusify-content-start icon`}>
-											<i style={{marginRight:"10px" , fontSize : "20px"}} class={`fas ${this.state.images[index]}`}></i>
+											<i style={{marginRight:"10px" , fontSize : "20px"}} className={`fas ${this.state.images[index]}`}></i>
                                             <span>{category.name}</span>
                                           </div>
                                           )
@@ -171,8 +185,8 @@ export class Search extends Component {
 						<form id="search_form_1" className="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 							<div style={this.state.bookingErrors.service !== "" ? {marginTop:"32px"} : {} } className="search_item">
 								<div>Services</div>
-								<select name='service' onChange={(e)=>this.BookingValues(e)}  className="dropdown_item_select search_input">
-									<option disabled selected>Choose a service</option>
+								<select name='service' defaultValue={"Choose a service"} onChange={(e)=>this.BookingValues(e)}  className="dropdown_item_select search_input">
+									<option disabled >Choose a service</option>
 									{
                                     this.state.servicesFiltered.map(service=>{
                                         return <option key={service.id} value={service.id}>{service.name}</option>

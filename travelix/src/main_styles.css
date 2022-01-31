@@ -1164,6 +1164,7 @@ section
 	font-weight: 700;
 	color: #2d2c2c;
 	margin-top: -14px;
+	font-size: 34px;
 }
 .intro_text
 {
@@ -1171,7 +1172,7 @@ section
 }
 .intro_text p
 {
-	font-size: 24px;
+	font-size: 22px;
 	font-style: italic;
 	color: #929191;
 	line-height: 1.336;
@@ -1179,7 +1180,7 @@ section
 }
 .intro_items
 {
-	margin-top: 69px;
+	margin-top: 49px;
 }
 .intro_item
 {

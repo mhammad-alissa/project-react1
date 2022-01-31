@@ -13,7 +13,7 @@ export class User extends Component {
       phone: JSON.parse(localStorage.getItem("users")).phone,
       url: "",
       selectedFile: "",
-      booking:[]
+      booking: [],
     };
   }
   // componentDidMount() {
@@ -133,7 +133,7 @@ export class User extends Component {
     // e.preventDefault();
   };
   render() {
-    var id = JSON.parse(localStorage.getItem('users')).id
+    var id = JSON.parse(localStorage.getItem("users")).id;
     return (
       <section className="mb-4">
         {/* <!-- Home --> */}
@@ -154,7 +154,7 @@ export class User extends Component {
         <div className="contact_form_section">
           <div className="container">
             <div className="row">
-              <div className="col-lg-5 col-md-12 col-sm-12">
+              <div className="col-lg-4 col-md-12 col-sm-12">
                 {/* <!-- Contact Form --> */}
                 <div className="contact_form_container">
                   <img
@@ -164,12 +164,22 @@ export class User extends Component {
                     alt="user"
                     width={"90px"}
                     height={"90px"}
-                    style={{ borderRadius: "50%" , marginLeft:"34%"}}
+                    style={{ borderRadius: "50%", marginLeft: "32%" }}
                   />
                   <div className="contact_title text-center">
                     {JSON.parse(localStorage.getItem("users")).name}
                   </div>
                   <form id="contact_form" className="contact_form text-center">
+                    <div
+                      style={{
+                        color: "white",
+                        fontSize: "14px",
+                        textAlign: "start",
+                        fontWeight: "bolder",
+                      }}
+                    >
+                      Name
+                    </div>
                     <input
                       type="text"
                       id="contact_form_name"
@@ -180,7 +190,18 @@ export class User extends Component {
                       value={this.state.name}
                       onChange={this.userChange}
                       name="name"
+                      style={{ marginBottom: "35px" }}
                     />
+                    <div
+                      style={{
+                        color: "white",
+                        fontSize: "14px",
+                        textAlign: "start",
+                        fontWeight: "bolder",
+                      }}
+                    >
+                      Email
+                    </div>
                     <input
                       type="text"
                       id="contact_form_email"
@@ -191,7 +212,18 @@ export class User extends Component {
                       value={this.state.email}
                       onChange={this.userChange}
                       name="email"
+                      style={{ marginBottom: "35px" }}
                     />
+                    <div
+                      style={{
+                        color: "white",
+                        fontSize: "14px",
+                        textAlign: "start",
+                        fontWeight: "bolder",
+                      }}
+                    >
+                      Phone
+                    </div>
                     <input
                       type="text"
                       id="contact_form_email"
@@ -202,8 +234,18 @@ export class User extends Component {
                       value={this.state.phone}
                       onChange={this.userChange}
                       name="phone"
+                      style={{ marginBottom: "35px" }}
                     />
-                    <label style={{color:'white',fontSize:'15px',marginRight:'210px',marginTop:'10px'}}>Passowrd</label>
+                    <div
+                      style={{
+                        color: "white",
+                        fontSize: "14px",
+                        textAlign: "start",
+                        fontWeight: "bolder",
+                      }}
+                    >
+                      Password
+                    </div>
                     <input
                       type="password"
                       id="contact_form_subject"
@@ -214,8 +256,18 @@ export class User extends Component {
                       value={this.state.password}
                       onChange={this.userChange}
                       name="password"
-                      style={{padding:'-3px'}}
+                      style={{ marginBottom: "35px" }}
                     />
+                    <div
+                      style={{
+                        color: "white",
+                        fontSize: "14px",
+                        textAlign: "start",
+                        fontWeight: "bolder",
+                      }}
+                    >
+                      Image
+                    </div>
                     <input
                       type="file"
                       className="contact_form_subject input_field"
@@ -234,43 +286,45 @@ export class User extends Component {
                   </form>
                 </div>
               </div>
-              <div className="col-lg-7">
+              <div className="col-lg-8">
                 <h2>Bookings</h2>
                 <div className="table-responsive">
-                <table className="contact_form_container table text-white">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Service Name</th>
-                      <th scope="col">Delivery</th>
-                      <th scope="col">Booking Date</th>
-                      <th scope="col">Time of Day</th>
-                      <th scope="col">Date</th>
-                      <th scope="col">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {this.state.booking
-          .filter((ele) => {
-            return ele.user_id === `${id}`;
-          })
-          .map((row) => {
-            return (
-                    <tr>
-                      <th scope="row">{row.booking_id}</th>
-                      <td>{row.user_name}</td>
-                      <td>{row.service_name}</td>
-                      <td>{`${row.delivery ? "Yes" : "No"}`}</td>
-                      <td>{row.booking_date}</td>
-                      <td>{row.time_of_day}</td>
-                      <td>{row.date_chosen}</td>
-                      <td>{row.status}</td>
-                    </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
+                  <table className="contact_form_container table text-white">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Service Name</th>
+                        <th scope="col">Delivery</th>
+                        <th scope="col">Booking Date</th>
+                        <th scope="col">Time of Day</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {this.state.booking
+                        .filter((ele) => {
+                          return ele.user_id === `${id}`;
+                        })
+                        .map((row) => {
+                          return (
+                            <tr>
+                              <th scope="row">{row.booking_id}</th>
+                              <td>{row.user_name}</td>
+                              <td>{row.service_name}</td>
+                              <td>{`${row.delivery ? "Yes" : "No"}`}</td>
+                              <td>{row.booking_date}</td>
+                              <td>{row.time_of_day}</td>
+                              <td>{row.date_chosen}</td>
+                              <td>{row.status}</td>
+                              <td>{row.notes}</td>
+                            </tr>
+                          );
+                        })}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>

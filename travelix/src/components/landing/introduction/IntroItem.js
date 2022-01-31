@@ -5,8 +5,10 @@ export class IntroItem extends Component {
   subCat = (id) => {
     console.log(id);
     localStorage.setItem("subCategory", id);
+    // window.onload();
   };
   render() {
+    console.log(this.props.categories)
     return (
       <>
         {this.props.categories.map((category) => {
@@ -35,14 +37,6 @@ export class IntroItem extends Component {
                   </div>
                   <div className="intro_center text-center">
                     <h1>{category.name}</h1>
-                    {/* <div className="intro_price">From $1450</div> */}
-                    {/* <div className="rating rating_4">
-									<i className="fa fa-star"></i>
-									<i className="fa fa-star"></i>
-									<i className="fa fa-star"></i>
-									<i className="fa fa-star"></i>
-									<i className="fa fa-star"></i>
-								</div> */}
                   </div>
                 </div>
               </div>
