@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "jquery": "^3.6.0",
+    "react-image-gallery": "^1.2.7",
     "react-owl-carousel": "^2.3.3",
     "sweetalert2": "^11.3.10"
   }

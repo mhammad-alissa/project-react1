@@ -66,16 +66,26 @@ export class CategoryItem extends Component {
                     <div className="col-lg-6">
                       <div className="offers_content">
                         <div className="offers_price">
-                          {subcategory.category_id == 3 || subcategory.category_id == 6?'':`${subcategory.price}$`}
-                          <span>{subcategory.category_id == 1?'Per Km':''}</span>
-                          <span>{subcategory.category_id == 2 || subcategory.category_id == 5 ?'Per Night':''}</span>
+                          {subcategory.category_id == 3 ||
+                          subcategory.category_id == 6
+                            ? ""
+                            : `${subcategory.price}$`}
+                          <span>
+                            {subcategory.category_id == 1 ? "Per Km" : ""}
+                          </span>
+                          <span>
+                            {subcategory.category_id == 2 ||
+                            subcategory.category_id == 5
+                              ? "Per Night"
+                              : ""}
+                          </span>
                         </div>
-                        <div className="rating_r rating_r_4 offers_rating">
-                          <i></i>
-                          <i></i>
-                          <i></i>
-                          <i></i>
-                          <i></i>
+                        <div>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
                         </div>
                         <p className="offers_text">{subcategory.description}</p>
                         <div className="offers_icons">
@@ -95,7 +105,12 @@ export class CategoryItem extends Component {
                           </ul>
                         </div>
                         <div className="offers_link">
-                          <Link to="/">read more</Link>
+                          <Link
+                            onClick={(id) => this.service(subcategory.id)}
+                            to="/service"
+                          >
+                            read more
+                          </Link>
                         </div>
                       </div>
                     </div>
