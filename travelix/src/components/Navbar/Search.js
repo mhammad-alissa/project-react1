@@ -207,12 +207,12 @@ export class Search extends Component {
 							</div>
 							<div className="search_item">
 								<div>adults</div>
-								<input onChange={(e)=>this.BookingValues(e)} type="number" name='adults' placeholder='0' className="check_out search_input" value={this.state.booking.adults}/>
+								<input onChange={(e)=>this.BookingValues(e)} type="number" name='adults' min="0" placeholder='0' className="check_out search_input" value={this.state.booking.adults}/>
 								{/* <label className='search-booking'>{this.state.bookingErrors.adults}</label>						 */}
 							</div>
 							<div className="search_item">
 								<div>children</div>
-								<input onChange={(e)=>this.BookingValues(e)} type="number" name='children' placeholder='0' className="check_out search_input"value={this.state.booking.children}/>
+								<input onChange={(e)=>this.BookingValues(e)} type="number" name='children' min="0" placeholder='0' className="check_out search_input"value={this.state.booking.children}/>
 								{/* <label className='search-booking'>{this.state.bookingErrors.children}</label>						 */}
 							</div>
 							<button className="button search_button" onClick={(e)=>{this.BookClickHandler(e)}}>Book Now<span></span><span></span><span></span></button>

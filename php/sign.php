@@ -52,10 +52,6 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 //   if($check == true){
 if(isset($_POST) && !empty($_POST)){
-    // $request = json_decode($postdata);
-   
-     
-    
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
@@ -67,21 +63,45 @@ if(isset($_POST) && !empty($_POST)){
       if(mysqli_num_rows($result) == 1){
           $email_error = "The email you entered already exists";
           echo json_encode($email_error);
-      }else{
-    move_uploaded_file($_FILES['image']['tmp_name'],"../travelix/public/userImages/".$_FILES['image']['name']);
-    $sql_insert = "INSERT INTO users (name,email,phone,password,image) VALUES ('$name','$email','$phone','$password','$image')";
-    if(mysqli_query($db,$sql_insert)){
-      // header('location:./')
-        $sql_select = "SELECT * FROM users where email = $email";
-        $result = mysqli_query($db,$sql);
-        $row = mysqli_fetch_assoc($result);
-        http_response_code(201);
-        print json_encode($row);
-    }
+      }
+// if(empty($name)){
+//     $fullName_error = 'please enter User Name';
+//     $check = false;
+//   }
+// if(empty($phone)){
+//     $fullName_error = 'please enter User phone';
+//     $check = false;
+//   }
+//   if(empty($email)){
+//     $email_error = 'please enter your email ';
+//     $check = false;
+//   }
+//    if(!(preg_match("/^[A-z0-9._-]+@(hotmail|gmail|yahoo).com$/", $email))) {
+//     $email_error = 'Email is not valid';
+//     $check = false;
+//   }
+//     if(empty($password)){
+//     $pass_error = 'please enter your password';
+//     $check = false;
+//   } if(!preg_match('#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$#',$password)) {
+//     $pass_error = 'password is not valid';
+//     $check = false;
+//   }
 
-    else{
-         http_response_code(422); 
-    }
+      else{
+             move_uploaded_file($_FILES['image']['tmp_name'],"../travelix/public/userImages/".$_FILES['image']['name']);
+             $sql_insert = "INSERT INTO users (name,email,phone,password,image) VALUES ('$name','$email','$phone','$password','$image')";
+             if(mysqli_query($db,$sql_insert)){
+             $sql_select = "SELECT * FROM users where email = $email";
+             $result = mysqli_query($db,$sql);
+             $row = mysqli_fetch_assoc($result);
+             http_response_code(201);
+             print json_encode($row);
+           }
+
+             else{
+                http_response_code(422); 
+             }
   }
 //   }
 // $check = false;

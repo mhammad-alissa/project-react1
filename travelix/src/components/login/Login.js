@@ -96,11 +96,11 @@ class login extends Component {
               {" "}
               LOGIN{" "}
             </Button> */}
-            <button  onClick={this.onSubmit} style={{marginBottom:'30px',marginTop: '0'}}  id="form_submit_button" className="form_submit_button button trans_200"> {" "}LOGIN{" "}<span></span><span></span><span></span></button>
+            <button  onClick={this.onSubmit} style={{marginBottom:'30px',marginTop: '0'}}  id="form_submit_button" className="form_submit_button1 button trans_200"> {" "}LOGIN{" "}<span></span><span></span><span></span></button>
 
             {/* <Button style={{background:'black',color:'white'}} onClick={this.onSubmit}> LOGIN</Button> */}
           </CardActions>
-          <small id="loginError" style={{color:'red',fontWeight:'bold',marginLeft:'140px',fontSize:'14px'}}>{this.state.error}</small>
+          <small id="loginError" style={{color:'red',fontWeight:'bold',marginLeft:'135px',fontSize:'14px'}}>{this.state.error}</small>
         </Card>
         
       </div>

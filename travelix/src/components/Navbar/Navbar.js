@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
-import Miniweather from "../weather/Miniweather"
-
+import Miniweather from "../weather/Miniweather";
 
 class Navbar extends Component {
 
@@ -46,18 +45,36 @@ class Navbar extends Component {
                         </Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/category" onClick={(e) => this.locationHandler(e)}>
+                        <Link
+                          to="/category"
+                          onClick={(e) => this.locationHandler(e)}
+                        >
                           Services
                         </Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/about" onClick={(e) => this.locationHandler(e)}>about us</Link>
+                        <Link
+                          to="/about"
+                          onClick={(e) => this.locationHandler(e)}
+                        >
+                          about us
+                        </Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/contact" onClick={(e) => this.locationHandler(e)}>contact</Link>
+                        <Link
+                          to="/contact"
+                          onClick={(e) => this.locationHandler(e)}
+                        >
+                          contact
+                        </Link>
                       </li>
                       <li className="main_nav_item">
-                        <Link to="/weather" onClick={(e) => this.locationHandler(e)}>Weather</Link>
+                        <Link
+                          to="/weather"
+                          onClick={(e) => this.locationHandler(e)}
+                        >
+                          Weather
+                        </Link>
                       </li>
                       <li
                         style={
@@ -112,7 +129,9 @@ class Navbar extends Component {
                             }}
                           />
                           {localStorage.getItem("users") !== null
-                            ? JSON.parse(localStorage.getItem("users")).name
+                            ? JSON.parse(
+                                localStorage.getItem("users")
+                              ).name.split(" ")[0]
                             : ""}
                         </Link>
                       </li>
@@ -127,24 +146,22 @@ class Navbar extends Component {
                       >
                         <Link to="/">Logout</Link>
                       </li>
-                      {
-                        !(window.location.href.endsWith("/weather"))
-                        ?
-                      <li className="main_nav_item" style={{transform:'scale(0.5)'}}>
-                          <Miniweather/>
+                      {!window.location.href.endsWith("/weather") ? (
+                        <li
+                          className="main_nav_item"
+                          style={{ transform: "scale(0.5)" }}
+                        >
+                          <Miniweather />
                         </li>
-                        :
+                      ) : (
                         ""
-                      }
+                      )}
                     </ul>
-                     
                   </div>
 
-                  <div className="hamburger" style={{marginRight:"30px"}}>                    
+                  <div className="hamburger" style={{ marginRight: "30px" }}>
                     <i className="fa fa-bars trans_200"></i>
-
                   </div>
-                  
                 </div>
               </div>
             </div>
@@ -157,52 +174,81 @@ class Navbar extends Component {
               <div className="menu_close"></div>
             </div>
             <div className="logo menu_logo">
-            <Link onClick={(e) => this.locationHandler(e)} to="/">
-                        <img src="images/logo.png" alt="logo" />
+              <Link onClick={(e) => this.locationHandler(e)} to="/">
+                <img src="images/logo.png" alt="logo" />
               </Link>
             </div>
             <ul>
+              <li
+                className="menu_item"
+                style={
+                  !localStorage.getItem("users") ? { display: "none" } : {}
+                }
+              >
+                <Link onClick={(e) => this.locationHandler(e)} to="/User">
+                  <img
+                    src={`userImages/${
+                      localStorage.getItem("users")
+                        ? JSON.parse(localStorage.getItem("users")).image
+                        : ""
+                    }`}
+                    alt="user"
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                      marginRight: "10px",
+                    }}
+                  />
+                  {localStorage.getItem("users") !== null
+                    ? JSON.parse(localStorage.getItem("users")).name.split(
+                        " "
+                      )[0]
+                    : ""}
+                </Link>
+              </li>
               <li className="menu_item">
                 <Link to="/" onClick={(e) => this.locationHandler(e)}>
-                    Home
+                  Home
                 </Link>
               </li>
               <li className="menu_item">
                 <Link to="/category" onClick={(e) => this.locationHandler(e)}>
-                    Services
-                 </Link>
+                  Services
+                </Link>
               </li>
               <li className="menu_item">
-                <Link to="/about" onClick={(e) => this.locationHandler(e)}>about us</Link>
+                <Link to="/about" onClick={(e) => this.locationHandler(e)}>
+                  about us
+                </Link>
               </li>
               <li className="menu_item">
-                <Link to="/contact" onClick={(e) => this.locationHandler(e)}>contact</Link>
+                <Link to="/contact" onClick={(e) => this.locationHandler(e)}>
+                  contact
+                </Link>
               </li>
               <li className="menu_item">
-                <Link to="/weather" onClick={(e) => this.locationHandler(e)}>Weather</Link>
+                <Link to="/weather" onClick={(e) => this.locationHandler(e)}>
+                  Weather
+                </Link>
               </li>
-              <li className="menu_item"  style={
-                          localStorage.getItem("users")
-                            ? { display: "none" }
-                            : {}
-                        }
-                        >
-                        <Link
-                          to="/login"
-                          onClick={(e) => this.locationHandler(e)}
-                        >
-                          Login
-                        </Link>
+              <li
+                className="menu_item"
+                style={localStorage.getItem("users") ? { display: "none" } : {}}
+              >
+                <Link to="/login" onClick={(e) => this.locationHandler(e)}>
+                  Login
+                </Link>
               </li>
-              <li className="menu_item"  style={
-                          localStorage.getItem("users")
-                            ? { display: "none" }
-                            : {}
-                        }
-                      >
-                        <Link onClick={(e) => this.locationHandler(e)} to="/signup">Signup</Link>
+              <li
+                className="menu_item"
+                style={localStorage.getItem("users") ? { display: "none" } : {}}
+              >
+                <Link onClick={(e) => this.locationHandler(e)} to="/signup">
+                  Signup
+                </Link>
               </li>
-              
+
               <li className="menu_item"   style={
                           !localStorage.getItem("users")
                             ? { display: "none" }
@@ -217,6 +263,7 @@ class Navbar extends Component {
           </div>
         </div> 
         {<HedaerIndex/>}
+        {/* {this.state.url.endsWith("/") ? <HedaerIndex display={"block"}/> : <HedaerIndex display={"none"} />  } */}
 
         <Outlet />
       </>
