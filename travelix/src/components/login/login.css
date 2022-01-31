@@ -6,16 +6,19 @@
     background: linear-gradient(to right, #fa9e1b, #8d4fff);
 }
 
+.card > .MuiPaper {
+    padding: 10px 0;
+}
+
 .cardStyle{
     width: 500px;
     border-style:groove;
     border-color: #31124b;
-    margin-top: 13%;
+    margin-top: 6%;
     
 }
 
 .signupText{
-    
     font-Weight:600px;
     text-Align:center;
     font-Size:20px

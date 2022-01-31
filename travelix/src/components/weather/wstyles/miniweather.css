@@ -4,10 +4,12 @@
 
 .mini_app_container{
     margin-left: 150px !important;
+    background-image: url(../img/background.jpg);
+    min-height: 18vh !important;
+    border-radius: 10px;
 }
-
 .mini_app {
-    background: none;
+    /* background: none; */
     height: 0 !important;
     position: absolute;
     bottom: 130px;
@@ -17,7 +19,12 @@
     align-items: center;
    
 }
+.mini_waf{
+    background-color: rgba(0,0,0,.45);
+    height: 230px;
+    border-radius: 10px;
 
+}
 .mini_weather_info{
    margin-right: 30px;
 

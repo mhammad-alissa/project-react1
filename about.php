@@ -45,19 +45,6 @@ $services  = mysqli_fetch_assoc($result_services);
 $users     = mysqli_fetch_assoc($result_users);
 $ser_users = mysqli_fetch_assoc($result_services_users);
 
-// if ($method == 'GET') {
-//     if (!$id) echo '[';
-//     //   for ($i=0 ; $i<mysqli_num_rows($result_contacts) ; $i++) {
-//     //     echo ($i>0?',':'').json_encode(mysqli_fetch_object($result_contacts));
-//     //   }
-//     if (!$id) echo ']';
-// } elseif ($method == 'POST') {
-//     $result = [$contacts,$services,$users,$ser_users];
-//     echo json_encode($result);
-// } else {
-//     echo mysqli_affected_rows($db);
-// }
-
 $result = array_merge($contacts,$services,$users,$ser_users);
 print json_encode($result);
 

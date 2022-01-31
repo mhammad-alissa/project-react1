@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import IntroItem from "../landing/introduction/IntroItem";
-// import './contact_responsive.css'
-// import './contact_styles.css'
+
 
 export class Category extends Component {
+
+  componentDidMount() {
+    document.getElementById("home-landing").style.display = "none";
+  }
+
   render() {
     return (
       <>

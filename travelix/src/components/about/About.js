@@ -13,9 +13,10 @@ import axios from 'axios';
             services_users_nums : "",
             users_nums          : "",
         }
-    }
+    }  
 
     componentDidMount() {
+            document.getElementById("home-landing").style.display = "none";
         axios.get("http://localhost/project-react1/about.php")
         .then((res) => {
       this.setState( preState => ({

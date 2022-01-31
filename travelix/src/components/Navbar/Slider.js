@@ -10,7 +10,7 @@ export class Slider extends Component {
   render() {
     return (
 		<>
-        				<div className="owl-item home_slider_item">
+        			<div className="owl-item home_slider_item">
 					<div className="home_slider_background" style={{ backgroundImage:`url(${this.props.src})` }}></div>
 
 					<div className="home_slider_content text-center">

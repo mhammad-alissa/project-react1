@@ -3,6 +3,17 @@ import { Outlet, Link} from "react-router-dom";
 
 
 class Footer extends Component {
+
+	state = {
+    url: window.location.href,
+  };
+
+  locationHandler = (e) => {
+    this.setState({
+      url: e.target.href,
+    });
+  };
+
   render() {
     return (
         <>
@@ -69,17 +80,14 @@ class Footer extends Component {
 				{/* <!-- Footer Column --> */}
 				<div className="col-lg-3 footer_column">
 					<div className="footer_col">
-						<div className="footer_title">tags</div>
+						<div className="footer_title">Links</div>
 						<div className="footer_content footer_tags">
 							<ul className="tags_list clearfix">
-								<li className="tag_item"><Link to="/">design</Link></li>
-								<li className="tag_item"><Link to="/">fashion</Link></li>
-								<li className="tag_item"><Link to="/">music</Link></li>
-								<li className="tag_item"><Link to="/">video</Link></li>
-								<li className="tag_item"><Link to="/">party</Link></li>
-								<li className="tag_item"><Link to="/">photography</Link></li>
-								<li className="tag_item"><Link to="/">adventure</Link></li>
-								<li className="tag_item"><Link to="/">travel</Link></li>
+								<li className="tag_item"><Link to="/" onClick={(e) => this.locationHandler(e)}>Home</Link></li>
+								<li className="tag_item"><Link to="/category" onClick={(e) => this.locationHandler(e)}>Services</Link></li>
+								<li className="tag_item"><Link to="/about" onClick={(e) => this.locationHandler(e)}	>About US</Link></li>
+								<li className="tag_item"><Link to="/contact">Contact Us</Link></li>
+								<li className="tag_item"><Link to="/weather">Weather</Link></li>
 							</ul>
 						</div>
 					</div>
@@ -97,15 +105,15 @@ class Footer extends Component {
 								</li>
 								<li className="contact_info_item d-flex flex-row">
 									<div><div className="contact_info_icon"><img src="images/phone-call.svg" alt=""/></div></div>
-									<div className="contact_info_text">+962-7777-777-777</div>
+									<div className="contact_info_text">+962-777-777-777</div>
 								</li>
 								<li className="contact_info_item d-flex flex-row">
 									<div><div className="contact_info_icon"><img src="images/message.svg" alt=""/></div></div>
-									<div className="contact_info_text"><Link to="mailto:contactme@gmail.com?Subject=Hello">contactme@gmail.com</Link></div>
+									<div className="contact_info_text"><Link to="mailto:pr@travelix.com?Subject=Hello">pr@travelix.com</Link></div>
 								</li>
 								<li className="contact_info_item d-flex flex-row">
 									<div><div className="contact_info_icon"><img src="images/planet-earth.svg" alt=""/></div></div>
-									<div className="contact_info_text"><Link to="/">www.colorlib.com</Link></div>
+									<div className="contact_info_text"><Link to="/">www.travelix.com</Link></div>
 								</li>
 							</ul>
 						</div>
