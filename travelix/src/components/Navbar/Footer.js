@@ -19,11 +19,11 @@ class Footer extends Component {
 							</div>
 							<p className="footer_about_text">Travleix, is an exclusive travel and lifestyle service, founded by Mashi Group 2022. Since its inception, it has encapsulated a simple idea: exceptional personal service at an unsurpassed level. </p>
 							<ul className="footer_social_list">
-								<li className="footer_social_item"><Link to="/"><i className="fa fa-pinterest"></i></Link></li>
-								<li className="footer_social_item"><Link to="/"><i className="fa fa-facebook-f"></i></Link></li>
-								<li className="footer_social_item"><Link to="/"><i className="fa fa-twitter"></i></Link></li>
-								<li className="footer_social_item"><Link to="/"><i className="fa fa-dribbble"></i></Link></li>
-								<li className="footer_social_item"><Link to="/"><i className="fa fa-behance"></i></Link></li>
+								<li className="footer_social_item"><Link to="//pinterest.com" target="_blank"><i className="fab fa-pinterest"></i></Link></li>
+								<li className="footer_social_item"><Link to='//facebook.com' target="_blank"><i className="fab fa-facebook-f"></i></Link></li>
+								<li className="footer_social_item"><Link to="//twitter.com" target="_blank"><i className="fab fa-twitter"></i></Link></li>
+								<li className="footer_social_item"><Link to="//dribble.com" target="_blank"><i className="fab fa-dribbble"></i></Link></li>
+								<li className="footer_social_item"><Link to="//behance.com" target="_blank"><i className="fab fa-behance"></i></Link></li>
 							</ul>
 						</div>
 					</div>

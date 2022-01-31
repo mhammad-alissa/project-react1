@@ -3,6 +3,12 @@ import CategoryItem from "./CategoryItem";
 import axios from "axios";
 
 class Subcategory extends Component {
+
+  componentDidMount() {
+    document.getElementById("home-landing").style.display = "none";
+  }
+
+  
   render() {
     return (
       <>
@@ -10,9 +16,12 @@ class Subcategory extends Component {
           <img
             className="home_background parallax-window"
             data-parallax="scroll"
-            src="images/Abdali-and-Boulevard1.jpg"
+            src="images/serviceB.jpg"
             alt="user profile"
           />
+          <div className="home_content">
+        <div className="home_title">Services</div>
+    </div>
         </div>
         {/* // <!-- Offers --> */}
 

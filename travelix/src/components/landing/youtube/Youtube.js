@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import YouTube from 'react-youtube'
 
+
 class Youtube extends Component {
   videoOnReady (event) {
     // access to player in all event handlers via event.target
-  }
-
+}
+  
   render () {
-    const opts = { 
-      height: '550',
+    const opts = {
+      height: '500',
       width: '1110',
-      playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 0
+      playerVars: { 
+        autoplay: 0,
+        origin: 'http://localhost:*'
       }
     }
     const {videoId} = this.props

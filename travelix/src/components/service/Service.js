@@ -3,6 +3,7 @@ import "./single_listing_styles.css";
 import "./single_listing_responsive.css";
 import "./single_listing_custom.js";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export class Service extends Component {
   constructor(props) {
@@ -93,11 +94,13 @@ export class Service extends Component {
                             className="hotel_image"
                             style={{ width: "750px" }}
                           >
+                            
                             <img
                               src={`servicesImages/${service.image}`}
                               alt=""
                               height="600px"
                             />
+                            
                             <div className="hotel_review_container d-flex flex-column align-items-center justify-content-center">
                               <div className="hotel_review">
                                 <div className="hotel_review_content">

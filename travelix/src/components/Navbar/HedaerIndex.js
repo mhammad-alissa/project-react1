@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-
 import Slider from './Slider';
 export class HedaerIndex extends Component {
+ show = "block" ;
+
   render() {
-
-	
-	
+	console.log("Header")
+		if(!(window.location.href.endsWith("/")))
+		{
+			this.show = "none"
+		}
+		else {
+			this.show = "block"
+		}
     return (
-        	// <!-- Home -->
-
-	<div className="home-landing" style={{display:this.props.display}}>
+		// <!-- Home -->
+		<>
+		{
+			
+	<div id="home-landing" className="home-landing" style={{display : this.show}} >
 		
 		{/* <!-- Home Slider --> */}
 
@@ -19,8 +27,8 @@ export class HedaerIndex extends Component {
 
 				{/* <!-- Slider Item --> */}
 					<Slider src={"images/petra.webp"} />
-					<Slider src={"images/petra2.jpg"} />
-					<Slider src={"images/Ajluin.jpg"} />
+					<Slider src={"images/petra2.webp"} />
+					<Slider src={"images/Ajluin.webp"} />
 
 			</div>
 			
@@ -72,7 +80,8 @@ export class HedaerIndex extends Component {
 			
 		</div>
 		 </div>
-
+}
+</>
     );
   }
 }

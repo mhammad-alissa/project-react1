@@ -7,10 +7,10 @@ export class Category extends Component {
   render() {
     return (
 		<>
-<div class="home">
-    <div class="home_background parallax-window" data-parallax="scroll" style={{ backgroundImage:`url(images/category.jpg)` }}></div>
-    <div class="home_content">
-        <div class="home_title">categories</div>
+<div className="home">
+    <div className="home_background parallax-window" data-parallax="scroll" style={{ backgroundImage:`url(images/category.jpg)` }}></div>
+    <div className="home_content">
+        <div className="home_title">categories</div>
     </div>
 </div>
         <div className="offers">

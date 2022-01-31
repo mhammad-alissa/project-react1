@@ -96,7 +96,7 @@ class login extends Component {
               {" "}
               LOGIN{" "}
             </Button> */}
-            <button  onClick={this.onSubmit} style={{marginBottom:'30px',marginTop: '0'}}  id="form_submit_button" class="form_submit_button button trans_200"> {" "}LOGIN{" "}<span></span><span></span><span></span></button>
+            <button  onClick={this.onSubmit} style={{marginBottom:'30px',marginTop: '0'}}  id="form_submit_button" className="form_submit_button button trans_200"> {" "}LOGIN{" "}<span></span><span></span><span></span></button>
 
             {/* <Button style={{background:'black',color:'white'}} onClick={this.onSubmit}> LOGIN</Button> */}
           </CardActions>

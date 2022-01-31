@@ -231,7 +231,7 @@ class Signup extends Component {
                <br/>
               {/* <Button variant="contained" component="label" className="mt-4"> */}
               <div className="parent-div">
-              <button class="btn-upload">Choose image</button>
+              <button className="btn-upload">Choose image</button>
                 <input type="file"  onChange={this.onChangeImageform} />
                 </div>
               {/* </Button> */}
