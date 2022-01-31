@@ -249,7 +249,7 @@ class Signup extends Component {
 <small style={{ color: "red", display: "inline-block" ,fontWeight:'bold',fontSize:"25px"}}>
               {this.state.error}
             </small>
-            <button style={{marginBottom:'30px',marginTop: '0'}}  onClick={this.onSubmit} id="form_submit_button" class="form_submit_button1 button trans_200"> SIGNUP{" "}<span></span><span></span><span></span></button>
+            <button style={{marginBottom:'30px',marginTop: '0'}}  onClick={this.onSubmit} id="form_submit_button" class="form_submit_button4 button trans_200"> SIGNUP{" "}<span></span><span></span><span></span></button>
 
 <br></br>
          
