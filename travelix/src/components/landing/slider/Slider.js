@@ -8,7 +8,7 @@ export class Slider extends Component {
     return (
 
 
-		<div className='intro'>
+		<div className='intro intro-youtube'>
 			<div className="container">
 				<Youtube videoId={"vVjz8LcOrEU"}/>
 			</div>
