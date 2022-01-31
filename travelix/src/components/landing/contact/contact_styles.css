@@ -803,6 +803,7 @@ section
 .contact_form_section
 {
 	padding-top: 105px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .contact_form_container
 {
@@ -811,6 +812,7 @@ section
 	padding-right: 98px;
 	padding-bottom: 88px;
 	background: linear-gradient(to top right, #fa9e1b, #8d4fff);
+	
 }
 .contact_title
 {

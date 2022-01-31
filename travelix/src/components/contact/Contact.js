@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Swal from "sweetalert2";
-import './contact.css'
+import './contact.css';
+import './contact_responsive.css';
 import { Link } from 'react-router-dom';
 
 class Contact extends Component {
@@ -110,7 +111,7 @@ class Contact extends Component {
         {/* <!-- Home --> */}
         <div className="home ">
           <img
-            className="home_background parallax-window"
+            className="contact_image parallax-window"
             data-parallax="scroll"
             src="images/contact_background.jpg"
             alt="user profile"

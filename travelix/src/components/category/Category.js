@@ -14,7 +14,7 @@ export class Category extends Component {
             style={{ backgroundImage: `url(images/elements_background.jpg)` }}
           ></div>
           <div class="home_content">
-            <div class="home_title">categories</div>
+            <div class="home_title">Services</div>
           </div>
         </div>
         <div className="offers">
