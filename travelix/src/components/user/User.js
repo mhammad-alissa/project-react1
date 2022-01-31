@@ -144,6 +144,7 @@ export class User extends Component {
             data-parallax="scroll"
             src="images/contact_background.jpg"
             alt="user profile"
+            style={{ width: "auto" }}
           />
           <div className="home_content">
             <div className="home_title">User Profile</div>
@@ -158,6 +159,7 @@ export class User extends Component {
                 {/* <!-- Contact Form --> */}
                 <div className="contact_form_container">
                   <img
+                    className="user-profile-image"
                     src={`userImages/${
                       JSON.parse(localStorage.getItem("users")).image
                     }`}
@@ -280,6 +282,7 @@ export class User extends Component {
                       id="form_submit_button"
                       className="form_submit_button button trans_200"
                       onClick={this.userEdit}
+                      style={{ margin: "auto" }}
                     >
                       Update
                     </button>
