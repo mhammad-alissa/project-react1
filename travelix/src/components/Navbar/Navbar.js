@@ -204,7 +204,7 @@ class Navbar extends Component {
                       >
                         <Link to="">Logout</Link>
               </li>
-
+              
             </ul>
           </div>
         </div> 

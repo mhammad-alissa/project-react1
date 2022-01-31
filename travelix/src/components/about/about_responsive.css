@@ -194,7 +194,7 @@
 {
 	.home_title
 	{
-		font-size: 48px;
+		font-size: 48px !important;
 	}
 	.stats_years
 	{
@@ -374,7 +374,7 @@
 	}
 	.intro_text
 	{
-		margin-top: 45px;
+		margin: 30px;
 	}
 	.stats_text
 	{

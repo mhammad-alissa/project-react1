@@ -476,7 +476,10 @@ section
 /*********************************
 3.3 Main Nav
 *********************************/
-
+.main_nav 
+{
+	overflow: hidden;
+}
 .main_nav_container
 {
 	margin-right: 221px;
@@ -1142,7 +1145,7 @@ section
 	font-size: 30px;
 	font-weight: 700;
 	color: #2d2c2c;
-	margin-top: -8px;
+	margin: 50px 0;
 	text-transform: uppercase;
 }
 
@@ -1153,8 +1156,8 @@ section
 .intro
 {
 	width: 100%;
-	padding-top: 100px;
-	padding-bottom: 105px;
+	padding-top: 30px;
+	padding-bottom: 65px;
 }
 .intro_title
 {
