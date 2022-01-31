@@ -1428,10 +1428,19 @@ section
 9. Offers
 *********************************/
 
+.section_h2_offers {
+	margin: 80px 0px 25px 0px;
+}
+
+.intro-youtube {
+	padding-bottom: 10px ;
+}
+
+
 .offers
 {
 	width: 100%;
-	padding-top: 35px;
+	/* padding-top: 35px; */
 	padding-bottom: 43px;
 	background: #f3f6f9;
 }

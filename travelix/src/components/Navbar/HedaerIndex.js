@@ -4,7 +4,6 @@ export class HedaerIndex extends Component {
  show = "block" ;
 
   render() {
-	console.log("Header")
 		if(!(window.location.href.endsWith("/")))
 		{
 			this.show = "none"
