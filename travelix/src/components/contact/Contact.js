@@ -21,6 +21,10 @@ class Contact extends Component {
     },
   };
 
+    componentDidMount() {
+    document.getElementById("home-landing").style.display = "none";
+  }
+
   ContactHandler = (event) => {
     event.preventDefault();
     let regexEmail = /^[A-ZA-z0-9._-]+@(hotmail|gmail|yahoo|outlook).com$/;
