@@ -23,58 +23,43 @@ if ($db->connect_error) {
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-switch ($method) {
-    case 'GET':
-
-      if(isset($_GET["id"])){
-        $id = $_GET['id'];  
-      }     
-      $sql = "select * from contact ".($id?" where id=$id":''); 
-      $sql = "select * from services ".($id?" where id=$id":''); 
-      $sql = "select * from users ".($id?" where id=$id":''); 
-      $sql = "select * from services_users ".($id?" where id=$id":''); 
-      break;
-    case 'POST':
-            $user_id = $_POST["user_id"];
-            $service_id = $_POST["service_id"];
-            $delivery = $_POST["delivery"];
-            $time_of_day = $_POST["time_of_day"];
-            $date_chosen = $_POST["date_chosen"];
-            $adults = $_POST["adults"];
-            $children = $_POST["children"];
-            $status = $_POST["status"];
-            $notes = $_POST["notes"];
-            $sql = "insert into services_users (user_id, service_id , delivery, time_of_day, date_chosen, adults, children, status, notes) 
-            values ('$user_id', '$service_id' , '$delivery' ,'$time_of_day','$date_chosen','$adults','$children','$status','$notes')"; 
-    break;
-}
-
+$sql_contacts       = "select count(*) as contact_nums from contacts ".($id?" where id=$id":''); 
+$sql_services       = "select count(*) as services_nums from services ".($id?" where id=$id":''); 
+$sql_users          = "select count(*) as users_nums from users ".($id?" where id=$id":''); 
+$sql_services_users = "select count(*) as services_users_nums from services_users ".($id?" where id=$id":''); 
 
 // run SQL statement
-$result = mysqli_query($db,$sql);
- 
-//For booking in search component in reactJS
-$sql_id  = "select id from services_users ORDER BY id DESC LIMIT 1 ";
-$result2 =  mysqli_query($db,$sql_id);
-$data2   =  mysqli_fetch_object($result2);
+$result_contacts       = mysqli_query($db,$sql_contacts);
+$result_services       = mysqli_query($db,$sql_services);
+$result_users          = mysqli_query($db,$sql_users);
+$result_services_users = mysqli_query($db,$sql_services_users);
 
 // die if SQL statement failed
-if (!$result) {
+if (!$result_contacts || !$result_services || !$result_users || !$result_services_users  ) {
   http_response_code(404);
   die(mysqli_error($db));
 }
-if ($method == 'GET') {
-    if (!$id) echo '[';
-      for ($i=0 ; $i<mysqli_num_rows($result) ; $i++) {
-        echo ($i>0?',':'').json_encode(mysqli_fetch_object($result));
-      }
-    if (!$id) echo ']';
-} elseif ($method == 'POST') {
-    $result = [$result , $data2->id];
-    echo json_encode($result);
-} else {
-    echo mysqli_affected_rows($db);
-}
+
+$contacts  = mysqli_fetch_assoc($result_contacts);
+$services  = mysqli_fetch_assoc($result_services);
+$users     = mysqli_fetch_assoc($result_users);
+$ser_users = mysqli_fetch_assoc($result_services_users);
+
+// if ($method == 'GET') {
+//     if (!$id) echo '[';
+//     //   for ($i=0 ; $i<mysqli_num_rows($result_contacts) ; $i++) {
+//     //     echo ($i>0?',':'').json_encode(mysqli_fetch_object($result_contacts));
+//     //   }
+//     if (!$id) echo ']';
+// } elseif ($method == 'POST') {
+//     $result = [$contacts,$services,$users,$ser_users];
+//     echo json_encode($result);
+// } else {
+//     echo mysqli_affected_rows($db);
+// }
+
+$result = array_merge($contacts,$services,$users,$ser_users);
+print json_encode($result);
 
 $db->close();
 
