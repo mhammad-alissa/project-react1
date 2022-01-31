@@ -257,6 +257,10 @@ class Navbar extends Component {
               >
                 <Link to="">Logout</Link>
               </li>
+<<<<<<< HEAD
+              
+=======
+>>>>>>> 828da2c966154f2378d9f565d688d82a88b6088c
             </ul>
           </div>
         </div>
