@@ -129,8 +129,9 @@ export class Service extends Component {
           <img
             className="home_background parallax-window"
             data-parallax="scroll"
-            src="images/single_background.jpg"
+            src="images/blog_background.jpg"
             alt="a"
+            style={{ width: "auto" }}
           />
           <div className="home_content">
             <div className="home_title"></div>
@@ -270,7 +271,7 @@ export class Service extends Component {
 
               <div
                 className="bookingForm col-lg-4 col-md-12 col-sm-12"
-                style={{ marginTop: "227px" }}
+                style={{ marginTop: "227px", marginBottom: "90px" }}
               >
                 {/* <!-- Contact Form --> */}
                 <div className="contact_form_container">
@@ -285,10 +286,11 @@ export class Service extends Component {
                     alt="user"
                     width={"90px"}
                     height={"90px"}
-                    style={{
-                      borderRadius: "50%",
-                      marginLeft: "31%",
-                    }}
+                    style={
+                      localStorage.getItem("users")
+                        ? { borderRadius: "50%", marginLeft: "31%" }
+                        : { display: "none" }
+                    }
                   />
                   <div className="contact_title text-center">
                     {localStorage.getItem("users")
@@ -351,10 +353,8 @@ export class Service extends Component {
                     <textarea
                       onChange={(e) => this.BookingValues(e)}
                       name="notes"
-                      placeholder="notes"
                       className="check_out search_input"
-                      style={{ marginBottom: "15px" }}
-                      rows="120"
+                      style={{ marginBottom: "15px", height: "120px" }}
                     >
                       {this.state.booking.notes}
                     </textarea>
