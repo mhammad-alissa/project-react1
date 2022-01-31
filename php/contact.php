@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 
-$postdata = file_get_contents("php://input");
+// $postdata = file_get_contents("php://input");
 $check = true;
 
 
@@ -28,19 +28,19 @@ if(empty($email)){
   }
 
 
-if(isset($postdata) && !empty($postdata)){
-    $request = json_decode($postdata);
+if(isset($_POST) && !empty($_POST)){
+    // $request = json_decode($postdata);
    
      
   
-    $name = $request->name;
-    $email = $request->email;
-    $subject = $request->subject;
-    $message = $request->message;
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
     $sql = "INSERT INTO contacts (name,email,subject,message) VALUES ('$name','$email','$subject','$message')";
     if(mysqli_query($db,$sql)){
     
-        http_response_code(201);
+      http_response_code(200);
 
     }
 
