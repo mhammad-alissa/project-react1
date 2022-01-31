@@ -1317,10 +1317,6 @@ section
 8.1 CTA Slider
 *********************************/
 
-.cta_slider_container
-{
-
-}
 .cta_item
 {
 	padding-top: 75px;
@@ -1844,6 +1840,9 @@ section
 	outline: none;
 	margin-top: 37px;
 	cursor: pointer;
+	margin-right: 0 !important;
+	display: block !important;
+ 	margin-left: auto !important;
 }
 .form_submit_button:hover
 {

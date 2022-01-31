@@ -1153,7 +1153,7 @@ section
 .intro
 {
 	width: 100%;
-	padding-top: 100px;
+	padding-top: 65px;
 	padding-bottom: 105px;
 }
 .intro_title
@@ -1161,6 +1161,7 @@ section
 	font-weight: 700;
 	color: #2d2c2c;
 	margin-top: -14px;
+	font-size: 34px;
 }
 .intro_text
 {
@@ -1168,7 +1169,7 @@ section
 }
 .intro_text p
 {
-	font-size: 24px;
+	font-size: 22px;
 	font-style: italic;
 	color: #929191;
 	line-height: 1.336;
@@ -1176,7 +1177,7 @@ section
 }
 .intro_items
 {
-	margin-top: 69px;
+	margin-top: 49px;
 }
 .intro_item
 {
@@ -1861,6 +1862,9 @@ section
 	outline: none;
 	margin-top: 37px;
 	cursor: pointer;
+	margin-right: 0 ;
+	display: block ;
+ 	margin-left: auto ;
 }
 .form_submit_button:hover
 {

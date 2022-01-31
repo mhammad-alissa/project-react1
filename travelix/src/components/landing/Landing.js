@@ -7,6 +7,11 @@ import Contact from './contact/Contact';
 import { Search } from '../Navbar/Search';
 
 export class Landing extends Component {
+
+componentDidMount(){
+      document.getElementById("home-landing").style.display = "block"
+}
+
   render() {   
     return (
         <>

@@ -19,12 +19,6 @@ export class Category extends Component {
         </div>
         <div className="offers">
           <div className="container">
-            <div className="row">
-              <h1
-                style={{ fontSize: "50px", color: "black", fontWeight: "bold" }}
-                className="col text-center"
-              ></h1>
-            </div>
             <div className="row offers_items">
               <IntroItem categories={this.props.categories} />
             </div>

@@ -203,6 +203,7 @@ export class Service extends Component {
                               src={`servicesImages/${service.image}`}
                               alt=""
                             />
+
                             <div className="hotel_review_container d-flex flex-column align-items-center justify-content-center">
                               <div className="hotel_review">
                                 <div className="hotel_review_content">
