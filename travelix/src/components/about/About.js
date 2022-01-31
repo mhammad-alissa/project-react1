@@ -1,9 +1,36 @@
 import React, { Component } from 'react';
 import "./about_responsive.css";
 import "./about_styles.css";
-import image from "./add.jpg"; 
 import image2 from "./about_background.jpg"; 
+import axios from 'axios';
+
  class About extends Component {
+
+    state = {
+        numbers : {
+            contact_nums        : "",
+            services_nums       : "",
+            services_users_nums : "",
+            users_nums          : "",
+        }
+    }
+
+    componentDidMount() {
+        axios.get("http://localhost/project-react1/about.php")
+        .then((res) => {
+      this.setState( preState => ({
+        ...preState , numbers : {
+            contact_nums        : res.data["contact_nums"],
+            services_nums       : res.data["services_nums"],
+            services_users_nums : res.data["services_users_nums"],
+            users_nums          : res.data["users_nums"],
+        }
+      }));
+    console.log(res);
+    })
+
+    }
+
   render() {
     return (
     <div>
@@ -214,8 +241,8 @@ import image2 from "./about_background.jpg";
             <div className="col-lg-3 milestone_col">
                 <div className="milestone text-center">
                     <div className="milestone_icon"><img src="images/milestone_1.png" alt=""/></div>
-                    <div className="milestone_counter" data-end-value="255">15</div>
-                    <div className="milestone_text">Clients</div>
+                    <div className="milestone_counter" data-end-value="255">{this.state.numbers.services_users_nums}</div>
+                    <div className="milestone_text">Bookings</div>
                 </div>
             </div>
 
@@ -223,8 +250,8 @@ import image2 from "./about_background.jpg";
             <div className="col-lg-3 milestone_col">
                 <div className="milestone text-center">
                     <div className="milestone_icon"><img src="images/milestone_2.png" alt=""/></div>
-                    <div className="milestone_counter" data-end-value="1176">10</div>
-                    <div className="milestone_text">Projects</div>
+                    <div className="milestone_counter" data-end-value="1176">{this.state.numbers.services_nums}</div>
+                    <div className="milestone_text">Services</div>
                 </div>
             </div>
 
@@ -232,8 +259,8 @@ import image2 from "./about_background.jpg";
             <div className="col-lg-3 milestone_col">
                 <div className="milestone text-center">
                     <div className="milestone_icon"><img src="images/milestone_3.png" alt=""/></div>
-                    <div className="milestone_counter" data-end-value="39">13</div>
-                    <div className="milestone_text">Countries</div>
+                    <div className="milestone_counter" data-end-value="39">{this.state.numbers.contact_nums}</div>
+                    <div className="milestone_text">Connections</div>
                 </div>
             </div>
 
@@ -241,8 +268,8 @@ import image2 from "./about_background.jpg";
             <div className="col-lg-3 milestone_col">
                 <div className="milestone text-center">
                     <div className="milestone_icon"><img src="images/milestone_4.png" alt=""/></div>
-                    <div className="milestone_counter" data-end-value="127">0</div>
-                    <div className="milestone_text">Coffees</div>
+                    <div className="milestone_counter" data-end-value="127">{this.state.numbers.users_nums}</div>
+                    <div className="milestone_text">Users</div>
                 </div>
             </div>
 
