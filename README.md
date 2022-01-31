@@ -8,9 +8,12 @@ Travelix concierge company specializes in securing access for its members to pri
 
 ## Technologies
 
-* html    * css
-* js      * bootstrap
-* php     * db mysql
+* html   
+* css
+* js      
+* bootstrap
+* php     
+* db mysql
 * react
 
 ## Tools
