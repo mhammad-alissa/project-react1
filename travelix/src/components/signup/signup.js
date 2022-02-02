@@ -26,12 +26,12 @@ class Signup extends Component {
       phone: "",
       password: "",
       passwordConform: "",
-      image: "",
+      image: "images.png",
       error: "",
     };
   }
 
-  onChangeName(e) {
+   onChangeName(e) {
     this.setState({
       name: e.target.value,
     });
@@ -76,22 +76,18 @@ class Signup extends Component {
     // let regexfullname            = /^[a-zA-Z]{4,}(?: [a-zA-Z]+){3}$/;
 
     // fullname
-    const fullName = document.getElementById("fullName");
     const fullNameMessageError = document.getElementById(
       "fullNameMessageError"
     );
 
     // email
-    const email = document.getElementById("email");
     const emailMessageError = document.getElementById("emailMessageError");
 
     const phoneMessageError = document.getElementById("phoneMessageError");
 
     // password
-    const pass = document.getElementById("pass");
     const passMessageError = document.getElementById("passMessageError");
 
-    const ConfirmPass = document.getElementById("ConfirmPass");
     const ConfirmPassMessageError = document.getElementById(
       "ConfirmPassMessageError"
     );
@@ -113,6 +109,7 @@ class Signup extends Component {
       bool = false;
     }
     // phone condition
+    phoneMessageError.innerText = "";
     if (this.state.phone === "") {
       phoneMessageError.innerText = "phone is empty";
       bool = false;
@@ -124,7 +121,7 @@ class Signup extends Component {
       passMessageError.innerText = "password is empty";
       bool = false;
     } else if (!this.state.password.match(regexPass)) {
-      passMessageError.innerText = "password is not valid";
+      passMessageError.innerText = "password is must contain at least one upper and one special charcter ";
       bool = false;
     }
     // password confirm condition
@@ -138,6 +135,7 @@ class Signup extends Component {
     }
 
     if (bool === true) {
+      console.log("hhhh");
       const formData = new FormData();
       formData.append("name", this.state.name);
       formData.append("email", this.state.email);
@@ -163,8 +161,15 @@ class Signup extends Component {
               image: res.data.image,
             };
             localStorage.setItem("users", JSON.stringify(obj));
-            window.location.href = "/ ";
-            console.log(res.data);
+            if(localStorage.getItem("url"))
+          {
+            localStorage.removeItem("url");
+            window.location.href = "http://localhost:3000/service";
+          }
+          else {
+            window.location.assign("/");
+          }
+            
           } else {
             this.setState({
               error: res.data,
@@ -175,20 +180,27 @@ class Signup extends Component {
           console.log(error.response);
         });
 
-      this.setState({
-        name: "",
-        email: "",
-        phone: "",
-        password: "",
-        passwordConform: "",
-        image: "",
-      });
+      // this.setState({
+      //   name: "",
+      //   email: "",
+      //   phone: "",
+      //   password: "",
+      //   passwordConform: "",
+      //   image: "",
+      // });
+
       e.preventDefault();
     }
   }
+
+    componentDidMount(){
+          this.props.ScrollUp()
+    }
+
   render() {
     return (
-      <div className="card">
+      <div className="cardbg">
+      <div className="cardsign">
         <Card className="cardStyle">
           <CardContent>
             <form>
@@ -229,33 +241,20 @@ class Signup extends Component {
               />
               <small id="ConfirmPassMessageError" className="form-text"></small>
                <br/>
-              {/* <Button variant="contained" component="label" className="mt-4"> */}
               <div className="parent-div">
               <button className="btn-upload">Choose image</button>
-                <input type="file"  onChange={this.onChangeImageform} />
+                <input type="file" onChange={this.onChangeImageform} />
                 </div>
-              {/* </Button> */}
-              {/* <input type="submit" onClick={this.onSubmit}> cjkqjwjkjw</input> */}
             </form>
           </CardContent>
-
-          {/* <CardActions className="CardActions"> */}
-            {/* <Button
-              style={{ background: "black", color: "white" }}
-              onClick={this.onSubmit}
-            >
-              SIGNUP{" "}
-            </Button> */}
-<small style={{ color: "red", display: "inline-block" ,fontWeight:'bold',fontSize:"25px"}}>
+<small style={{ color: "red", display: "block" ,fontWeight:'bold',fontSize:"15px", textAlign:"center" }}>
               {this.state.error}
             </small>
             <button style={{marginBottom:'30px',marginTop: '0'}}  onClick={this.onSubmit} id="form_submit_button" class="form_submit_button4 button trans_200"> SIGNUP{" "}<span></span><span></span><span></span></button>
 
 <br></br>
-         
-            {/* <button onClick={()=> History.push('/')} className="Home-button"></button>   */}
-          {/* </CardActions> */}
         </Card>
+        </div>
       </div>
     );
   }

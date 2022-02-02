@@ -9,7 +9,8 @@ import getAddressOfCoordinates from "./api/reverseGeocoding";
 import getCoordinatesOfAddress from "./api/forwardGeocoding";
 import getWeatherAndForecast from "./api/weatherAndForecast";
 
-function Weather() {
+function Weather(props) {
+  props.ScrollUp();
   document.getElementById("home-landing").style.display = "none";
   const [address, setAddress] = useState("");
   const [coordinates, setCoordinates] = useState({});
@@ -111,7 +112,10 @@ function Weather() {
     )
   };
 
+  
+
   return (
+    
     <div className="App">
       <div className="Appbg">
       <div className="App__container">

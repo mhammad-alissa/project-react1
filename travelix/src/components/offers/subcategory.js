@@ -7,6 +7,7 @@ class Subcategory extends Component {
   }
 
   render() {
+    this.props.ScrollUp();
     return (
       <>
         <div className="home">

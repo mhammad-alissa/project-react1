@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { HedaerIndex } from "./HedaerIndex";
 import Miniweather from "../weather/Miniweather";
+import "./Navbar.css";
 
 class Navbar extends Component {
   state = {
@@ -51,29 +52,62 @@ class Navbar extends Component {
                           Services
                         </Link>
                       </li>
-                      <li className="main_nav_item">
-                        <Link
-                          to="/about"
-                          onClick={(e) => this.locationHandler(e)}
+
+                      <li class="main_nav_item dropdown show">
+                        <div
+                          style={{
+                            backgroundColor: "transparent",
+                            cursor: "pointer",
+                            fontSize: "13px",
+                            fontWeight: "600",
+                            marginTop: "-1px",
+                            border: "none",
+                            outline: "none",
+                            boxShadow: "none",
+                          }}
+                          class="btn btn-secondary dropdown-toggle"
+                          href="#"
+                          role=""
+                          id="dropdownMenuLink"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
                         >
-                          about us
-                        </Link>
-                      </li>
-                      <li className="main_nav_item">
-                        <Link
-                          to="/contact"
-                          onClick={(e) => this.locationHandler(e)}
+                          WHO WE ARE
+                        </div>
+
+                        <div
+                          class="dropdown-menu"
+                          aria-labelledby="dropdownMenuLink"
                         >
-                          contact
-                        </Link>
+                          <Link
+                            to="/about"
+                            onClick={(e) => this.locationHandler(e)}
+                          >
+                            <li className="dropdown-item">about us</li>
+                          </Link>
+
+                          <Link
+                            to="/contact"
+                            onClick={(e) => this.locationHandler(e)}
+                          >
+                            <li className="dropdown-item">contact</li>
+                          </Link>
+                        </div>
                       </li>
+<<<<<<< HEAD
                       {/* <li className="main_nav_item">
+=======
+
+                      <li className="main_nav_item">
+>>>>>>> 7420ec5534a858e8a2d99f2b4b10af9d7261f9b8
                         <Link
                           to="/weather"
                           onClick={(e) => this.locationHandler(e)}
                         >
                           Weather
                         </Link>
+<<<<<<< HEAD
                       </li> */}
                       <li
                         style={
@@ -101,55 +135,117 @@ class Navbar extends Component {
                         <Link
                           to="/signup"
                           onClick={(e) => this.locationHandler(e)}
-                        >
-                          Signup
-                        </Link>
+=======
                       </li>
-                      <li
-                        className="main_nav_item"
-                        style={
-                          !localStorage.getItem("users")
-                            ? { display: "none" }
-                            : {}
-                        }
-                      >
-                        <Link
-                          onClick={(e) => this.locationHandler(e)}
-                          to="/User"
+
+                      {!localStorage.getItem("users") ? (
+                        <li
+                          class="main_nav_item dropdown show"
+                          style={{ cursor: "pointer" }}
+>>>>>>> 7420ec5534a858e8a2d99f2b4b10af9d7261f9b8
                         >
-                          <img
-                            src={`userImages/${
-                              localStorage.getItem("users")
-                                ? JSON.parse(localStorage.getItem("users"))
-                                    .image
-                                : ""
-                            }`}
-                            alt="user"
+                          <div
                             style={{
-                              width: "50px",
-                              height: "50px",
-                              borderRadius: "50%",
-                              marginRight: "10px",
+                              backgroundColor: "transparent",
+                              fontSize: "13px",
+                              fontWeight: "600",
+                              marginTop: "-1px",
+                              border: "none",
+                              outline: "none",
+                              boxShadow: "none",
                             }}
-                          />
-                          {localStorage.getItem("users") !== null
-                            ? JSON.parse(
+                            class="btn btn-secondary dropdown-toggle"
+                            href="#"
+                            role=""
+                            id="dropdownMenuLink"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            ACCOUNT
+                          </div>
+
+                          <div
+                            class="dropdown-menu"
+                            aria-labelledby="dropdownMenuLink"
+                          >
+                            <Link
+                              to="/login"
+                              onClick={(e) => this.locationHandler(e)}
+                            >
+                              <li className="dropdown-item">Login</li>
+                            </Link>
+
+                            <Link
+                              to="/signup"
+                              onClick={(e) => this.locationHandler(e)}
+                            >
+                              <li className="dropdown-item">Signup</li>
+                            </Link>
+                          </div>
+                        </li>
+                      ) : (
+                        <li
+                          class="main_nav_item dropdown show"
+                          style={{ cursor: "pointer" }}
+                        >
+                          <div
+                            style={{
+                              backgroundColor: "transparent",
+                              fontSize: "13px",
+                              fontWeight: "600",
+                              marginTop: "-1px",
+                              border: "none",
+                              outline: "none",
+                              boxShadow: "none",
+                            }}
+                            class="btn btn-secondary dropdown-toggle"
+                            href="#"
+                            role=""
+                            id="dropdownMenuLink"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            <img
+                              src={`userImages/${
+                                JSON.parse(localStorage.getItem("users")).image
+                              }`}
+                              alt="user"
+                              style={{
+                                width: "50px",
+                                height: "50px",
+                                borderRadius: "50%",
+                                marginRight: "10px",
+                              }}
+                            />
+                            {
+                              JSON.parse(
                                 localStorage.getItem("users")
                               ).name.split(" ")[0]
-                            : ""}
-                        </Link>
-                      </li>
-                      <li
-                        className="main_nav_item"
-                        style={
-                          !localStorage.getItem("users")
-                            ? { display: "none" }
-                            : {}
-                        }
-                        onClick={this.logout}
-                      >
-                        <Link to="/">Logout</Link>
-                      </li>
+                            }
+                          </div>
+                          <div
+                            class="dropdown-menu"
+                            aria-labelledby="dropdownMenuLink"
+                          >
+                            <Link
+                              to="/user"
+                              onClick={(e) => this.locationHandler(e)}
+                            >
+                              <li className="dropdown-item">Profile</li>
+                            </Link>
+
+                            <li
+                              style={{ fontSize: "12px" }}
+                              className="dropdown-item"
+                              onClick={this.logout}
+                            >
+                              LOGOUT
+                            </li>
+                          </div>
+                        </li>
+                      )}
                       {!window.location.href.endsWith("/weather") ? (
                         <li
                           className="main_nav_item"

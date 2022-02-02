@@ -13,7 +13,7 @@ class Youtube extends Component {
       width: '1110',
       playerVars: { 
         autoplay: 0,
-        origin: 'http://localhost:*'
+        origin: 'http://localhost:3000'
       }
     }
     const {videoId} = this.props
@@ -21,9 +21,9 @@ class Youtube extends Component {
       <YouTube
         videoId={videoId}
         opts={opts}
-        onReady={this.videoOnReady}
-        onPlay={this.videoOnPlay}
-        onStateChange={this.videoStateChange}
+        // onReady={this.videoOnReady}
+        // onPlay={this.videoOnPlay}
+        // onStateChange={this.videoStateChange}
       />
     )
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Swal from "sweetalert2";
-import $ from "jquery"
+import $ from "jquery";
 
 export class Search extends Component {
 
@@ -170,7 +170,7 @@ export class Search extends Component {
 						<div className="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
 
                             {this.props.categories.map((category,index)=>{
-                                return  (<div onClick={(e)=>this.IconClickHandler(e)} id={category.id} key={category.id} className={`search_tab search-bar-landing ${index === 0 ? "active" : "" }  d-flex flex-row align-items-center justify-content-lg-center jusify-content-start icon`}>
+                                return  (<div onClick={(e)=>this.IconClickHandler(e)} id={category.id} key={category.id} className={`search_tab search-bar-landing ${index === 0 ? "active" : "" }  d-flex flex-row align-items-center justify-content-lg-center justify-content-start icon`}>
 											<i style={{marginRight:"10px" , fontSize : "20px"}} className={`fas ${this.state.images[index]}`}></i>
                                             <span>{category.name}</span>
                                           </div>

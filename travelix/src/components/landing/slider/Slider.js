@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Youtube from '../youtube/Youtube';
 
-import image from "./offer_8.jpg"; 
-
 export class Slider extends Component {
   render() {
     return (
