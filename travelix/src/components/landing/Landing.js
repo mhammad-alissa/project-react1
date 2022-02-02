@@ -10,6 +10,7 @@ export class Landing extends Component {
 
 componentDidMount(){
       document.getElementById("home-landing").style.display = "block"
+      this.props.ScrollUp();
 }
 
   render() {   

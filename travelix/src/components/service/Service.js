@@ -31,6 +31,7 @@ export class Service extends Component {
   }
 
   componentDidMount() {
+    this.props.ScrollUp();
     document.getElementById("home-landing").style.display = "none";
     const url = "http://localhost/project-react1/php/service.php";
     axios
@@ -96,16 +97,21 @@ export class Service extends Component {
         })
           .then((response) => {
             if (response.status === 200) {
+              this.BookingClearValues()
               Swal.fire(
                 "Booking Succesfull",
                 `Booking ID is: ${response.data[1]} `,
                 "success"
               );
+              this.setState({
+
+              })
             }
           })
           .catch(function (response) {});
       }
     } else {
+      localStorage.setItem("url","yes");
       window.location.assign("/login");
     }
   };
@@ -118,6 +124,20 @@ export class Service extends Component {
       },
     }));
   };
+
+  BookingClearValues = () => {
+		this.setState(preState => ({
+			...preState , booking : {
+				  service  : "",
+					date     : "",
+					time     : "",
+					adults   : "0",
+					children : "0",
+          notes    : ""
+			}
+			}
+	))
+	}
 
   render() {
     var id = JSON.parse(localStorage.getItem("service"));

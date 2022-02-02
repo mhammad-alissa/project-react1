@@ -10,7 +10,7 @@ export class TestimonialsItem extends Component {
 									<div className="test_content_container">
 										<div className="test_content">
 											<div className="test_item_info">
-												<div className="test_name">carla smith</div>
+												<div className="test_name">Adham Alnablsi</div>
 												<div className="test_date">May 24, 2017</div>
 											</div>
 											<div className="test_quote_title">" Best holliday ever "</div>

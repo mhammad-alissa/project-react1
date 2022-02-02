@@ -43,7 +43,7 @@ class Footer extends Component {
 				{/* <!-- Footer Column --> */}
 				<div className="col-lg-3 footer_column">
 					<div className="footer_col">
-						<div className="footer_title">blog posts</div>
+						<div className="footer_title">News</div>
 						<div className="footer_content footer_blog">
 							
 							{/* <!-- Footer blog item --> */}

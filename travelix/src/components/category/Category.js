@@ -9,16 +9,17 @@ export class Category extends Component {
   }
 
   render() {
+        this.props.ScrollUp()
     return (
       <>
-        <div class="home">
+        <div className="home">
           <div
-            class="home_background parallax-window"
+            className="home_background parallax-window"
             data-parallax="scroll"
             style={{ backgroundImage: `url(images/elements_background.jpg)` }}
           ></div>
-          <div class="home_content">
-            <div class="home_title">Categories</div>
+          <div className="home_content">
+            <div className="home_title">Categories</div>
           </div>
         </div>
         <div className="offers">

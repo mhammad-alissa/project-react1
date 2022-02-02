@@ -16,47 +16,9 @@ export class User extends Component {
       booking: [],
     };
   }
-  // componentDidMount() {
-  //   const axios = require("axios");
 
-  //   // Make a request for a user with a given ID
-  //   axios
-  //     .get("http://localhost/project-react1/php/user.php")
-  //     .then((response) => {
-  //       // handle success
-  //       console.log(response);
-  //       let user = [
-  //         {
-  //           id: response.data.id,
-  //           email: response.data.email,
-  //           name: response.data.name,
-  //           password: response.data.password,
-  //           image: response.data.image,
-  //           phone: response.data.phone,
-  //         },
-  //       ];
-  //       // localStorage.setItem("users", JSON.stringify(user));
-  //       this.setState({
-  //         row: JSON.parse(localStorage.getItem("users")),
-  //         name: JSON.parse(localStorage.getItem("users")).name,
-  //         email: JSON.parse(localStorage.getItem("users")).email,
-  //         password: JSON.parse(localStorage.getItem("users")).password,
-  //         image: JSON.parse(localStorage.getItem("users")).image,
-  //         id: JSON.parse(localStorage.getItem("users")).id,
-  //         phone: JSON.parse(localStorage.getItem("users")).phone,
-  //         test: "true",
-  //       });
-  //     })
-  //     .catch(function (error) {
-  //       // handle error
-  //       console.log(error);
-  //     })
-  //     .then(function () {
-  //       // always executed
-  //       // window.location.href = "http://localhost:3000/User";
-  //     });
-  // }
   componentDidMount() {
+        this.props.ScrollUp();
     const url = "http://localhost/project-react1/php/userbooking.php";
     axios
       .get(url)
@@ -95,18 +57,6 @@ export class User extends Component {
       this.state.selectedFile.name
     );
     formData.append("image", this.state.selectedFile.name);
-    // const obj = {
-    //   id: this.state.id,
-    //   name: this.state.name,
-    //   email: this.state.email,
-    //   password: this.state.password,
-    //   phone: this.state.phone,
-    //   image: (this.state.selectedFile, this.state.selectedFile.name),
-    //   image_name: this.state.image.split(/(\\|\/)/g).pop(),
-    //   // file: this.state.selectedFile,
-    //   // url: URL.createObjectURL(e.target.files[0]),
-    //   // file: e.target.files[0],
-    // };
 
     axios({
       method: "post",
@@ -313,7 +263,7 @@ export class User extends Component {
                         })
                         .map((row) => {
                           return (
-                            <tr>
+                            <tr key={row.id}>
                               <th scope="row">{row.booking_id}</th>
                               <td>{row.user_name}</td>
                               <td>{row.service_name}</td>

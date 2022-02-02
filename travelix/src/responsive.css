@@ -124,7 +124,7 @@
 6. 991px
 ************/
 
-@media only screen and (max-width: 1025px)
+@media only screen and (max-width: 1190px)
 {
 	.landing-nav {
 		justify-content: space-between !important;
