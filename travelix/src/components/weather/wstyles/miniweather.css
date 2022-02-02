@@ -1,57 +1,55 @@
 .main_nav_container {
-    margin-right: 150px !important;
+  margin-right: 150px !important;
 }
 
-.mini_app_container{
-    margin-left: 150px !important;
-    min-height: 18vh !important;
-    border-radius: 10px;
+.mini_app_container {
+  margin-left: 513px !important;
+  min-height: 18vh !important;
+  border-radius: 10px;
 }
 .mini_weather_list .mini_list {
-    padding-top: 28px;
+  padding-top: 28px;
 }
-.Weather {
-    flex-wrap: wrap;
-    align-content: center;
-    flex-direction: column-reverse;
-    margin-top: 70px;
+.WeatherMini {
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column-reverse;
+  margin-top: 50px;
+}
+.weather_mini_icon {
+  margin-right: -10px;
+  margin-top: -10px;
 }
 .mini_app {
-    /* background: none; */
-    height: 0 !important;
-    position: absolute;
-    bottom: 130px;
+  /* background: none; */
+  height: 0 !important;
+  position: absolute;
+  bottom: 130px;
 }
 
-.mini_weather{
-    align-items: center;
-   
+.mini_weather {
+  align-items: center;
 }
-.mini_waf{
-    height: 230px;
-    border-radius: 10px;
-
+.mini_waf {
+  height: 230px;
+  border-radius: 10px;
 }
-.mini_weather_info{
-   margin-right: 30px;
-
+.mini_weather_info {
+  margin-right: 30px;
 }
 
-
-
-.mini_weather_list .mini_list{
-    font-size: 30px;
-    margin: 0;
+.mini_weather_list .mini_list {
+  font-size: 30px;
+  margin: 0;
 }
 
-
-.mini_weather_list li{
-    font-size: 25px;
-    margin: 0;
+.mini_weather_list li {
+  font-size: 25px;
+  margin: 0;
 }
 
-.mini_other_info h2, .mini_other_info h3{
-    font-size: 25px;
-    margin: 0;
+.mini_other_info h2,
+.mini_other_info h3 {
+  font-size: 25px;
+  margin: 0;
 }
-

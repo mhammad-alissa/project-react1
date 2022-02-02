@@ -37,7 +37,10 @@ class Navbar extends Component {
                       </Link>
                     </div>
                   </div>
-                  <div className="main_nav_container ml-auto mr-0">
+                  <div
+                    className="main_nav_container mr-0"
+                    style={{ marginLeft: "161px" }}
+                  >
                     <ul className="main_nav_list">
                       <li className="main_nav_item">
                         <Link to="/" onClick={(e) => this.locationHandler(e)}>
@@ -52,7 +55,6 @@ class Navbar extends Component {
                           Services
                         </Link>
                       </li>
-
                       <li class="main_nav_item dropdown show">
                         <div
                           style={{
@@ -75,7 +77,6 @@ class Navbar extends Component {
                         >
                           WHO WE ARE
                         </div>
-
                         <div
                           class="dropdown-menu"
                           aria-labelledby="dropdownMenuLink"
@@ -95,16 +96,6 @@ class Navbar extends Component {
                           </Link>
                         </div>
                       </li>
-
-                      <li className="main_nav_item">
-                        <Link
-                          to="/weather"
-                          onClick={(e) => this.locationHandler(e)}
-                        >
-                          Weather
-                        </Link>
-                      </li>
-
                       {!localStorage.getItem("users") ? (
                         <li
                           class="main_nav_item dropdown show"
@@ -215,17 +206,17 @@ class Navbar extends Component {
                       {!window.location.href.endsWith("/weather") ? (
                         <li
                           className="main_nav_item"
-                          style={{ transform: "scale(0.5)" }}
+                          style={{
+                            transform: "scale(0.5)",
+                          }}
                         >
                           <Link
-                          to="/weather"
-                          onClick={(e) => this.locationHandler(e)}
-                        >
-                          <Miniweather />
-                        </Link>
-                          
+                            to="/weather"
+                            onClick={(e) => this.locationHandler(e)}
+                          >
+                            <Miniweather />
+                          </Link>
                         </li>
-                        
                       ) : (
                         ""
                       )}
@@ -331,7 +322,6 @@ class Navbar extends Component {
               >
                 <Link to="/">Logout</Link>
               </li>
-              
             </ul>
           </div>
         </div>

@@ -37,13 +37,13 @@ function Weather() {
             city: res.data.results[0].components.city_district,
             town: res.data.results[0].components.town,
             state: res.data.results[0].components.state_code,
-            country: res.data.results[0].components.country_code
+            country: res.data.results[0].components.country_code,
           });
         })
         .then(() =>
           setCoordinates({
             lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lng: position.coords.longitude,
           })
         )
         .catch((error) => showWarning());
@@ -80,7 +80,7 @@ function Weather() {
           city: res.data.results[0].components.city,
           town: res.data.results[0].components.town,
           state: res.data.results[0].components.state_code,
-          country: res.data.results[0].components.country_code
+          country: res.data.results[0].components.country_code,
         });
       })
       .catch((error) => showWarning());
@@ -106,20 +106,18 @@ function Weather() {
         weatherInfo={weatherAndForecastInfo}
         location={locationInfo}
       />
-    )
+    ),
   };
 
   return (
     <div className="App mini_app">
       <div className="App__container mini_app_container">
         <>
-        {
-          window.location.href.endsWith("/weather")
-          ?
-          <Header searchCity={searchCity} />
-          :
-          ""
-        }
+          {window.location.href.endsWith("/weather") ? (
+            <Header searchCity={searchCity} />
+          ) : (
+            ""
+          )}
           {Main[contentState]()}
         </>
       </div>

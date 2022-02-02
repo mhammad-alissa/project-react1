@@ -2,12 +2,12 @@ import React from "react";
 
 import "../wstyles/Weather.css";
 
- function Current({ weatherInfo, date }) {
+function Current({ weatherInfo, date }) {
   return (
-    <div className="Weather mini_weather">
+    <div className="WeatherMini mini_weather">
       <div className="Weather__info mini_weather_info">
         <img
-          className="Weather__icon"
+          className="Weather__icon weather_mini_icon"
           src={
             "https://openweathermap.org/img/wn/" +
             weatherInfo.current.weather[0].icon +
