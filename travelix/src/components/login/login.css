@@ -6,8 +6,6 @@
     flex-direction: row;
     background: linear-gradient(to right, #fa9d1bda, #8d4fffe0);
 }
-<<<<<<< HEAD
-=======
 
 .cardbg {
   
@@ -15,7 +13,6 @@
    } 
    
 
->>>>>>> 7420ec5534a858e8a2d99f2b4b10af9d7261f9b8
 .card > .MuiPaper {
     padding: 10px 0;
 }
