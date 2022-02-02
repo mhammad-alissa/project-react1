@@ -63,6 +63,7 @@ class login extends Component {
   }
   render() {
     return (
+      <div className="cardbg">
       <div className="card ">
         <Card className="cardStyle ">
           <CardContent>
@@ -87,6 +88,7 @@ class login extends Component {
           <small id="loginError" style={{color:'red',fontWeight:'bold',marginLeft:'135px',fontSize:'14px'}}>{this.state.error}</small>
         </Card>
         
+      </div>
       </div>
     );
   }

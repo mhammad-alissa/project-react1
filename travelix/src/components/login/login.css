@@ -4,8 +4,14 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background: linear-gradient(to right, #fa9e1b, #8d4fff);
+    background: linear-gradient(to right, #fa9d1bda, #8d4fffe0);
 }
+
+.cardbg {
+  
+    background-color: rgba(0,0,0,.9);
+   } 
+   
 
 .card > .MuiPaper {
     padding: 10px 0;

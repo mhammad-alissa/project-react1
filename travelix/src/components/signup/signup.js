@@ -188,7 +188,8 @@ class Signup extends Component {
   }
   render() {
     return (
-      <div className="card">
+      <div className="cardbg">
+      <div className="cardsign">
         <Card className="cardStyle">
           <CardContent>
             <form>
@@ -256,6 +257,7 @@ class Signup extends Component {
             {/* <button onClick={()=> History.push('/')} className="Home-button"></button>   */}
           {/* </CardActions> */}
         </Card>
+        </div>
       </div>
     );
   }

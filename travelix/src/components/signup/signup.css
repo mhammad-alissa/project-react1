@@ -1,11 +1,18 @@
-.card{
+.cardsign{
     padding: 50px;
     padding-top: 90px;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    
+    background: linear-gradient(to right, #fa9d1bda, #8d4fffe0);
+
 }
+
+.cardbg {
+  
+  background-color: rgba(0,0,0,.9);
+ } 
+ 
 
 
 .form_submit_button1 {
