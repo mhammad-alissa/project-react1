@@ -33,6 +33,14 @@ class App extends Component {
     };
   }
 
+  ScrollUp = (e) => {
+        window.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "smooth",
+      });
+  }
+
   componentDidMount() {
     axios.get("http://localhost/project-react1/services.php").then((res) => {
       this.setState({
@@ -60,21 +68,21 @@ class App extends Component {
                 index
                 element={
                   <Landing
+                    ScrollUp={this.ScrollUp}
                     categories={this.state.categories}
                     services={this.state.services}
                   />
                 }
               />
-              <Route path="/login" element={<Login path={"/login"} />} />
-              <Route path="/category" element={<Category categories={this.state.categories} />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/user" element={<User />} />
-              <Route path="/test" element={<Test />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/weather" element={<Weather />} />
-              <Route path="/Subcategory" element={<Subcategory />} />
-              <Route path="/service" element={<Service />} />
+              <Route path="/login" element={<Login path={"/login"} ScrollUp={this.ScrollUp} />} />
+              <Route path="/category" element={<Category categories={this.state.categories} ScrollUp={this.ScrollUp}  />} />
+              <Route path="/signup" element={<Signup ScrollUp={this.ScrollUp}  /> } />
+              <Route path="/user" element={<User ScrollUp={this.ScrollUp} />}  />
+              <Route path="/contact" element={<Contact ScrollUp={this.ScrollUp}/>}   />
+              <Route path="/about" element={<About ScrollUp={this.ScrollUp} />} />
+              <Route path="/weather" element={<Weather ScrollUp={this.ScrollUp} />} />
+              <Route path="/Subcategory" element={<Subcategory ScrollUp={this.ScrollUp} />} />
+              <Route path="/service" element={<Service ScrollUp={this.ScrollUp} />}/>
             </Route>
           </Routes>
           <Footer />

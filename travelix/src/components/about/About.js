@@ -33,6 +33,7 @@ import axios from 'axios';
     }
 
   render() {
+        this.props.ScrollUp();
     return (
     <div>
 {/* <!-- Home --> */}

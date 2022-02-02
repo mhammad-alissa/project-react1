@@ -14,7 +14,7 @@ class Contact extends Component {
       message: "",
     },
     errors: {
-      name: "",
+      name : "",
       email: "",
       subject: "",
       message: "",
@@ -23,6 +23,7 @@ class Contact extends Component {
 
     componentDidMount() {
     document.getElementById("home-landing").style.display = "none";
+    this.props.ScrollUp()
   }
 
   ContactHandler = (event) => {
@@ -30,13 +31,14 @@ class Contact extends Component {
     let regexEmail = /^[A-ZA-z0-9._-]+@(hotmail|gmail|yahoo|outlook).com$/;
     let { name, email, subject, message } = this.state.contact;
     let error = false;
-    for (let key in this.state.contact) {
+    for (let key in this.state.contact) {   
       if (this.state.contact[key].trim() === "") {
         error = true;
         this.ErrorValues(key, true);
       } else {
         this.ErrorValues(key, false);
         if (key === "email" && !regexEmail.test(this.state.contact[key])) {
+          error = true;
           this.setState((preState) => ({
             ...preState,
             errors: {
@@ -62,7 +64,6 @@ class Contact extends Component {
         config: { headers: { "Content-Type": "multipart/form-data" } },
       })
         .then((response) => {
-          console.log(response);
           if (response.status === 200) {
             this.ClearContactValues();
             Swal.fire(
@@ -72,7 +73,7 @@ class Contact extends Component {
             );
           }
         })
-        .catch(function (response) {
+        .catch((response) => {
           console.log(response);
         });
     }
@@ -102,7 +103,7 @@ class Contact extends Component {
   ContactValues = (event) => {
     this.setState((preState) => ({
       ...preState,
-      contact: {
+      contact : {
         ...preState.contact,
         [event.target.name]: event.target.value,
       },
