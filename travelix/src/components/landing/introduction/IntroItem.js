@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 export class IntroItem extends Component {
-  subCat = (id) => {
+  subCat = (id, name) => {
     localStorage.setItem("subCategory", id);
+    localStorage.setItem("subCategoryName", name);
     // window.onload();
   };
   render() {
@@ -25,8 +26,10 @@ export class IntroItem extends Component {
                   <div className="button intro_button">
                     <div className="button_bcg"></div>
                     <Link
-                     aria-label="more items about this product,services"
-                      onClick={(id) => this.subCat(category.id)}
+                      aria-label="more items about this product,services"
+                      onClick={(id, name) =>
+                        this.subCat(category.id, category.name)
+                      }
                       to="/Subcategory"
                     >
                       see more<span></span>

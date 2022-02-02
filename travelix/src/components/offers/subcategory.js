@@ -18,7 +18,9 @@ class Subcategory extends Component {
             alt="user profile"
           />
           <div className="home_content">
-            <div className="home_title">Services</div>
+            <div className="home_title">
+              {localStorage.getItem("subCategoryName")}
+            </div>
           </div>
         </div>
         {/* // <!-- Offers --> */}
