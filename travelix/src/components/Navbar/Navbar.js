@@ -95,54 +95,20 @@ class Navbar extends Component {
                           </Link>
                         </div>
                       </li>
-<<<<<<< HEAD
-                      {/* <li className="main_nav_item">
-=======
 
                       <li className="main_nav_item">
->>>>>>> 7420ec5534a858e8a2d99f2b4b10af9d7261f9b8
                         <Link
                           to="/weather"
                           onClick={(e) => this.locationHandler(e)}
                         >
                           Weather
                         </Link>
-<<<<<<< HEAD
-                      </li> */}
-                      <li
-                        style={
-                          localStorage.getItem("users")
-                            ? { display: "none" }
-                            : {}
-                        }
-                        className="main_nav_item"
-                      >
-                        <Link
-                          to="/login"
-                          onClick={(e) => this.locationHandler(e)}
-                        >
-                          Login
-                        </Link>
-                      </li>
-                      <li
-                        style={
-                          localStorage.getItem("users")
-                            ? { display: "none" }
-                            : {}
-                        }
-                        className="main_nav_item"
-                      >
-                        <Link
-                          to="/signup"
-                          onClick={(e) => this.locationHandler(e)}
-=======
                       </li>
 
                       {!localStorage.getItem("users") ? (
                         <li
                           class="main_nav_item dropdown show"
                           style={{ cursor: "pointer" }}
->>>>>>> 7420ec5534a858e8a2d99f2b4b10af9d7261f9b8
                         >
                           <div
                             style={{
