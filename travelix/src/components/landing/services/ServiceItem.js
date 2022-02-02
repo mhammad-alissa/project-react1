@@ -41,11 +41,11 @@ export class ServiceItem extends Component {
                   {this.props.price}$<span>per night</span>
                 </div>
                 <div className="">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
                 </div>
                 <p className="offers_text">{this.props.description}</p>
                 <div className="offers_icons">

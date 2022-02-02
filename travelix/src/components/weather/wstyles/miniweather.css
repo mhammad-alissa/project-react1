@@ -4,9 +4,17 @@
 
 .mini_app_container{
     margin-left: 150px !important;
-    background-image: url(../img/background.jpg);
     min-height: 18vh !important;
     border-radius: 10px;
+}
+.mini_weather_list .mini_list {
+    padding-top: 28px;
+}
+.Weather {
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column-reverse;
+    margin-top: 70px;
 }
 .mini_app {
     /* background: none; */
@@ -20,7 +28,6 @@
    
 }
 .mini_waf{
-    background-color: rgba(0,0,0,.45);
     height: 230px;
     border-radius: 10px;
 

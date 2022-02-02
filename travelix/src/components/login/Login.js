@@ -3,10 +3,8 @@ import "./login.css";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import TextBox from "../../core/textField/textField";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 class login extends Component {
   constructor(props) {
@@ -27,23 +25,18 @@ class login extends Component {
       email: e.target.value,
     });
   }
-
   onChangePassword(e) {
     this.setState({
       password: e.target.value,
     });
   }
-
   onSubmit(e) {
     e.preventDefault();
-
     const obj = {
       email: this.state.email,
       password: this.state.password,
     };
-
-    axios
-      .post("http://localhost/project-react1/php/login.php", obj)
+    axios.post("http://localhost/project-react1/php/login.php", obj)
       .then((res) => {
         const obj = {
           id: res.data.id,
@@ -71,6 +64,7 @@ class login extends Component {
   render() {
     return (
       <div className="card ">
+      <div className="card-bg">
         <Card className="cardStyle ">
           <CardContent>
             <div className="signupText"><strong>LOGIN</strong></div>
@@ -89,20 +83,12 @@ class login extends Component {
           </CardContent>
 
           <CardActions className="CardActions">
-            {/* <Button
-              style={{ background: "#31124b", color: "white" }}
-             
-            >
-              {" "}
-              LOGIN{" "}
-            </Button> */}
             <button  onClick={this.onSubmit} style={{marginBottom:'30px',marginTop: '0'}}  id="form_submit_button" className="form_submit_button1 button trans_200"> {" "}LOGIN{" "}<span></span><span></span><span></span></button>
-
-            {/* <Button style={{background:'black',color:'white'}} onClick={this.onSubmit}> LOGIN</Button> */}
           </CardActions>
           <small id="loginError" style={{color:'red',fontWeight:'bold',marginLeft:'135px',fontSize:'14px'}}>{this.state.error}</small>
         </Card>
         
+      </div>
       </div>
     );
   }

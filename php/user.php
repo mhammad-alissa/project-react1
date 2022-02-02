@@ -22,7 +22,7 @@ if(isset($_POST) && !empty($_POST)){
     // move_uploaded_file($_FILES['test']['tmp_name'],"/img".$_FILES['test']['name']);
     $sql_edit = "UPDATE users
             SET name = '$name', email= '$email',password='$password', phone='$phone',image='$image_name'
-            WHERE email = '$email';";
+            WHERE id = '$id';";
     if(mysqli_query($db,$sql_edit)){
         http_response_code(201);
         print json_encode($_POST);

@@ -13,14 +13,13 @@ class Navbar extends Component {
       url: e.target.href,
     });
   };
+
   logout = () => {
     localStorage.removeItem("users");
     window.location.href = "/";
   };
 
   render() {
-    console.log("Nav");
-
     return (
       <>
         <header className="header">
@@ -68,14 +67,14 @@ class Navbar extends Component {
                           contact
                         </Link>
                       </li>
-                      <li className="main_nav_item">
+                      {/* <li className="main_nav_item">
                         <Link
                           to="/weather"
                           onClick={(e) => this.locationHandler(e)}
                         >
                           Weather
                         </Link>
-                      </li>
+                      </li> */}
                       <li
                         style={
                           localStorage.getItem("users")
@@ -99,7 +98,12 @@ class Navbar extends Component {
                         }
                         className="main_nav_item"
                       >
-                        <Link to="/signup">Signup</Link>
+                        <Link
+                          to="/signup"
+                          onClick={(e) => this.locationHandler(e)}
+                        >
+                          Signup
+                        </Link>
                       </li>
                       <li
                         className="main_nav_item"
@@ -151,8 +155,15 @@ class Navbar extends Component {
                           className="main_nav_item"
                           style={{ transform: "scale(0.5)" }}
                         >
+                          <Link
+                          to="/weather"
+                          onClick={(e) => this.locationHandler(e)}
+                        >
                           <Miniweather />
+                        </Link>
+                          
                         </li>
+                        
                       ) : (
                         ""
                       )}
@@ -248,6 +259,7 @@ class Navbar extends Component {
                   Signup
                 </Link>
               </li>
+
               <li
                 className="menu_item"
                 style={
@@ -255,14 +267,14 @@ class Navbar extends Component {
                 }
                 onClick={this.logout}
               >
-                <Link to="">Logout</Link>
+                <Link to="/">Logout</Link>
               </li>
               
             </ul>
           </div>
         </div>
-        {/* {this.state.url.endsWith("/") ? <HedaerIndex display={"block"}/> : <HedaerIndex display={"none"} />  } */}
         {<HedaerIndex />}
+        {/* {this.state.url.endsWith("/") ? <HedaerIndex display={"block"}/> : <HedaerIndex display={"none"} />  } */}
 
         <Outlet />
       </>

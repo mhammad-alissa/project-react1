@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import CategoryItem from "./CategoryItem";
-import axios from "axios";
 
 class Subcategory extends Component {
   componentDidMount() {

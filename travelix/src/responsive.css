@@ -115,17 +115,20 @@
 5. 1024px
 ************/
 
-@media only screen and (max-width: 1024px)
+/* @media only screen and (max-width: 1024px)
 {
-	
-}
+
+} */
 
 /************
 6. 991px
 ************/
 
-@media only screen and (max-width: 991px)
+@media only screen and (max-width: 1025px)
 {
+	.landing-nav {
+		justify-content: space-between !important;
+	}
 	.main_nav_container
 	{
 		display: none;

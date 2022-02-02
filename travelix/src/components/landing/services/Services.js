@@ -12,7 +12,7 @@ export class Services extends Component {
         <div className="container">
           <div className="row">
             <div className="col text-center">
-              <h2 className="section_title">the best offers with rooms</h2>
+              <h2 className="section_title section_h2_offers">the best offers with rooms</h2>
             </div>
           </div>
           <div className="row offers_items">

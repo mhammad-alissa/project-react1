@@ -31,13 +31,13 @@ export class Service extends Component {
   }
 
   componentDidMount() {
+    document.getElementById("home-landing").style.display = "none";
     const url = "http://localhost/project-react1/php/service.php";
     axios
       .get(url)
       .then((response) => response.data)
       .then((data) => {
         this.setState({ subcategory: data });
-        console.log(this.state.subcategory);
       });
 
     $(function () {
@@ -154,20 +154,13 @@ export class Service extends Component {
                   })
                   .map((service) => {
                     return (
-                      <div className="single_listing">
+                      <div key={service.id} className="single_listing">
                         {/* <!-- Hotel Info --> */}
                         <div className="hotel_info">
                           {/* <!-- Title --> */}
                           <div className="hotel_title_container d-flex flex-lg-row flex-column">
                             <div className="hotel_title_content">
                               <h1 className="hotel_title">{service.name}</h1>
-                              <div>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                              </div>
                               <div className="hotel_location">Jordan</div>
                             </div>
                             <div className="hotel_title_button ml-lg-auto text-lg-right">
@@ -271,7 +264,7 @@ export class Service extends Component {
 
               <div
                 className="bookingForm col-lg-4 col-md-12 col-sm-12"
-                style={{ marginTop: "227px", marginBottom: "90px" }}
+                style={{ marginTop: "138px", marginBottom: "90px" }}
               >
                 {/* <!-- Contact Form --> */}
                 <div className="contact_form_container">

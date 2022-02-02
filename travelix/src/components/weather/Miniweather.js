@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./wstyles/miniweather.css";
 import Header from "./components/Header";
 import WeatherAndForecast from "./components/WeatherAndForecast";
+import Weathermini from "./components/Weathermini";
 import Loader from "./components/Loader";
 import Warning from "./components/Warning";
 import getAddressOfCoordinates from "./api/reverseGeocoding";
@@ -101,7 +102,7 @@ function Weather() {
     loading: () => <Loader />,
     warning: () => <Warning />,
     weatherAndForecast: () => (
-      <WeatherAndForecast
+      <Weathermini
         weatherInfo={weatherAndForecastInfo}
         location={locationInfo}
       />
