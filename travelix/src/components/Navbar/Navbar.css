@@ -1,7 +1,9 @@
 .main_nav {
-    overflow: visible !important;
+  overflow: visible !important;
 }
 
 .dropdown-item > a {
-    color: black !important;
+  color: black !important;
+}
+.account:hover {
 }

@@ -98,7 +98,7 @@ class Navbar extends Component {
                       </li>
                       {!localStorage.getItem("users") ? (
                         <li
-                          class="main_nav_item dropdown show"
+                          class="main_nav_item dropdown show account"
                           style={{ cursor: "pointer" }}
                         >
                           <div
@@ -110,6 +110,7 @@ class Navbar extends Component {
                               border: "none",
                               outline: "none",
                               boxShadow: "none",
+                              marginLeft: "-25px",
                             }}
                             class="btn btn-secondary dropdown-toggle"
                             href="#"
